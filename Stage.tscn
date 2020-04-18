@@ -124,11 +124,11 @@ position = Vector2( 217.334, 381.986 )
 "Interactives",
 ] instance=ExtResource( 12 )]
 position = Vector2( 279.537, 513.363 )
-[connection signal="use_interactive_tool" from="Player" to="." method="_on_Player_use_interactive_tool"]
 
 [node name="Drone" parent="." instance=ExtResource( 13 )]
 position = Vector2( 118.673, 454.361 )
 speed = -1.0
+[connection signal="use_interactive_tool" from="Player" to="." method="_on_Player_use_interactive_tool"]
 [connection signal="gameover" from="Target" to="." method="_on_Target_gameover"]
 
 [editable path="Arrow"]
