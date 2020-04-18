@@ -43,6 +43,12 @@ const MAX_SHOOT_POSE_TIME = 0.3
 const MAX_FLOOR_AIRBORNE_TIME = 0.15
 
 var anim = ""
+# One animation per tool
+var anim_iddle_tool = ["idle", "idle", "idle", "idle"]
+var anim_run_tool = ["run", "run", "run", "run"]
+var anim_jumping_tool = ["jumping", "jumping", "jumping", "jumping"]
+var anim_falling_tool = ["falling", "falling", "falling", "falling"]
+
 var siding_left = false
 var jumping = false
 var stopping_jump = false
@@ -73,6 +79,9 @@ func _process(delta):
 			emit_signal("use_interactive_tool", tool_index, self.position)
 
 func _integrate_forces(s):
+	# Retrieves the index of the selected tool
+	var tool_index = self.get_node("CanvasLayer/Toolbar").index
+	
 	var lv = s.get_linear_velocity()
 	var step = s.get_step()
 	
@@ -152,17 +161,17 @@ func _integrate_forces(s):
 			($SoundJump as AudioStreamPlayer2D).play()
 		
 		if jumping:
-			new_anim = "jumping"
+			new_anim = anim_jumping_tool[tool_index]
 		elif abs(lv.x) < 0.1:
 			if shoot_time < MAX_SHOOT_POSE_TIME:
 				new_anim = "idle_weapon"
 			else:
-				new_anim = "idle"
+				new_anim = anim_iddle_tool[tool_index]
 		else:
 			if shoot_time < MAX_SHOOT_POSE_TIME:
 				new_anim = "run_weapon"
 			else:
-				new_anim = "run"
+				new_anim = anim_run_tool[tool_index]
 	else:
 		# Process logic when the character is in the air.
 		if move_left and not move_right:
@@ -183,12 +192,12 @@ func _integrate_forces(s):
 			if shoot_time < MAX_SHOOT_POSE_TIME:
 				new_anim = "jumping_weapon"
 			else:
-				new_anim = "jumping"
+				new_anim = anim_jumping_tool[tool_index]
 		else:
 			if shoot_time < MAX_SHOOT_POSE_TIME:
 				new_anim = "falling_weapon"
 			else:
-				new_anim = "falling"
+				new_anim = anim_falling_tool[tool_index]
 	
 	# Check siding.
 	if lv.x < 0 and move_left:
