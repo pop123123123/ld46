@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://levels/level1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://target/Target.tscn" type="PackedScene" id=2]
@@ -7,12 +7,13 @@
 [ext_resource path="res://Stage.gd" type="Script" id=5]
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Camera.tscn" type="PackedScene" id=7]
-[ext_resource path="res://background/ParallaxBg.tscn" type="PackedScene" id=8]
 [ext_resource path="res://levels/level5.tscn" type="PackedScene" id=9]
 [ext_resource path="res://enemy/Enemy.tscn" type="PackedScene" id=10]
 [ext_resource path="res://acid/Acid.tscn" type="PackedScene" id=11]
 [ext_resource path="res://levels/level2.tscn" type="PackedScene" id=12]
 [ext_resource path="res://drone/drone.tscn" type="PackedScene" id=13]
+[ext_resource path="res://environment/citybackgroundfirst.png" type="Texture" id=15]
+[ext_resource path="res://environment/cortexlespyramides.png" type="Texture" id=16]
 
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 0.0
@@ -55,7 +56,100 @@ speed = -1.0
 [node name="Enemy" parent="." instance=ExtResource( 10 )]
 position = Vector2( 64, 424 )
 
-[node name="ParallaxBg" parent="." instance=ExtResource( 8 )]
+[node name="Background" type="ParallaxBackground" parent="."]
+offset = Vector2( 0, 1 )
+scale = Vector2( 1, 0.9 )
+transform = Transform2D( 1, 0, 0, 0.9, 0, 1 )
+scroll_base_offset = Vector2( -10, 0 )
+scroll_base_scale = Vector2( 1, 0 )
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="Background"]
+motion_scale = Vector2( 0.25, 0.25 )
+
+[node name="Sprite" type="Sprite" parent="Background/ParallaxLayer4"]
+position = Vector2( 72, -100.667 )
+scale = Vector2( 9.125, 9.125 )
+texture = ExtResource( 16 )
+
+[node name="Sprite2" type="Sprite" parent="Background/ParallaxLayer4"]
+position = Vector2( 1184, -153.459 )
+scale = Vector2( 6.4375, 6.4375 )
+texture = ExtResource( 16 )
+offset = Vector2( -6.21361, 8.69903 )
+flip_h = true
+
+[node name="Sprite3" type="Sprite" parent="Background/ParallaxLayer4"]
+position = Vector2( 2008, -212.667 )
+scale = Vector2( 12.5938, 12.5938 )
+texture = ExtResource( 16 )
+offset = Vector2( -6.21361, 8.69903 )
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="Background"]
+position = Vector2( 0, -116.667 )
+motion_scale = Vector2( 0.5, 0.5 )
+
+[node name="Sprite" type="Sprite" parent="Background/ParallaxLayer3"]
+position = Vector2( 736, -97 )
+scale = Vector2( 2.482, 2.68425 )
+texture = ExtResource( 15 )
+offset = Vector2( -296.535, 80.4694 )
+
+[node name="Sprite2" type="Sprite" parent="Background/ParallaxLayer3"]
+position = Vector2( 1376, -89 )
+scale = Vector2( 2.482, 2.68425 )
+texture = ExtResource( 15 )
+offset = Vector2( -296.535, 80.4694 )
+
+[node name="Sprite3" type="Sprite" parent="Background/ParallaxLayer3"]
+position = Vector2( 2016, -81 )
+scale = Vector2( 2.482, 2.68425 )
+texture = ExtResource( 15 )
+offset = Vector2( -296.535, 80.4694 )
+
+[node name="Sprite4" type="Sprite" parent="Background/ParallaxLayer3"]
+position = Vector2( 2648, -81 )
+scale = Vector2( 2.482, 2.68425 )
+texture = ExtResource( 15 )
+offset = Vector2( -296.535, 80.4694 )
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="Background"]
+position = Vector2( 0, -116.667 )
+motion_scale = Vector2( 0.75, 0.75 )
+
+[node name="Sprite" type="Sprite" parent="Background/ParallaxLayer2"]
+modulate = Color( 0.564706, 0.564706, 0.564706, 1 )
+position = Vector2( 230.424, 443.672 )
+scale = Vector2( 2.03798, 3.04948 )
+texture = ExtResource( 15 )
+offset = Vector2( -138.157, -37.7679 )
+
+[node name="Sprite2" type="Sprite" parent="Background/ParallaxLayer2"]
+modulate = Color( 0.564706, 0.564706, 0.564706, 1 )
+position = Vector2( 726.424, 443.672 )
+scale = Vector2( 2.03798, 3.04948 )
+texture = ExtResource( 15 )
+offset = Vector2( -138.157, -37.7679 )
+
+[node name="Sprite3" type="Sprite" parent="Background/ParallaxLayer2"]
+modulate = Color( 0.564706, 0.564706, 0.564706, 1 )
+position = Vector2( 1230.42, 443.672 )
+scale = Vector2( 2.03798, 3.04948 )
+texture = ExtResource( 15 )
+offset = Vector2( -138.157, -37.7679 )
+
+[node name="Sprite4" type="Sprite" parent="Background/ParallaxLayer2"]
+modulate = Color( 0.564706, 0.564706, 0.564706, 1 )
+position = Vector2( 1734.42, 434.783 )
+scale = Vector2( 2.03798, 3.04948 )
+texture = ExtResource( 15 )
+offset = Vector2( -138.157, -37.7679 )
+
+[node name="Sprite5" type="Sprite" parent="Background/ParallaxLayer2"]
+modulate = Color( 0.564706, 0.564706, 0.564706, 1 )
+position = Vector2( 2246.42, 425.895 )
+scale = Vector2( 2.03798, 3.04948 )
+texture = ExtResource( 15 )
+offset = Vector2( -138.157, -37.7679 )
 
 [node name="AcidRain" parent="." instance=ExtResource( 11 )]
 position = Vector2( -160, 408 )
