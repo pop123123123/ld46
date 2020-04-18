@@ -8,9 +8,9 @@ var target
 
 func _ready():
 	player = get_node(playerPath) as RigidBody2D
-	target = get_node(targetPath) as RigidBody2D
+	target = get_node(targetPath) as KinematicBody2D
 	if player!=null&&target!=null: 
 		set_process(true)
 
 func _process(delta):
-	self.set_position(player.get_position().linear_interpolate(target.get_position(), 0.5))
+	self.set_position(player.get_position().linear_interpolate(target.position, 0.5))
