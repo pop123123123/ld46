@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://coin/Coin.tscn" type="PackedScene" id=2]
@@ -16,32 +16,6 @@ friction = 0.0
 [sub_resource type="PhysicsMaterial" id=2]
 
 [sub_resource type="PhysicsMaterial" id=3]
-friction = 0.0
-
-[sub_resource type="PhysicsMaterial" id=4]
-friction = 0.0
-
-[sub_resource type="PhysicsMaterial" id=5]
-friction = 0.0
-
-[sub_resource type="PhysicsMaterial" id=6]
-
-[sub_resource type="PhysicsMaterial" id=7]
-friction = 0.0
-
-[sub_resource type="PhysicsMaterial" id=8]
-friction = 0.0
-
-[sub_resource type="PhysicsMaterial" id=9]
-friction = 0.0
-
-[sub_resource type="PhysicsMaterial" id=10]
-friction = 0.0
-
-[sub_resource type="PhysicsMaterial" id=11]
-friction = 0.0
-
-[sub_resource type="PhysicsMaterial" id=12]
 friction = 0.0
 
 [node name="Stage" type="Node2D"]
@@ -63,126 +37,6 @@ position = Vector2( 336, 589.5 )
 
 [node name="Coin2" parent="Coins" instance=ExtResource( 2 )]
 position = Vector2( 352, 589.5 )
-
-[node name="Coin3" parent="Coins" instance=ExtResource( 2 )]
-position = Vector2( 368, 589.5 )
-
-[node name="Coin4" parent="Coins" instance=ExtResource( 2 )]
-position = Vector2( 560, 496 )
-
-[node name="Coin5" parent="Coins" instance=ExtResource( 2 )]
-position = Vector2( 576, 496 )
-
-[node name="Coin6" parent="Coins" instance=ExtResource( 2 )]
-position = Vector2( 592, 496 )
-
-[node name="Coin7" parent="Coins" instance=ExtResource( 2 )]
-position = Vector2( 608, 496 )
-
-[node name="Coin8" parent="Coins" instance=ExtResource( 2 )]
-position = Vector2( 624, 496 )
-
-[node name="Coin9" parent="Coins" instance=ExtResource( 2 )]
-position = Vector2( 784, 432 )
-
-[node name="Coin10" parent="Coins" instance=ExtResource( 2 )]
-position = Vector2( 816, 432 )
-
-[node name="Coin11" parent="Coins" instance=ExtResource( 2 )]
-position = Vector2( 912, 384 )
-
-[node name="Coin12" parent="Coins" instance=ExtResource( 2 )]
-position = Vector2( 944, 384 )
-
-[node name="Coin13" parent="Coins" instance=ExtResource( 2 )]
-position = Vector2( 1040, 336 )
-
-[node name="Coin14" parent="Coins" instance=ExtResource( 2 )]
-position = Vector2( 1072, 336 )
-
-[node name="Coin15" parent="Coins" instance=ExtResource( 2 )]
-position = Vector2( 896, 624 )
-
-[node name="Coin16" parent="Coins" instance=ExtResource( 2 )]
-position = Vector2( 928, 624 )
-
-[node name="Coin17" parent="Coins" instance=ExtResource( 2 )]
-position = Vector2( 960, 624 )
-
-[node name="Coin18" parent="Coins" instance=ExtResource( 2 )]
-position = Vector2( 960, 592 )
-
-[node name="Coin19" parent="Coins" instance=ExtResource( 2 )]
-position = Vector2( 928, 592 )
-
-[node name="Coin20" parent="Coins" instance=ExtResource( 2 )]
-position = Vector2( 896, 592 )
-
-[node name="Coin21" parent="Coins" instance=ExtResource( 2 )]
-position = Vector2( 49.4434, 244.258 )
-
-[node name="Coin22" parent="Coins" instance=ExtResource( 2 )]
-position = Vector2( 44.7994, 240.609 )
-
-[node name="Coin23" parent="Coins" instance=ExtResource( 2 )]
-position = Vector2( 54.0875, 240.609 )
-
-[node name="Coin24" parent="Coins" instance=ExtResource( 2 )]
-position = Vector2( 58.068, 234.969 )
-
-[node name="Coin25" parent="Coins" instance=ExtResource( 2 )]
-position = Vector2( 58.7315, 228.999 )
-
-[node name="Coin26" parent="Coins" instance=ExtResource( 2 )]
-position = Vector2( 53.092, 224.686 )
-
-[node name="Coin27" parent="Coins" instance=ExtResource( 2 )]
-position = Vector2( 49.1117, 229.331 )
-
-[node name="Coin28" parent="Coins" instance=ExtResource( 2 )]
-position = Vector2( 44.136, 224.355 )
-
-[node name="Coin29" parent="Coins" instance=ExtResource( 2 )]
-position = Vector2( 39.8238, 228.667 )
-
-[node name="Coin30" parent="Coins" instance=ExtResource( 2 )]
-position = Vector2( 41.4823, 234.306 )
-
-[node name="Coin31" parent="Coins" instance=ExtResource( 2 )]
-position = Vector2( 1678.71, 232.644 )
-
-[node name="Coin32" parent="Coins" instance=ExtResource( 2 )]
-position = Vector2( 1710.71, 232.644 )
-
-[node name="Coin33" parent="Coins" instance=ExtResource( 2 )]
-position = Vector2( 1742.71, 232.644 )
-
-[node name="Coin34" parent="Coins" instance=ExtResource( 2 )]
-position = Vector2( 1742.71, 200.644 )
-
-[node name="Coin35" parent="Coins" instance=ExtResource( 2 )]
-position = Vector2( 1710.71, 200.644 )
-
-[node name="Coin36" parent="Coins" instance=ExtResource( 2 )]
-position = Vector2( 1678.71, 200.644 )
-
-[node name="Coin37" parent="Coins" instance=ExtResource( 2 )]
-position = Vector2( 2086.38, 302.529 )
-
-[node name="Coin38" parent="Coins" instance=ExtResource( 2 )]
-position = Vector2( 2118.38, 302.529 )
-
-[node name="Coin39" parent="Coins" instance=ExtResource( 2 )]
-position = Vector2( 2150.38, 302.529 )
-
-[node name="Coin40" parent="Coins" instance=ExtResource( 2 )]
-position = Vector2( 2150.38, 270.529 )
-
-[node name="Coin41" parent="Coins" instance=ExtResource( 2 )]
-position = Vector2( 2118.38, 270.529 )
-
-[node name="Coin42" parent="Coins" instance=ExtResource( 2 )]
-position = Vector2( 2086.38, 270.529 )
 
 [node name="Props" type="Node2D" parent="."]
 
@@ -221,53 +75,7 @@ physics_material_override = SubResource( 2 )
 position = Vector2( 353.832, 612.525 )
 physics_material_override = SubResource( 3 )
 
-[node name="Enemy3" parent="Enemies" instance=ExtResource( 7 )]
-position = Vector2( 562.605, 526.53 )
-physics_material_override = SubResource( 4 )
-
-[node name="Enemy4" parent="Enemies" instance=ExtResource( 7 )]
-position = Vector2( 646.055, 529.62 )
-physics_material_override = SubResource( 5 )
-
-[node name="Enemy5" parent="Enemies" instance=ExtResource( 7 )]
-position = Vector2( 803.69, 461.62 )
-physics_material_override = SubResource( 6 )
-
-[node name="Enemy6" parent="Enemies" instance=ExtResource( 7 )]
-position = Vector2( 1293.45, 469.53 )
-physics_material_override = SubResource( 7 )
-
-[node name="Enemy7" parent="Enemies" instance=ExtResource( 7 )]
-position = Vector2( 728.8, 344.371 )
-physics_material_override = SubResource( 8 )
-
-[node name="Enemy8" parent="Enemies" instance=ExtResource( 7 )]
-position = Vector2( 596.815, 230.191 )
-physics_material_override = SubResource( 9 )
-
-[node name="Enemy9" parent="Enemies" instance=ExtResource( 7 )]
-position = Vector2( 1714.86, 270.432 )
-physics_material_override = SubResource( 10 )
-
-[node name="Enemy10" parent="Enemies" instance=ExtResource( 7 )]
-position = Vector2( 1773.1, 678.095 )
-physics_material_override = SubResource( 11 )
-
-[node name="Enemy11" parent="Enemies" instance=ExtResource( 7 )]
-position = Vector2( 1203.31, 407.557 )
-physics_material_override = SubResource( 12 )
-
 [node name="ParallaxBg" parent="." instance=ExtResource( 8 )]
-
-[node name="Label" type="Label" parent="."]
-margin_left = 12.0
-margin_top = -202.0
-margin_right = 358.0
-margin_bottom = -10.0
-size_flags_horizontal = 2
-size_flags_vertical = 0
-text = "This is a simple demo on how to make a platformer game with Godot.\"This version uses physics and the 2D physics engine for motion and collision.\"\"The demo also shows the benefits of using the scene system, where coins,\"enemies and the player are edited separatedly and instanced in the stage.\"\"To edit the base tiles for the  tileset, open the tileset_edit.tscn file and follow \"instructions.\""
-autowrap = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
