@@ -1,134 +1,63 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=15 format=2]
 
-[ext_resource path="res://tiles_demo.png" type="Texture" id=1]
+[ext_resource path="res://levels/level1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://target/Target.tscn" type="PackedScene" id=2]
-[ext_resource path="res://treat/arrow/Arrow.tscn" type="PackedScene" id=3]
-[ext_resource path="res://background/Seesaw.tscn" type="PackedScene" id=4]
+[ext_resource path="res://levels/level3.tscn" type="PackedScene" id=3]
+[ext_resource path="res://levels/level4.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Stage.gd" type="Script" id=5]
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Camera.tscn" type="PackedScene" id=7]
 [ext_resource path="res://background/ParallaxBg.tscn" type="PackedScene" id=8]
-[ext_resource path="res://audio/music.ogg" type="AudioStream" id=9]
+[ext_resource path="res://levels/level5.tscn" type="PackedScene" id=9]
 [ext_resource path="res://enemy/Enemy.tscn" type="PackedScene" id=10]
 [ext_resource path="res://acid/Acid.tscn" type="PackedScene" id=11]
-[ext_resource path="res://door/Door.tscn" type="PackedScene" id=12]
+[ext_resource path="res://levels/level2.tscn" type="PackedScene" id=12]
 [ext_resource path="res://drone/drone.tscn" type="PackedScene" id=13]
 
-[sub_resource type="ConvexPolygonShape2D" id=1]
-points = PoolVector2Array( 32, 126.731, 0.31015, 126.731, 0.31015, 95.4815, 32, 95.4815 )
-
-[sub_resource type="ConvexPolygonShape2D" id=2]
-points = PoolVector2Array( 32, 32, 0, 32, 0, 1.31018, 32, 1.31018 )
-
-[sub_resource type="TileSet" id=3]
-0/name = "tiles_demo.png 0"
-0/texture = ExtResource( 1 )
-0/tex_offset = Vector2( 0, 0 )
-0/modulate = Color( 1, 1, 1, 1 )
-0/region = Rect2( 128, 1, 32, 127 )
-0/tile_mode = 0
-0/occluder_offset = Vector2( 0, 0 )
-0/navigation_offset = Vector2( 0, 0 )
-0/shape_offset = Vector2( 0, 0 )
-0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-0/shape = SubResource( 1 )
-0/shape_one_way = false
-0/shape_one_way_margin = 1.0
-0/shapes = [ {
-"autotile_coord": Vector2( 0, 0 ),
-"one_way": false,
-"one_way_margin": 1.0,
-"shape": SubResource( 1 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
-} ]
-0/z_index = 0
-1/name = "tiles_demo.png 1"
-1/texture = ExtResource( 1 )
-1/tex_offset = Vector2( 0, 0 )
-1/modulate = Color( 1, 1, 1, 1 )
-1/region = Rect2( 0, 2, 32, 32 )
-1/tile_mode = 0
-1/occluder_offset = Vector2( 0, 0 )
-1/navigation_offset = Vector2( 0, 0 )
-1/shape_offset = Vector2( 0, 0 )
-1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-1/shape = SubResource( 2 )
-1/shape_one_way = false
-1/shape_one_way_margin = 1.0
-1/shapes = [ {
-"autotile_coord": Vector2( 0, 0 ),
-"one_way": false,
-"one_way_margin": 1.0,
-"shape": SubResource( 2 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
-} ]
-1/z_index = 0
-
-[sub_resource type="PhysicsMaterial" id=4]
+[sub_resource type="PhysicsMaterial" id=1]
 friction = 0.0
 
 [node name="Stage" type="Node2D"]
 script = ExtResource( 5 )
 
-[node name="TileMap" type="TileMap" parent="." groups=[
-"decor",
-]]
-tile_set = SubResource( 3 )
-cell_size = Vector2( 32, 32 )
-cell_quadrant_size = 4
-collision_layer = 3
-collision_mask = 9
-format = 1
-tile_data = PoolIntArray( 917509, 0, 0, 917516, 0, 0, 1114114, 1, 0, 1114115, 1, 0, 1114116, 1, 0, 1114118, 1, 0, 1114119, 1, 0, 1114120, 1, 0, 1114121, 1, 0, 1114122, 1, 0, 1114123, 1, 0, 1114125, 1, 0, 1114126, 1, 0, 1114127, 1, 0, 1114128, 1, 0, 1114129, 1, 0, 1114130, 1, 0, 1114131, 1, 0, 1114132, 1, 0, 1114133, 1, 0, 1114134, 1, 0, 1114135, 1, 0, 1114136, 1, 0, 1114137, 1, 0 )
-__meta__ = {
-"_edit_lock_": true
-}
+[node name="level1" parent="." instance=ExtResource( 1 )]
+collision_mask = 0
 
-[node name="Coins" type="Node2D" parent="."]
+[node name="level2" parent="." instance=ExtResource( 12 )]
+collision_mask = 0
 
-[node name="Props" type="Node2D" parent="."]
+[node name="level3" parent="." instance=ExtResource( 3 )]
+collision_mask = 0
 
-[node name="Seesaw" parent="Props" instance=ExtResource( 4 )]
-position = Vector2( 726.626, 518.626 )
+[node name="level4" parent="." instance=ExtResource( 4 )]
+collision_mask = 0
 
-[node name="Player" parent="." instance=ExtResource( 6 )]
-position = Vector2( 125.842, 522.8 )
-physics_material_override = SubResource( 4 )
-
-[node name="ParallaxBg" parent="." instance=ExtResource( 8 )]
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 9 )
-volume_db = -65.644
-autoplay = true
-
-[node name="Target" parent="." instance=ExtResource( 2 )]
-position = Vector2( 208, 531.126 )
-
-[node name="Arrow" parent="." instance=ExtResource( 3 )]
-position = Vector2( 289.289, -294.459 )
-sleeping = true
+[node name="level5" parent="." instance=ExtResource( 9 )]
+collision_mask = 0
 
 [node name="Camera" parent="." instance=ExtResource( 7 )]
 current = true
 playerPath = NodePath("../Player")
 targetPath = NodePath("../Target")
 
-[node name="Enemy" parent="." instance=ExtResource( 10 )]
-position = Vector2( 312, 536 )
+[node name="Player" parent="." instance=ExtResource( 6 )]
+position = Vector2( 24, 512 )
+physics_material_override = SubResource( 1 )
 
-[node name="AcidRain" parent="." instance=ExtResource( 11 )]
-position = Vector2( 217.334, 381.986 )
-
-[node name="LaPorte" parent="." groups=[
-"Interactives",
-] instance=ExtResource( 12 )]
-position = Vector2( 279.537, 513.363 )
+[node name="Target" parent="." instance=ExtResource( 2 )]
+position = Vector2( 120, 520 )
+collision_mask = 3
 
 [node name="Drone" parent="." instance=ExtResource( 13 )]
-position = Vector2( 118.673, 454.361 )
+position = Vector2( 432, 376 )
 speed = -1.0
+
+[node name="Enemy" parent="." instance=ExtResource( 10 )]
+position = Vector2( 64, 424 )
+
+[node name="ParallaxBg" parent="." instance=ExtResource( 8 )]
+
+[node name="AcidRain" parent="." instance=ExtResource( 11 )]
+position = Vector2( -160, 408 )
 [connection signal="use_interactive_tool" from="Player" to="." method="_on_Player_use_interactive_tool"]
 [connection signal="gameover" from="Target" to="." method="_on_Target_gameover"]
-
-[editable path="Arrow"]
