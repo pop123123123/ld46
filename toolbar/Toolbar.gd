@@ -15,10 +15,12 @@ func _ready():
 func _process(delta):
 	var old_index = index
 	if Input.is_action_just_released("next_toolbar"):
-		print(index)
 		index += 1
 	elif Input.is_action_just_released("previous_toolbar"):
 		index -= 1
+	# Godot script has a strange modulus
+	while index < 0:
+		index += 4
 	index = index % COUNT
 	if old_index != index:
 		update_selected()
@@ -26,9 +28,7 @@ func _process(delta):
 func update_selected():
 	var i = 0
 	for item in $HToolbar.get_children():
-		print(i)
 		if i == index:
-			print("selected")
 			item.get_child(1).visible = true
 		else:
 			item.get_child(1).visible = false
