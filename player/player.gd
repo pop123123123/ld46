@@ -23,12 +23,12 @@ extends RigidBody2D
 #    - Friction cant be used, so floor velocity must be considered
 #      for moving platforms.
 
-const WALK_ACCEL = 500.0
-const WALK_DEACCEL = 500.0
+const WALK_ACCEL = 5000.0
+const WALK_DEACCEL = 800.0
 const WALK_MAX_VELOCITY = 140.0
-const AIR_ACCEL = 100.0
-const AIR_DEACCEL = 100.0
-const JUMP_VELOCITY = 380
+const AIR_ACCEL = 1000.0
+const AIR_DEACCEL = 200.0
+const JUMP_VELOCITY = 500
 const STOP_JUMP_FORCE = 450.0
 const MAX_SHOOT_POSE_TIME = 0.3
 const MAX_FLOOR_AIRBORNE_TIME = 0.15
@@ -126,11 +126,6 @@ func _integrate_forces(s):
 			stopping_jump = false
 			($SoundJump as AudioStreamPlayer2D).play()
 		
-		# Check siding.
-		if lv.x < 0 and move_left:
-			new_siding_left = true
-		elif lv.x > 0 and move_right:
-			new_siding_left = false
 		if jumping:
 			new_anim = "jumping"
 		elif abs(lv.x) < 0.1:
@@ -170,6 +165,11 @@ func _integrate_forces(s):
 			else:
 				new_anim = "falling"
 	
+	# Check siding.
+	if lv.x < 0 and move_left:
+		new_siding_left = true
+	elif lv.x > 0 and move_right:
+		new_siding_left = false
 	# Update siding.
 	if new_siding_left != siding_left:
 		if new_siding_left:
