@@ -4,8 +4,8 @@ extends RigidBody2D
 signal use_interactive_tool
 
 enum Tool{
-	WHISTLE,
 	UMBRELLA,
+	WHISTLE,
 	GUN,
 	CROWBAR
 }
@@ -70,6 +70,7 @@ func _process(delta):
 		var tool_index = self.get_node("CanvasLayer/Toolbar").index
 	
 		if tool_index == Tool.UMBRELLA:
+			_toggle_tool_visibility(get_node("Umbrella"))
 			pass
 		elif tool_index == Tool.GUN:
 			pass
@@ -255,3 +256,13 @@ func _spawn_enemy_above():
 	var e = Enemy.instance()
 	e.position = position + 50 * Vector2.UP
 	get_parent().add_child(e)
+
+func _toggle_tool_visibility(node):
+	print("Toggle Tool visibility")
+	var currentTool = (node as KinematicBody2D)
+	if currentTool.is_visible():
+		currentTool.hide()
+		currentTool.set_collision_layer_bit(3, 0)
+	else:
+		currentTool.show()
+		currentTool.set_collision_layer_bit(3, 1)	
