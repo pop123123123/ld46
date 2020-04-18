@@ -26,5 +26,12 @@ func _process(delta):
 		direction = -1
 	else:
 		direction = 1
-		
-	self.set_position(camera_pose+Vector2(direction*50, 0))
+	
+	var direction_shift
+	if dist <= 30:
+		direction_shift = dist*direction
+	else:
+		direction_shift = direction*30
+	
+	self.set_position(camera_pose+Vector2(direction_shift, 0))
+	#self.set_position(camera_pose)
