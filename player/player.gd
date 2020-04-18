@@ -56,6 +56,22 @@ var shoot_time = 1e20
 var Bullet = preload("res://player/Bullet.tscn")
 var Enemy = preload("res://enemy/Enemy.tscn")
 
+func _process(delta):
+	var use = Input.is_action_just_pressed("use")
+	
+	# Use a tool
+	if use:
+		var tool_index = self.get_node("CanvasLayer/Toolbar").index
+	
+		if tool_index == Tool.UMBRELLA:
+			pass
+		elif tool_index == Tool.GUN:
+			pass
+		elif tool_index == Tool.PROUT:
+			pass
+		else:
+			emit_signal("use_interactive_tool", tool_index, self.position)
+
 func _integrate_forces(s):
 	var lv = s.get_linear_velocity()
 	var step = s.get_step()
@@ -68,7 +84,6 @@ func _integrate_forces(s):
 	var move_right = Input.is_action_pressed("move_right")
 	var jump = Input.is_action_pressed("jump")
 	var shoot = Input.is_action_pressed("shoot")
-	var use = Input.is_action_just_pressed("use")
 	var spawn = Input.is_action_pressed("spawn")
 	
 	if spawn:
@@ -128,19 +143,6 @@ func _integrate_forces(s):
 			if xv < 0:
 				xv = 0
 			lv.x = sign(lv.x) * xv
-			
-		# Use a tool
-		if use:
-			var tool_index = self.get_node("CanvasLayer/Toolbar").index
-			
-			if tool_index == Tool.UMBRELLA:
-				pass
-			elif tool_index == Tool.GUN:
-				pass
-			elif tool_index == Tool.PROUT:
-				pass
-			else:
-				emit_signal("use_interactive_tool", tool_index, self.position)
 		
 		# Check jump.
 		if not jumping and jump:
