@@ -207,16 +207,16 @@ func _integrate_forces(s):
 	# Update siding.
 	if new_siding_left != siding_left:
 		if new_siding_left:
-			($Sprite as Sprite).scale.x = -1
+			($AnimatedSprite as AnimatedSprite).scale.x = -1
 		else:
-			($Sprite as Sprite).scale.x = 1
+			($AnimatedSprite as AnimatedSprite).scale.x = 1
 		
 		siding_left = new_siding_left
 	
 	# Change animation.
 	if new_anim != anim:
 		anim = new_anim
-		($AnimationPlayer as AnimationPlayer).play(anim)
+		($AnimatedSprite as AnimatedSprite).play(anim)
 	
 	shooting = shoot
 	
@@ -245,7 +245,7 @@ func _shot_bullet():
 	
 	bi.linear_velocity = Vector2(400.0 * ss, -40)
 	
-	($Sprite/Smoke as Particles2D).restart()
+	($AnimatedSprite/Smoke as Particles2D).restart()
 	($SoundShoot as AudioStreamPlayer2D).play()
 	
 	add_collision_exception_with(bi) # Make bullet and this not collide.
