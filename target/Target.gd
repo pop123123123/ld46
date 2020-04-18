@@ -12,11 +12,13 @@ export var moveSpeed = 20
 var moving = true
 
 func _ready():
+	#($AnimationPlayer as AnimationPlayer).play("running")
 	pass
 
 func _process(delta):
 	if moving:
 		self.move_and_slide(Vector2(moveSpeed, 0))
+		($AnimationPlayer as AnimationPlayer).play("running")
 
 func _physics_process(delta):
 	pass
