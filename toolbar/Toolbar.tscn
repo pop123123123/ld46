@@ -12,6 +12,9 @@
 focus_mode = 2
 mouse_default_cursor_shape = 2
 script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="HToolbar" type="HBoxContainer" parent="."]
 margin_right = 268.0

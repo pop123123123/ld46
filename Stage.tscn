@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://tiles_demo.png" type="Texture" id=1]
 [ext_resource path="res://target/Target.tscn" type="PackedScene" id=2]
@@ -6,9 +6,11 @@
 [ext_resource path="res://background/Seesaw.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Stage.gd" type="Script" id=5]
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=6]
-[ext_resource path="res://acid/Acid.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Camera.tscn" type="PackedScene" id=7]
 [ext_resource path="res://background/ParallaxBg.tscn" type="PackedScene" id=8]
 [ext_resource path="res://audio/music.ogg" type="AudioStream" id=9]
+[ext_resource path="res://enemy/Enemy.tscn" type="PackedScene" id=10]
+[ext_resource path="res://acid/Acid.tscn" type="PackedScene" id=11]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 32, 126.731, 0.31015, 126.731, 0.31015, 95.4815, 32, 95.4815 )
@@ -99,11 +101,20 @@ volume_db = -65.644
 autoplay = true
 
 [node name="Target" parent="." instance=ExtResource( 2 )]
-position = Vector2( 204.877, 528.351 )
+position = Vector2( 208, 531.126 )
 
 [node name="Arrow" parent="." instance=ExtResource( 3 )]
 position = Vector2( 289.289, -294.459 )
+sleeping = true
 
-[node name="AcidRain" parent="." instance=ExtResource( 7 )]
-position = Vector2( 261.481, 381.986 )
+[node name="Camera" parent="." instance=ExtResource( 7 )]
+current = true
+playerPath = NodePath("../Player")
+targetPath = NodePath("../Target")
+
+[node name="Enemy" parent="." instance=ExtResource( 10 )]
+position = Vector2( 312, 536 )
+
+[node name="AcidRain" parent="." instance=ExtResource( 11 )]
+position = Vector2( 217.334, 381.986 )
 [connection signal="gameover" from="Target" to="." method="_on_Target_gameover"]
