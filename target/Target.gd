@@ -1,12 +1,10 @@
 extends RigidBody2D
 signal gameover
 
-export var alive = true
-var moveSpeed = 20
+export var moveSpeed = 20
 
 func _ready():
 	pass
-
 
 func _process(delta):
 	pass
