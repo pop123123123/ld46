@@ -4,10 +4,10 @@ extends RigidBody2D
 signal use_interactive_tool
 
 enum Tool{
+	WHISTLE,
 	UMBRELLA,
 	GUN,
-	CROWBAR,
-	PROUT
+	CROWBAR
 }
 
 # Character Demo, written by Juan Linietsky.
@@ -73,8 +73,8 @@ func _process(delta):
 			pass
 		elif tool_index == Tool.GUN:
 			pass
-		elif tool_index == Tool.PROUT:
-			pass
+		elif tool_index == Tool.WHISTLE:
+			emit_signal("use_interactive_tool", tool_index, self.position)
 		else:
 			emit_signal("use_interactive_tool", tool_index, self.position)
 

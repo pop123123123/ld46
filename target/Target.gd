@@ -1,18 +1,33 @@
 extends KinematicBody2D
 signal gameover
 
+enum Tool{
+	WHISTLE,
+	UMBRELLA,
+	GUN,
+	CROWBAR
+}
+
 export var moveSpeed = 20
+var moving = true
 
 func _ready():
 	pass
 
 func _process(delta):
-	self.move_and_slide(Vector2(20, 0))
-	self.position
-	#self.set_linear_velocity(Vector2(moveSpeed, 1))
+	if moving:
+		self.move_and_slide(Vector2(moveSpeed, 0))
 
 func _physics_process(delta):
 	pass
+
+func use_tool(tool_index, player_pos):
+	if tool_index == Tool.WHISTLE:
+		print("La petite bète a été siffled. PADANLARU")
+		if moving:
+			moving = false
+		else:
+			moving = true
 
 # Hurtbox hit a treat
 # Game over
