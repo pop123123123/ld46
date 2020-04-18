@@ -8,7 +8,7 @@ var target
 
 func _ready():
 	player = get_node(playerPath) as RigidBody2D
-	target = get_node(targetPath) as KinematicBody2D
+	target = get_node(targetPath) as RigidBody2D
 	if player!=null&&target!=null: 
 		set_process(true)
 
