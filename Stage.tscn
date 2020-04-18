@@ -1,12 +1,8 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://tiles_demo.png" type="Texture" id=1]
-[ext_resource path="res://coin/Coin.tscn" type="PackedScene" id=2]
-[ext_resource path="res://platform/MovingPlatform.tscn" type="PackedScene" id=3]
 [ext_resource path="res://background/Seesaw.tscn" type="PackedScene" id=4]
-[ext_resource path="res://platform/OneWayPlatform.tscn" type="PackedScene" id=5]
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=6]
-[ext_resource path="res://enemy/Enemy.tscn" type="PackedScene" id=7]
 [ext_resource path="res://background/ParallaxBg.tscn" type="PackedScene" id=8]
 [ext_resource path="res://audio/music.ogg" type="AudioStream" id=9]
 
@@ -63,53 +59,25 @@ points = PoolVector2Array( 32, 32, 0, 32, 0, 1.31018, 32, 1.31018 )
 [sub_resource type="PhysicsMaterial" id=4]
 friction = 0.0
 
-[sub_resource type="PhysicsMaterial" id=5]
-
-[sub_resource type="PhysicsMaterial" id=6]
-friction = 0.0
-
 [node name="Stage" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 3 )
 cell_size = Vector2( 32, 32 )
 cell_quadrant_size = 4
+collision_layer = 3
 format = 1
-tile_data = PoolIntArray( 786446, 0, 0, 851981, 0, 0, 917509, 0, 0, 917516, 0, 0, 917530, 1, 0, 917531, 1, 0, 917532, 1, 0, 917533, 1, 0, 917534, 1, 0, 917535, 1, 0, 917536, 1, 0, 917537, 1, 0, 917538, 1, 0, 917539, 1, 0, 917540, 1, 0, 917541, 1, 0, 917542, 1, 0, 917543, 1, 0, 917544, 1, 0, 983066, 1, 0, 1048583, 0, 0, 1048602, 1, 0, 1114114, 1, 0, 1114115, 1, 0, 1114116, 1, 0, 1114118, 1, 0, 1114122, 0, 0, 1114123, 1, 0, 1114128, 1, 0, 1114129, 1, 0, 1114130, 1, 0, 1114131, 1, 0, 1114132, 1, 0, 1114133, 1, 0, 1114134, 1, 0, 1114135, 1, 0, 1114136, 1, 0, 1114137, 1, 0, 1179654, 1, 0, 1179658, 1, 0, 1245190, 1, 0, 1245192, 1, 0, 1245193, 1, 0 )
+tile_data = PoolIntArray( 917509, 0, 0, 917516, 0, 0, 1114114, 1, 0, 1114115, 1, 0, 1114116, 1, 0, 1114118, 1, 0, 1114119, 1, 0, 1114120, 1, 0, 1114121, 1, 0, 1114122, 1, 0, 1114123, 1, 0, 1114125, 1, 0, 1114126, 1, 0, 1114127, 1, 0, 1114128, 1, 0, 1114129, 1, 0, 1114130, 1, 0, 1114131, 1, 0, 1114132, 1, 0, 1114133, 1, 0, 1114134, 1, 0, 1114135, 1, 0, 1114136, 1, 0, 1114137, 1, 0 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="Coins" type="Node2D" parent="."]
 
-[node name="Coin" parent="Coins" instance=ExtResource( 2 )]
-position = Vector2( 336, 589.5 )
-
-[node name="Coin2" parent="Coins" instance=ExtResource( 2 )]
-position = Vector2( 352, 589.5 )
-
 [node name="Props" type="Node2D" parent="."]
 
-[node name="MovingPlatform" parent="Props" instance=ExtResource( 3 )]
-position = Vector2( 725.93, 371.484 )
-motion = Vector2( 0, 70 )
-cycle = 5.0
-
-[node name="MovingPlatform 2" parent="Props" instance=ExtResource( 3 )]
-position = Vector2( 312.412, 272.772 )
-motion = Vector2( 150, 0 )
-cycle = 10.0
-
-[node name="MovingPlatform 3" parent="Props" instance=ExtResource( 3 )]
-position = Vector2( 1709.93, 369.831 )
-motion = Vector2( 225, 0 )
-cycle = 10.0
-
 [node name="Seesaw" parent="Props" instance=ExtResource( 4 )]
-position = Vector2( 1201.4, 424.76 )
-
-[node name="OneWayPlatform" parent="Props" instance=ExtResource( 5 )]
-position = Vector2( 463.849, 560.405 )
+position = Vector2( 726.626, 518.626 )
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
 position = Vector2( 125.842, 522.8 )
@@ -117,16 +85,9 @@ physics_material_override = SubResource( 4 )
 
 [node name="Enemies" type="Node2D" parent="."]
 
-[node name="Enemy1" parent="Enemies" instance=ExtResource( 7 )]
-position = Vector2( 417.332, 654.8 )
-physics_material_override = SubResource( 5 )
-
-[node name="Enemy2" parent="Enemies" instance=ExtResource( 7 )]
-position = Vector2( 353.832, 612.525 )
-physics_material_override = SubResource( 6 )
-
 [node name="ParallaxBg" parent="." instance=ExtResource( 8 )]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
+volume_db = -65.644
 autoplay = true
