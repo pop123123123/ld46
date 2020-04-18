@@ -2,7 +2,7 @@ extends Control
 
 const COUNT = 4
 
-var index = 0
+export var index = 0
 
 var SelectedTheme = load("res://toolbar/selected.tres") as Theme
 var UnselectedTheme = load("res://toolbar/unselected.tres") as Theme
