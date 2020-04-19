@@ -44,7 +44,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Physics-Based Platformer 2D"
+config/name="Once upon an algerian desert"
 config/description="This demo uses RigidBody2D for the player and enemies. These
 character controllers are more powerful than KinematicBody2D,
 but can be more difficult to handle, as they require

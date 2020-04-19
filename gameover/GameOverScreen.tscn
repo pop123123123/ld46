@@ -1,0 +1,43 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://gameover/GameOverScreen.gd" type="Script" id=1]
+
+[node name="GameOverScreen" type="CanvasLayer"]
+script = ExtResource( 1 )
+
+[node name="GameOverNode" type="Control" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="GameOverNode"]
+margin_right = 800.0
+margin_bottom = 480.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GameOver" type="Label" parent="GameOverNode"]
+margin_left = 380.0
+margin_top = 220.0
+margin_right = 453.0
+margin_bottom = 234.0
+text = "Game Over"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="GameOverNode"]
+margin_left = 400.0
+margin_top = 250.0
+margin_right = 412.0
+margin_bottom = 270.0
+disabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="GameOverNode/Button" to="." method="_on_Button_pressed"]

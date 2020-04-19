@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://levels/level1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://target/Target.tscn" type="PackedScene" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://checkpoint/Checkpoint.tscn" type="PackedScene" id=17]
 [ext_resource path="res://drone/DroneAcid.tscn" type="PackedScene" id=18]
 [ext_resource path="res://drone/DroneUmbrella.tscn" type="PackedScene" id=19]
+[ext_resource path="res://gameover/GameOverScreen.tscn" type="PackedScene" id=20]
 
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 0.0
@@ -176,7 +177,7 @@ texture = ExtResource( 15 )
 offset = Vector2( -138.157, -37.7679 )
 
 [node name="AcidRain" parent="." instance=ExtResource( 11 )]
-position = Vector2( 754.889, 246.097 )
+position = Vector2( 795.9, 190.732 )
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
 
@@ -202,8 +203,12 @@ loop = true
 position = Vector2( 145.751, 466.403 )
 speed = 1.0
 loop = true
+
+[node name="GameOverScreen" parent="." instance=ExtResource( 20 )]
+
 [connection signal="use_interactive_tool" from="Player" to="." method="_on_Player_use_interactive_tool"]
 [connection signal="gameover" from="Target" to="." method="_on_Target_gameover"]
 [connection signal="checkpointed_reached" from="CheckpointHandler" to="." method="_on_CheckpointHandler_checkpointed_reached"]
 [connection signal="body_entered" from="CheckpointHandler/Checkpoint1" to="CheckpointHandler" method="_on_Checkpoint_body_entered"]
 [connection signal="body_entered" from="CheckpointHandler/Checkpoint2" to="CheckpointHandler" method="_on_Checkpoint_body_entered"]
+[connection signal="retry" from="GameOverScreen" to="." method="_on_GameOverScreen_retry"]
