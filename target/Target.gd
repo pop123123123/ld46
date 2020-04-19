@@ -41,5 +41,8 @@ func use_tool(tool_index, _player_pos):
 # Hurtbox hit a treat
 # Game over
 func _on_HurtboxArea_body_entered(_body):
+	_kill_target()
+
+func _kill_target():
 	hide()
 	emit_signal("gameover")
