@@ -4,7 +4,6 @@ const UP = Vector2(0, -1)
 
 export var speed = 1.0
 
-var dir = 0
 var width = null
 var up = null
 var left_propeller = null
@@ -37,21 +36,18 @@ func _physics_process(delta):
 	var local_right_propeller = self.get_transform().basis_xform(right_propeller.normalized()) * right_propeller.length()
 
 	var f = self.get_transform().basis_xform(UP).normalized() * gravity * delta
-	var a = f/2
-	var b = f/2
 
 	var c = 4
 	var acc = 6
-	a *= 1 if speed < 0 else -1
+	var a = f / 2 * (1 if speed < 0 else -1)
 	var frames = 7 * (speed if speed > 0 else -speed)
-	if i < frames:
-		print(local_left_propeller, local_right_propeller)
-
-		self.apply_impulse(local_left_propeller, -a /c)
-		self.apply_impulse(local_right_propeller, a /c)
+	if i < ceil(frames):
+		var left = 1 if i < frames else frames-floor(frames)
+		self.apply_impulse(local_left_propeller, -a*left/c)
+		self.apply_impulse(local_right_propeller, a*left/c)
 		self.apply_central_impulse(Vector2(f.x*acc, 0))
 		i += 1
-	elif i == frames:
+	elif i == ceil(frames):
 		self.apply_central_impulse(Vector2(f.x*acc, 0))
 		i += 1
 	else:

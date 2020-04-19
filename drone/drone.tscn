@@ -33,10 +33,9 @@ color = Color( 0.262745, 0.247059, 0.305882, 1 )
 polygon = PoolVector2Array( -5, 16, -15, 16, -15, -16, 15, -16, 15, 16, 5, 16, 5, 9, -5, 9 )
 
 [node name="Collision" type="CollisionPolygon2D" parent="."]
-visible = false
 polygon = PoolVector2Array( -5, 16, -15, 16, -15, -16, 15, -16, 15, 16, 5, 16, 5, 9, -5, 9 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 4 )
-frame = 1
+frame = 2
 playing = true
