@@ -35,16 +35,19 @@ force = 20
 
 [node name="WalkBox" type="CollisionShape2D" parent="."]
 position = Vector2( 0.270546, -0.42667 )
+scale = Vector2( 0.6, 0.6 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( -6, -8 )
+position = Vector2( -3.27849, -5.06914 )
+scale = Vector2( 0.6, 0.6 )
 texture = ExtResource( 1 )
 offset = Vector2( 8, 0 )
 vframes = 4
 hframes = 4
 
 [node name="HurtboxArea" type="Area2D" parent="."]
+scale = Vector2( 0.6, 0.6 )
 collision_layer = 4
 collision_mask = 4
 
