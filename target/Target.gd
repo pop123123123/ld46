@@ -15,11 +15,11 @@ var moving = true
 
 func _process(_delta):
 	if moving:
-		($AnimationPlayer as AnimationPlayer).play("running")
+		($AnimatedSprite as AnimatedSprite).play("running")
 
 func _physics_process(delta):
 	if moving:
-		if move_and_collide(Vector2(0, 8), false, false, true):
+		if move_and_collide(Vector2(0, 5), false, false, true):
 			self.move_and_slide_with_snap(Vector2(force*delta, 0), Vector2(0, 20), Vector2(0, 1), true, 4, PI)
 		else:
 			self.move_and_slide_with_snap(Vector2(0, gravity*delta), Vector2(0, 20), Vector2(0, 1), true, 4, PI)
@@ -41,5 +41,7 @@ func _on_HurtboxArea_body_entered(_body):
 	_kill_target()
 
 func _kill_target():
-	hide()
+	moving = false
+	($AnimatedSprite as AnimatedSprite).play("death")
+	#hide()
 	emit_signal("gameover")
