@@ -16,8 +16,13 @@ func _ready():
 #	pass
 
 func launch_game_over():
-	self.get_node("GameOverNode").visible = true
+	#self.get_node("GameOverNode").visible = true
+	
 	self.get_node("GameOverNode/Button").disabled = false
+	var colorRect = self.get_node("GameOverNode")
+	while colorRect.modulate.a < 255:
+		yield(get_tree().create_timer(2.0),"timeout")
+		colorRect.modulate.a  += 0.1
 
 func _on_Button_pressed():
 	emit_signal("retry")
