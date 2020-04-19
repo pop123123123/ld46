@@ -8,13 +8,10 @@ enum Tool{
 	CROWBAR
 }
 
-export var force = 100
-var gravity = force * 10
+export var force = 1 * 60
+var gravity = force * 1000
 var moving = true
 
-func _ready():
-	#($AnimationPlayer as AnimationPlayer).play("running")
-	self.move_and_slide(Vector2(force, 0), Vector2(0, 1))
 
 func _process(_delta):
 	if moving:
@@ -22,13 +19,13 @@ func _process(_delta):
 
 func _physics_process(delta):
 	if moving:
-		if test_move(self.transform, Vector2(0, 8)):
-			self.move_and_slide_with_snap(Vector2(force, 0), Vector2(0, 20), Vector2(0, 1), true, 4, PI)
-			print('is')
+		if move_and_collide(Vector2(0, 8), false, false, true):
+			self.move_and_slide_with_snap(Vector2(force*delta, 0), Vector2(0, 20), Vector2(0, 1), true, 4, PI)
 		else:
-			self.move_and_slide_with_snap(Vector2(0, gravity), Vector2(0, 20), Vector2(0, 1), true, 4, PI)
+			self.move_and_slide_with_snap(Vector2(0, gravity*delta), Vector2(0, 20), Vector2(0, 1), true, 4, PI)
 	else:
 		pass
+
 
 func use_tool(tool_index, _player_pos):
 	if tool_index == Tool.WHISTLE:
