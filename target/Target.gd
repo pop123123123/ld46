@@ -8,12 +8,10 @@ enum Tool{
 	CROWBAR
 }
 
-export var force = 10
+export var force = 1 * 60
+var gravity = force * 1000
 var moving = true
 
-func _ready():
-	#($AnimationPlayer as AnimationPlayer).play("running")
-	self.move_and_slide(Vector2(force, 0), Vector2(0, 1))
 
 func _process(_delta):
 	if moving:
@@ -21,9 +19,13 @@ func _process(_delta):
 
 func _physics_process(delta):
 	if moving:
-		self.move_and_slide_with_snap(Vector2(force, force/4), Vector2(0, 20), Vector2(0, 1), false, 4, PI)
+		if move_and_collide(Vector2(0, 8), false, false, true):
+			self.move_and_slide_with_snap(Vector2(force*delta, 0), Vector2(0, 20), Vector2(0, 1), true, 4, PI)
+		else:
+			self.move_and_slide_with_snap(Vector2(0, gravity*delta), Vector2(0, 20), Vector2(0, 1), true, 4, PI)
 	else:
 		pass
+
 
 func use_tool(tool_index, _player_pos):
 	if tool_index == Tool.WHISTLE:
@@ -36,5 +38,8 @@ func use_tool(tool_index, _player_pos):
 # Hurtbox hit a treat
 # Game over
 func _on_HurtboxArea_body_entered(_body):
+	_kill_target()
+
+func _kill_target():
 	hide()
 	emit_signal("gameover")
