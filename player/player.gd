@@ -65,18 +65,19 @@ var Enemy = preload("res://enemy/Enemy.tscn")
 func _process(delta):
 	var use = Input.is_action_just_pressed("use")
 	
+	var tool_index = self.get_node("CanvasLayer/Toolbar").index
+	
+	_set_tool_visibility(get_node("Umbrella"), false)
+	if tool_index == Tool.UMBRELLA:
+		_set_tool_visibility(get_node("Umbrella"), true)
+		
 	# Use a tool
 	if use:
-		var tool_index = self.get_node("CanvasLayer/Toolbar").index
-	
-		if tool_index == Tool.UMBRELLA:
-			_toggle_tool_visibility(get_node("Umbrella"))
-			pass
-		elif tool_index == Tool.GUN:
+		if tool_index == Tool.GUN:
 			pass
 		elif tool_index == Tool.WHISTLE:
 			emit_signal("use_interactive_tool", tool_index, self.position)
-		else:
+		elif tool_index == Tool.CROWBAR:
 			emit_signal("use_interactive_tool", tool_index, self.position)
 
 func _integrate_forces(s):
@@ -258,11 +259,17 @@ func _spawn_enemy_above():
 	get_parent().add_child(e)
 
 func _toggle_tool_visibility(node):
-	print("Toggle Tool visibility")
 	var currentTool = (node as KinematicBody2D)
 	if currentTool.is_visible():
+		_set_tool_visibility(node, false)
+	else:
+		_set_tool_visibility(node, true)
+
+func _set_tool_visibility(node, show):
+	var currentTool = (node as KinematicBody2D)
+	if show:
+		currentTool.show()
+		currentTool.set_collision_layer_bit(3, 1)
+	else:
 		currentTool.hide()
 		currentTool.set_collision_layer_bit(3, 0)
-	else:
-		currentTool.show()
-		currentTool.set_collision_layer_bit(3, 1)	
