@@ -1,4 +1,4 @@
-extends RigidBody2D
+extends KinematicBody2D
 signal gameover
 
 enum Tool{
@@ -8,22 +8,22 @@ enum Tool{
 	CROWBAR
 }
 
-export var moveSpeed = 50
+export var force = 10
 var moving = true
 
 func _ready():
 	#($AnimationPlayer as AnimationPlayer).play("running")
-	pass
+	self.move_and_slide(Vector2(force, 0), Vector2(0, 1))
 
 func _process(_delta):
 	if moving:
-		self.set_axis_velocity(Vector2(moveSpeed, 0))
 		($AnimationPlayer as AnimationPlayer).play("running")
-	else:
-		self.set_axis_velocity(Vector2(0, 0))
 
-func _physics_process(_delta):
-	pass
+func _physics_process(delta):
+	if moving:
+		self.move_and_slide_with_snap(Vector2(force, force/4), Vector2(0, 20), Vector2(0, 1), false, 4, PI)
+	else:
+		pass
 
 func use_tool(tool_index, _player_pos):
 	if tool_index == Tool.WHISTLE:
