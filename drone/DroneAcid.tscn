@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://acid/Acid.tscn" type="PackedScene" id=1]
+[ext_resource path="res://drone/drone.tscn" type="PackedScene" id=2]
+
+[node name="Drone" instance=ExtResource( 2 )]
+
+[node name="AnimatedSprite" parent="." index="2"]
+frame = 1
+
+[node name="AcidRain" parent="." index="3" instance=ExtResource( 1 )]
+position = Vector2( 0, 8.76203 )
+width = 20
