@@ -48,4 +48,3 @@ color = Color( 0.501961, 1, 0, 1 )
 energy = 0.3
 shadow_enabled = true
 [connection signal="body_entered" from="." to="." method="_on_Node2D_body_entered"]
-[connection signal="body_shape_entered" from="." to="." method="_on_Node2D_body_shape_entered"]
