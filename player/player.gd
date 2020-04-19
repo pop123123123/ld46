@@ -62,7 +62,7 @@ var shoot_time = 1e20
 var Bullet = preload("res://player/Bullet.tscn")
 var Enemy = preload("res://enemy/Enemy.tscn")
 
-func _process(delta):
+func _process(_delta):
 	var use = Input.is_action_just_pressed("use")
 	
 	var tool_index = self.get_node("CanvasLayer/Toolbar").index
