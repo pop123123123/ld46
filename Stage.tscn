@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://levels/level1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://target/Target.tscn" type="PackedScene" id=2]
@@ -18,6 +18,7 @@
 [ext_resource path="res://environment/cortexlespyramides.png" type="Texture" id=16]
 [ext_resource path="res://checkpoint/Checkpoint.tscn" type="PackedScene" id=17]
 [ext_resource path="res://drone/DroneAcid.tscn" type="PackedScene" id=18]
+[ext_resource path="res://drone/DroneUmbrella.tscn" type="PackedScene" id=19]
 
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 0.0
@@ -195,6 +196,11 @@ position = Vector2( 2138.53, 530.469 )
 [node name="Drone2" parent="." instance=ExtResource( 18 )]
 position = Vector2( 254.846, 396.673 )
 speed = 100.0
+loop = true
+
+[node name="Drone3" parent="." instance=ExtResource( 19 )]
+position = Vector2( 145.751, 466.403 )
+speed = 1.0
 loop = true
 [connection signal="use_interactive_tool" from="Player" to="." method="_on_Player_use_interactive_tool"]
 [connection signal="gameover" from="Target" to="." method="_on_Target_gameover"]
