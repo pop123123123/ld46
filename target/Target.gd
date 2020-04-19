@@ -8,7 +8,8 @@ enum Tool{
 	CROWBAR
 }
 
-export var force = 10
+export var force = 100
+var gravity = force * 10
 var moving = true
 
 func _ready():
@@ -21,7 +22,11 @@ func _process(_delta):
 
 func _physics_process(delta):
 	if moving:
-		self.move_and_slide_with_snap(Vector2(force, force/4), Vector2(0, 20), Vector2(0, 1), false, 4, PI)
+		if test_move(self.transform, Vector2(0, 8)):
+			self.move_and_slide_with_snap(Vector2(force, 0), Vector2(0, 20), Vector2(0, 1), true, 4, PI)
+			print('is')
+		else:
+			self.move_and_slide_with_snap(Vector2(0, gravity), Vector2(0, 20), Vector2(0, 1), true, 4, PI)
 	else:
 		pass
 
