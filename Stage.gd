@@ -1,6 +1,5 @@
 extends Node2D
 
-const default_spawn_position = Vector2(120, 520)
 const saveFileName = "user://checkpoint.tmp"
 
 # Retrieves savefile's spawn position and applies it to the player
@@ -9,18 +8,19 @@ func _ready():
 	var target = self.get_node("Target")
 	
 	var spawn_pos = _get_spawn_pos()
-	player.set_position(spawn_pos)
-	target.set_position(spawn_pos+Vector2(10, 0))
+	if spawn_pos:
+		player.set_position(spawn_pos)
+		target.set_position(spawn_pos+Vector2(10, 0))
 
 func _get_spawn_pos():
 	var savefile = File.new()
 	var doFileExists = savefile.file_exists(saveFileName)
 	
 	if not doFileExists:
-		return default_spawn_position
+		return null
 	
 	if savefile.open(saveFileName, File.READ) != 0:
-		return default_spawn_position
+		return null
 	
 	var line = savefile.get_line()
 	savefile.close()
