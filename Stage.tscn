@@ -71,12 +71,11 @@ playerPath = NodePath("../Player")
 targetPath = NodePath("../Target")
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
-position = Vector2( 24, 512 )
+position = Vector2( 1490.63, 510.545 )
 physics_material_override = SubResource( 1 )
 
 [node name="Target" parent="." instance=ExtResource( 2 )]
-position = Vector2( 120, 520 )
-collision_mask = 3
+position = Vector2( 1334.68, 677.414 )
 
 [node name="Drone" parent="." instance=ExtResource( 13 )]
 position = Vector2( 448, 376 )
