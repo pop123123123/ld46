@@ -13,7 +13,7 @@
 [ext_resource path="res://acid/Acid.tscn" type="PackedScene" id=11]
 [ext_resource path="res://levels/level2.tscn" type="PackedScene" id=12]
 [ext_resource path="res://drone/drone.tscn" type="PackedScene" id=13]
-[ext_resource path="res://CheckpointHandler.gd" type="Script" id=14]
+[ext_resource path="res://checkpoint_handler/CheckpointHandler.tscn" type="PackedScene" id=14]
 [ext_resource path="res://environment/citybackgroundfirst.png" type="Texture" id=15]
 [ext_resource path="res://environment/cortexlespyramides.png" type="Texture" id=16]
 [ext_resource path="res://checkpoint/Checkpoint.tscn" type="PackedScene" id=17]
@@ -183,20 +183,15 @@ texture = ExtResource( 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
 
-[node name="CheckpointHandler" type="Node2D" parent="."]
-script = ExtResource( 14 )
+[node name="CheckpointHandler" parent="." instance=ExtResource( 14 )]
 
 [node name="Checkpoint1" parent="CheckpointHandler" instance=ExtResource( 17 )]
-position = Vector2( 1123.25, 531.744 )
+position = Vector2( 1138.31, 530.39 )
 
 [node name="Checkpoint2" parent="CheckpointHandler" instance=ExtResource( 17 )]
-position = Vector2( 2134.37, 530.358 )
+position = Vector2( 2138.53, 530.469 )
 [connection signal="use_interactive_tool" from="Player" to="." method="_on_Player_use_interactive_tool"]
 [connection signal="gameover" from="Target" to="." method="_on_Target_gameover"]
 [connection signal="checkpointed_reached" from="CheckpointHandler" to="." method="_on_CheckpointHandler_checkpointed_reached"]
-[connection signal="body_entered" from="CheckpointHandler/Checkpoint1" to="CheckpointHandler" method="_on_Checkpoint1_body_entered"]
-[connection signal="body_entered" from="CheckpointHandler/Checkpoint2" to="CheckpointHandler" method="_on_Checkpoint2_body_entered"]
-
-[editable path="CheckpointHandler/Checkpoint1"]
-
-[editable path="CheckpointHandler/Checkpoint2"]
+[connection signal="body_entered" from="CheckpointHandler/Checkpoint1" to="CheckpointHandler" method="_on_Checkpoint_body_entered"]
+[connection signal="body_entered" from="CheckpointHandler/Checkpoint2" to="CheckpointHandler" method="_on_Checkpoint_body_entered"]
