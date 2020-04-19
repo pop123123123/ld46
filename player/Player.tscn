@@ -282,10 +282,10 @@ volume_db = -20.0
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Toolbar" parent="CanvasLayer" instance=ExtResource( 4 )]
-margin_left = 268.971
-margin_top = 408.179
-margin_right = 536.971
-margin_bottom = 472.179
+margin_left = 562.523
+margin_top = 662.878
+margin_right = 830.523
+margin_bottom = 726.878
 
 [node name="Umbrella" parent="." instance=ExtResource( 10 )]
 position = Vector2( -0.257019, -18.6343 )
