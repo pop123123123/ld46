@@ -142,4 +142,5 @@ stream = ExtResource( 5 )
 volume_db = 13.96
 max_distance = 500.0
 attenuation = 1.5
+
 [connection signal="body_entered" from="HurtboxArea" to="." method="_on_HurtboxArea_body_entered"]

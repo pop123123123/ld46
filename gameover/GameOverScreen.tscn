@@ -14,7 +14,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect" type="ColorRect" parent="GameOverNode"]
+[node name="Background" type="ColorRect" parent="GameOverNode"]
 margin_right = 800.0
 margin_bottom = 480.0
 color = Color( 0, 0, 0, 1 )
@@ -22,22 +22,27 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="GameOver" type="Label" parent="GameOverNode"]
-margin_left = 380.0
-margin_top = 220.0
-margin_right = 453.0
-margin_bottom = 234.0
-text = "Game Over"
+[node name="Display" type="Node2D" parent="GameOverNode"]
+
+[node name="GameOver" type="Label" parent="GameOverNode/Display"]
+margin_left = -40.9651
+margin_top = -24.5798
+margin_right = 44.0349
+margin_bottom = -10.5798
+text = "Game Over :("
+align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" type="Button" parent="GameOverNode"]
-margin_left = 400.0
-margin_top = 250.0
-margin_right = 412.0
-margin_bottom = 270.0
+[node name="Button" type="Button" parent="GameOverNode/Display"]
+margin_left = -82.2256
+margin_top = 22.5842
+margin_right = 91.7744
+margin_bottom = 42.5842
 disabled = true
+text = "Restart at last checkpoint"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -45,4 +50,4 @@ __meta__ = {
 [node name="loose" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
 volume_db = 8.376
-[connection signal="pressed" from="GameOverNode/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="GameOverNode/Display/Button" to="." method="_on_Button_pressed"]
