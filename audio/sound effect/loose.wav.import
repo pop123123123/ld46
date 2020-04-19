@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/loose.wav-4d3591b1f2a20825e1eb061a58368a14.sample"
+
+[deps]
+
+source_file="res://audio/sound effect/loose.wav"
+dest_files=[ "res://.import/loose.wav-4d3591b1f2a20825e1eb061a58368a14.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

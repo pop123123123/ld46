@@ -14,6 +14,7 @@ func _on_Checkpoint_body_entered(body):
 	emit_signal("checkpointed_reached", body.get_position())
 	yield(_waiting(), "completed")
 	checkpointTest.visible = false
+	($validSound as AudioStreamPlayer).play()
 
 func _waiting():
 	yield(get_tree().create_timer(2), "timeout")

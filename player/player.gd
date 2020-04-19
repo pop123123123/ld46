@@ -42,6 +42,10 @@ const STOP_JUMP_FORCE = 450.0
 const MAX_SHOOT_POSE_TIME = 0.3
 const MAX_FLOOR_AIRBORNE_TIME = 0.15
 
+const SOUND_DECAY = 20
+
+var prevJumping = false
+
 var anim = ""
 # One animation per tool
 var anim_iddle_tool = ["idle", "idle", "idle", "idle"]
@@ -53,6 +57,9 @@ var siding_left = false
 var jumping = false
 var stopping_jump = false
 var shooting = false
+
+var sound_decay = SOUND_DECAY
+var sound_offset = 0
 
 var floor_h_velocity = 0.0
 
@@ -140,6 +147,10 @@ func _integrate_forces(s):
 		if stopping_jump:
 			lv.y += STOP_JUMP_FORCE * step
 	
+	if not prevJumping and on_floor:
+		print("PUF")
+		($fall as AudioStreamPlayer).play()
+	
 	if on_floor:
 		# Process logic when character is on floor.
 		if move_left and not move_right:
@@ -154,13 +165,31 @@ func _integrate_forces(s):
 			if xv < 0:
 				xv = 0
 			lv.x = sign(lv.x) * xv
+			
+		if move_left or move_right:
+			if sound_decay == SOUND_DECAY:
+				sound_decay = 0
+				($SoundWalk as AudioStreamPlayer2D).stop()
+				($SoundWalk as AudioStreamPlayer2D).play(sound_offset)
+				sound_offset += 0.5
+				if sound_offset > 9:
+					sound_offset = 0
+			sound_decay += 1
+		
+		if not move_left and not move_right:
+			sound_decay = SOUND_DECAY
+			($SoundWalk as AudioStreamPlayer2D).stop()
+			
+		if jumping:
+			sound_decay = SOUND_DECAY
+			($SoundWalk as AudioStreamPlayer2D).stop()
 		
 		# Check jump.
 		if not jumping and jump:
 			lv.y = -JUMP_VELOCITY
 			jumping = true
 			stopping_jump = false
-			($SoundJump as AudioStreamPlayer2D).play()
+			#($SoundJump as AudioStreamPlayer2D).play()
 		
 		if jumping:
 			new_anim = anim_jumping_tool[tool_index]
@@ -230,6 +259,7 @@ func _integrate_forces(s):
 	# Finally, apply gravity and set back the linear velocity.
 	lv += s.get_total_gravity() * step
 	s.set_linear_velocity(lv)
+	prevJumping = on_floor
 
 
 func _shot_bullet():

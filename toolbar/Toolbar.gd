@@ -27,6 +27,8 @@ func _process(_delta):
 
 func update_selected():
 	var i = 0
+	if index == 0:
+		($umbrella as AudioStreamPlayer).play()
 	for item in $HToolbar.get_children():
 		if i == index:
 			item.get_child(1).visible = true

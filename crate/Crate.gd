@@ -31,7 +31,7 @@ func _process(delta):
 		soundOffset += cutTime
 		if soundOffset > totalDuration:
 			soundOffset = 0
-	if self.get_linear_velocity() == Vector2(0, 0) and lastVelocity[1] > 1.8:
+	if self.get_linear_velocity() == Vector2(0, 0) and lastVelocity[1] > 1:
 		($impact as AudioStreamPlayer2D).play()		
 			
 	lastPosition = self.position

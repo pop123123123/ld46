@@ -16,6 +16,7 @@ func _ready():
 #	pass
 
 func launch_game_over():
+	($loose as AudioStreamPlayer).play()
 	yield(get_tree().create_timer(1), "timeout")
 	self.get_node("GameOverNode/Button").disabled = false
 	var colorRect = self.get_node("GameOverNode")

@@ -104,7 +104,7 @@ offset = Vector2( -138.157, -37.7679 )
 
 [node name="Sprite3" type="Sprite" parent="Background/ParallaxLayer2"]
 modulate = Color( 0.564706, 0.564706, 0.564706, 1 )
-position = Vector2( 1231, 443.333 )
+position = Vector2( 1232, 443.333 )
 scale = Vector2( 2.03798, 3.04948 )
 texture = ExtResource( 15 )
 offset = Vector2( -138.157, -37.7679 )
@@ -166,7 +166,7 @@ playerPath = NodePath("../Player")
 targetPath = NodePath("../Target")
 
 [node name="Target" parent="." instance=ExtResource( 2 )]
-position = Vector2( 962.304, 528 )
+position = Vector2( 1080, 527.573 )
 
 [node name="Drone" parent="." instance=ExtResource( 13 )]
 position = Vector2( 448, 376 )
@@ -194,25 +194,25 @@ position = Vector2( 1138.31, 530.39 )
 position = Vector2( 2138.53, 530.469 )
 
 [node name="Drone2" parent="." instance=ExtResource( 18 )]
-position = Vector2( 768, 250 )
+position = Vector2( 766.523, 250 )
 speed = 100.0
 loop = true
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
-position = Vector2( 1784, 448 )
+position = Vector2( 968, 368 )
 physics_material_override = SubResource( 1 )
 
 [node name="Drone3" parent="." instance=ExtResource( 19 )]
-position = Vector2( 145.751, 466.403 )
+position = Vector2( 1032, 312 )
 loop = true
 
 [node name="GameOverScreen" parent="." instance=ExtResource( 20 )]
 
 [node name="Crate" parent="." instance=ExtResource( 21 )]
-position = Vector2( 1457.34, 532.968 )
+position = Vector2( 1464, 528 )
 
 [node name="Crate2" parent="." instance=ExtResource( 21 )]
-position = Vector2( 1551.23, 533.409 )
+position = Vector2( 1560, 527.573 )
 
 [node name="Spike" parent="." instance=ExtResource( 22 )]
 position = Vector2( 1424.76, 727.604 )

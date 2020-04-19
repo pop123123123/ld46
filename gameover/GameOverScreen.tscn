@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://gameover/GameOverScreen.gd" type="Script" id=1]
+[ext_resource path="res://audio/sound effect/loose.wav" type="AudioStream" id=2]
 
 [node name="GameOverScreen" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -40,4 +41,8 @@ disabled = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="loose" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+volume_db = 8.376
 [connection signal="pressed" from="GameOverNode/Button" to="." method="_on_Button_pressed"]
