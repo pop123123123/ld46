@@ -11,6 +11,7 @@
 scroll_base_scale = Vector2( 0.7, 0 )
 
 [node name="Sky" type="ParallaxLayer" parent="."]
+visible = false
 motion_mirroring = Vector2( 400, 0 )
 
 [node name="Sprite" type="Sprite" parent="Sky"]
@@ -20,6 +21,7 @@ centered = false
 offset = Vector2( -15, 0 )
 
 [node name="Clouds" type="ParallaxLayer" parent="."]
+visible = false
 motion_scale = Vector2( 0.1, 1 )
 motion_mirroring = Vector2( 400, 0 )
 
@@ -54,6 +56,7 @@ texture = ExtResource( 4 )
 centered = false
 
 [node name="Mount2" type="ParallaxLayer" parent="."]
+visible = false
 motion_scale = Vector2( 0.2, 1 )
 motion_mirroring = Vector2( 400, 0 )
 
@@ -64,6 +67,7 @@ centered = false
 region_rect = Rect2( 0, 0, 400, 128 )
 
 [node name="Mount1" type="ParallaxLayer" parent="."]
+visible = false
 motion_scale = Vector2( 0.4, 1 )
 motion_mirroring = Vector2( 400, 0 )
 

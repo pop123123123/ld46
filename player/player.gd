@@ -4,8 +4,8 @@ extends RigidBody2D
 signal use_interactive_tool
 
 enum Tool{
-	WHISTLE,
 	UMBRELLA,
+	WHISTLE,
 	GUN,
 	CROWBAR
 }
@@ -62,20 +62,22 @@ var shoot_time = 1e20
 var Bullet = preload("res://player/Bullet.tscn")
 var Enemy = preload("res://enemy/Enemy.tscn")
 
-func _process(delta):
+func _process(_delta):
 	var use = Input.is_action_just_pressed("use")
 	
+	var tool_index = self.get_node("CanvasLayer/Toolbar").index
+	
+	_set_tool_visibility(get_node("Umbrella"), false)
+	if tool_index == Tool.UMBRELLA:
+		_set_tool_visibility(get_node("Umbrella"), true)
+		
 	# Use a tool
 	if use:
-		var tool_index = self.get_node("CanvasLayer/Toolbar").index
-	
-		if tool_index == Tool.UMBRELLA:
-			pass
-		elif tool_index == Tool.GUN:
+		if tool_index == Tool.GUN:
 			pass
 		elif tool_index == Tool.WHISTLE:
 			emit_signal("use_interactive_tool", tool_index, self.position)
-		else:
+		elif tool_index == Tool.CROWBAR:
 			emit_signal("use_interactive_tool", tool_index, self.position)
 
 func _integrate_forces(s):
@@ -255,3 +257,19 @@ func _spawn_enemy_above():
 	var e = Enemy.instance()
 	e.position = position + 50 * Vector2.UP
 	get_parent().add_child(e)
+
+func _toggle_tool_visibility(node):
+	var currentTool = (node as KinematicBody2D)
+	if currentTool.is_visible():
+		_set_tool_visibility(node, false)
+	else:
+		_set_tool_visibility(node, true)
+
+func _set_tool_visibility(node, show):
+	var currentTool = (node as KinematicBody2D)
+	if show:
+		currentTool.show()
+		currentTool.set_collision_layer_bit(3, 1)
+	else:
+		currentTool.hide()
+		currentTool.set_collision_layer_bit(3, 0)
