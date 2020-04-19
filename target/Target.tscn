@@ -112,6 +112,7 @@ position = Vector2( 1.18925, -4.82227 )
 scale = Vector2( 0.6, 0.6 )
 frames = SubResource( 20 )
 animation = "running"
+frame = 12
 playing = true
 
 [node name="HurtboxArea" type="Area2D" parent="."]
