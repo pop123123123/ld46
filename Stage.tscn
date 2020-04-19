@@ -72,10 +72,6 @@ current = true
 playerPath = NodePath("../Player")
 targetPath = NodePath("../Target")
 
-[node name="Player" parent="." instance=ExtResource( 6 )]
-position = Vector2( 1490.63, 510.545 )
-physics_material_override = SubResource( 1 )
-
 [node name="Target" parent="." instance=ExtResource( 2 )]
 position = Vector2( 1334.68, 677.414 )
 
@@ -160,7 +156,7 @@ offset = Vector2( -138.157, -37.7679 )
 
 [node name="Sprite3" type="Sprite" parent="Background/ParallaxLayer2"]
 modulate = Color( 0.564706, 0.564706, 0.564706, 1 )
-position = Vector2( 1230.42, 443.672 )
+position = Vector2( 1231, 443.333 )
 scale = Vector2( 2.03798, 3.04948 )
 texture = ExtResource( 15 )
 offset = Vector2( -138.157, -37.7679 )
@@ -198,7 +194,31 @@ position = Vector2( 1138.31, 530.39 )
 position = Vector2( 2138.53, 530.469 )
 
 [node name="Drone2" parent="." instance=ExtResource( 18 )]
-position = Vector2( 254.846, 396.673 )
+position = Vector2( 768, 250 )
+speed = 100.0
+loop = true
+
+[node name="Drone4" parent="." instance=ExtResource( 18 )]
+position = Vector2( 1216, 280 )
+speed = 100.0
+loop = true
+
+[node name="Player" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1784, 448 )
+physics_material_override = SubResource( 1 )
+
+[node name="Drone6" parent="." instance=ExtResource( 18 )]
+position = Vector2( 1600, 401.6 )
+speed = 100.0
+loop = true
+
+[node name="Drone7" parent="." instance=ExtResource( 18 )]
+position = Vector2( 1888, 296 )
+speed = 100.0
+loop = true
+
+[node name="Drone5" parent="." instance=ExtResource( 18 )]
+position = Vector2( 1024, 344 )
 speed = 100.0
 loop = true
 
@@ -226,6 +246,7 @@ target = NodePath("../Target")
 [connection signal="checkpointed_reached" from="CheckpointHandler" to="." method="_on_CheckpointHandler_checkpointed_reached"]
 [connection signal="body_entered" from="CheckpointHandler/Checkpoint1" to="CheckpointHandler" method="_on_Checkpoint_body_entered"]
 [connection signal="body_entered" from="CheckpointHandler/Checkpoint2" to="CheckpointHandler" method="_on_Checkpoint_body_entered"]
+[connection signal="use_interactive_tool" from="Player" to="." method="_on_Player_use_interactive_tool"]
 [connection signal="retry" from="GameOverScreen" to="." method="_on_GameOverScreen_retry"]
 [connection signal="kill_target" from="Spike" to="Target" method="_kill_target"]
 [connection signal="kill_target" from="Sniper" to="Target" method="_kill_target"]
