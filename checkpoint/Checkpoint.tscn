@@ -13,6 +13,6 @@ collision_mask = 2
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 0.421539, -81.1699 )
-scale = Vector2( 0.2, 0.2 )
+position = Vector2( -0.52977, -4.11387 )
+scale = Vector2( 1.2, 1.2 )
 texture = ExtResource( 1 )
