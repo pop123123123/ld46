@@ -19,11 +19,14 @@ func _get_spawn_pos():
 	if not doFileExists:
 		return default_spawn_position
 	
-	savefile.open(saveFileName, File.READ)
+	if savefile.open(saveFileName, File.READ) != 0:
+		return default_spawn_position
+	
 	var line = savefile.get_line()
 	savefile.close()
 	
 	var positions = line.split(',')
+	
 	return Vector2(positions[0], positions[1])
 
 func _set_spawn_pos(checkpoint_pos):
@@ -38,7 +41,16 @@ func _set_spawn_pos(checkpoint_pos):
 
 func _process(delta):
 	var reset = Input.is_action_just_pressed("reset")
+	var hard_reset = Input.is_action_just_pressed("hard_reset")
+	
+	# Reloads the savefile
 	if reset: 
+		get_tree().reload_current_scene()
+	
+	# Destroys the savefile
+	if hard_reset:
+		var dir = Directory.new()
+		dir.remove("user://checkpoint.tmp")
 		get_tree().reload_current_scene()
 
 # TODO: print gameover screen
