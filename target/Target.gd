@@ -2,8 +2,8 @@ extends KinematicBody2D
 signal gameover
 
 enum Tool{
-	WHISTLE,
 	UMBRELLA,
+	WHISTLE,
 	GUN,
 	CROWBAR
 }
