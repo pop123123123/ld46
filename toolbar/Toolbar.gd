@@ -12,7 +12,7 @@ func _ready():
 	update_selected()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	var old_index = index
 	if Input.is_action_just_released("next_toolbar"):
 		index += 1

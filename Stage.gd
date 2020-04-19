@@ -39,7 +39,7 @@ func _set_spawn_pos(checkpoint_pos):
 	
 	savefile.close()
 
-func _process(delta):
+func _process(_delta):
 	var reset = Input.is_action_just_pressed("reset")
 	var hard_reset = Input.is_action_just_pressed("hard_reset")
 	
