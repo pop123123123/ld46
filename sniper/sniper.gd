@@ -18,6 +18,9 @@ var is_aiming = false
 var anim
 var new_anim
 
+var WILHEMCOUNT = 7
+var wilhemCount = 0
+
 func _ready():
 	player = self.get_parent().get_node("Player") as RigidBody2D
 	target = self.get_parent().get_node("Target") as KinematicBody2D
@@ -143,9 +146,16 @@ func _on_ExposedTimer_timeout():
 	$GuyArea/Hitbox.disabled = true
 	
 func _on_death():
+	
 	$GuyArea.set_rotation(0)
 	is_alive = false
 	$GuyArea/Hitbox.disabled = true
+	wilhemCount = wilhemCount + 1
+	if WILHEMCOUNT == wilhemCount:
+		wilhemCount = 0
+		($deathWilhem as AudioStreamPlayer2D).play()
+	else:
+		($death as AudioStreamPlayer2D).play()
 	$GuyArea/AnimatedSprite.play("death")
 
 func hit_by_bullet():
