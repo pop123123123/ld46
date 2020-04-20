@@ -15,8 +15,8 @@ __meta__ = {
 }
 
 [node name="Background" type="ColorRect" parent="GameOverNode"]
-margin_right = 800.0
-margin_bottom = 480.0
+margin_right = 1366.0
+margin_bottom = 767.0
 color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -36,13 +36,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" type="Button" parent="GameOverNode/Display"]
-margin_left = -82.2256
-margin_top = 22.5842
-margin_right = 91.7744
-margin_bottom = 42.5842
-disabled = true
-text = "Restart at last checkpoint"
+[node name="Label" type="Label" parent="GameOverNode/Display"]
+margin_right = 40.0
+margin_bottom = 14.0
+text = "Press V to restart from checkpoint
+Press B to restart from the beginning"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -50,4 +48,3 @@ __meta__ = {
 [node name="loose" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
 volume_db = 8.376
-[connection signal="pressed" from="GameOverNode/Display/Button" to="." method="_on_Button_pressed"]
