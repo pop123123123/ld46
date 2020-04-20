@@ -74,7 +74,7 @@ func shoot():
 # Draw laser sight
 # The width is decreasing with time
 func _draw():
-	if is_aiming:
+	if is_aiming and is_alive:
 		var space_state = get_world_2d().direct_space_state
 		var result = space_state.intersect_ray(noselPosition, target.get_position())
 		
@@ -96,3 +96,6 @@ func _on_death():
 	is_alive = false
 	set_process(false)
 	$Hitbox.disabled = true
+
+func hit_by_bullet():
+	_on_death()
