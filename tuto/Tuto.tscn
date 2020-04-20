@@ -140,7 +140,7 @@ margin_bottom = -71.0
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Protect the kid.
 Move with the arrow keys.
-Change items with x, c, v, b.
+Change items with x, c, v.
 Space can also come in handy."
 __meta__ = {
 "_edit_use_anchors_": false
