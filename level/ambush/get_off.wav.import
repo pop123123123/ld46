@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/get_off.wav-b2c4e43f2d2db6ef0822b32b0d883df9.sample"
+
+[deps]
+
+source_file="res://level/ambush/get_off.wav"
+dest_files=[ "res://.import/get_off.wav-b2c4e43f2d2db6ef0822b32b0d883df9.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

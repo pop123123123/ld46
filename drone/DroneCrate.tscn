@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://drone/drone.tscn" type="PackedScene" id=1]
+[ext_resource path="res://crate/Crate.tscn" type="PackedScene" id=2]
+[ext_resource path="res://crate/crate.png" type="Texture" id=3]
+[ext_resource path="res://trigger/Trigger.tscn" type="PackedScene" id=4]
+[ext_resource path="res://drone/DroneCrate.gd" type="Script" id=5]
+
+[node name="DroneCrate" instance=ExtResource( 1 )]
+script = ExtResource( 5 )
+
+[node name="AnimatedSprite" parent="." index="2"]
+frame = 0
+
+[node name="Crate" parent="." index="4" instance=ExtResource( 2 )]
+position = Vector2( -0.428917, 37.3584 )
+collision_mask = 1025
+
+[node name="Sprite" parent="Crate" index="1"]
+position = Vector2( 0.00702095, 0.480377 )
+scale = Vector2( 0.0476601, 0.0649249 )
+texture = ExtResource( 3 )
+
+[node name="Trigger" parent="." index="5" instance=ExtResource( 4 )]
+[connection signal="body_entered" from="Trigger" to="." method="_on_Trigger_body_entered"]
+
+[editable path="Crate"]

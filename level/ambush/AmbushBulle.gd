@@ -1,4 +1,4 @@
-extends Node2D
+extends Sprite
 
 
 # Declare member variables here. Examples:
@@ -8,10 +8,14 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var displaySize = Vector2(ProjectSettings.get_setting("display/window/size/width"), ProjectSettings.get_setting("display/window/size/height"))
-	var endScreen = get_node("EndScreen")
+	self.visible = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+
+func _on_Trigger_body_entered(body):
+	self.visible = true
+	$GetOut.play()

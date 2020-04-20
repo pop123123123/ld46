@@ -1,5 +1,6 @@
 extends Node2D
 
+#var level_scenes = [preload("res://transitions/Startup.tscn"), preload("res://tuto/Tuto.tscn")] # TO ADD STARTUP SCREEN
 var level_scenes = [preload("res://tuto/Tuto.tscn")]
 var credits_scene = preload("res://transitions/Credits.tscn")
 var current_level_index = 0
@@ -8,6 +9,10 @@ var current_level
 
 func _ready():
 	_load_level(current_level_index)
+	
+func _process(_delta):
+	if Input.is_action_pressed("quit"):
+	  get_tree().quit()
 
 func _end_of_level():
 	self.remove_child(current_level)

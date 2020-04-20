@@ -4,7 +4,6 @@ signal gameover
 enum Tool{
 	UMBRELLA,
 	GUN,
-	WHISTLE,
 	NOTHING
 }
 
@@ -42,8 +41,7 @@ func _physics_process(delta):
 			self.move_and_slide_with_snap(Vector2(0, gravity), Vector2(0, 20), Vector2(0, 1), true, 4, PI)
 
 func use_tool(tool_index, _player_pos):
-	if tool_index == Tool.WHISTLE:
-		print("La petite bète a été siffled. PADANLARU")
+	pass
 
 # Hurtbox hit a treat
 # Game over

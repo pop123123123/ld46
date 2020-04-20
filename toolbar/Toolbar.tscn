@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://toolbar/umbrella.png" type="Texture" id=1]
-[ext_resource path="res://player/vuvuzela.png" type="Texture" id=2]
 [ext_resource path="res://player/rifle.png" type="Texture" id=3]
 [ext_resource path="res://toolbar/unselected.tres" type="StyleBox" id=5]
 [ext_resource path="res://toolbar/selected.tres" type="StyleBox" id=6]
@@ -16,7 +15,7 @@ __meta__ = {
 }
 
 [node name="HToolbar" type="HBoxContainer" parent="."]
-margin_right = 268.0
+margin_right = 200.0
 margin_bottom = 64.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -76,28 +75,9 @@ custom_styles/panel = ExtResource( 5 )
 [node name="Sprite" type="Sprite" parent="HToolbar/Panel3"]
 position = Vector2( 5.00687, 48.7512 )
 rotation = -0.785398
-texture = ExtResource( 2 )
 centered = false
 
 [node name="Selection" type="Panel" parent="HToolbar/Panel3"]
-margin_right = 64.0
-margin_bottom = 64.0
-rect_min_size = Vector2( 64, 64 )
-custom_styles/panel = ExtResource( 6 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Panel4" type="Panel" parent="HToolbar"]
-margin_left = 204.0
-margin_right = 268.0
-margin_bottom = 64.0
-rect_min_size = Vector2( 64, 64 )
-custom_styles/panel = ExtResource( 5 )
-
-[node name="Sprite" type="Sprite" parent="HToolbar/Panel4"]
-
-[node name="Selection" type="Panel" parent="HToolbar/Panel4"]
 margin_right = 64.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
