@@ -6,11 +6,11 @@ var player
 var target
 
 export var max_dist_fire = 300
-export var reloading_time = 5
 export var aiming_time = 2
 
 var is_alive = true
 var is_reloading = false
+var is_exposed = false
 var is_aiming = false
 var anim
 var new_anim
@@ -20,7 +20,6 @@ func _ready():
 	target = self.get_parent().get_node("Target") as KinematicBody2D
 	
 	$AimTimer.wait_time = aiming_time
-	$CoolDownTimer.wait_time = reloading_time
 	$GuyArea/Hitbox.disabled = true
 	
 	set_process(true)
@@ -33,9 +32,11 @@ func _process(delta):
 	# Animation handling
 	if is_alive:
 		if is_reloading:
-			new_anim = "shoot"
+			new_anim = "hide"
 		elif is_aiming:
 			new_anim = "show"
+		elif is_exposed:
+			new_anim = "shoot"
 		else:
 			new_anim = "hide"
 	else:
@@ -58,7 +59,7 @@ func look_target():
 
 func can_aim_and_shoot():
 	var dist = self.get_position().distance_to(target.get_position())
-	return dist < max_dist_fire && is_alive && not is_reloading && not is_aiming
+	return dist < max_dist_fire && is_alive && not is_exposed && not is_reloading && not is_aiming
 
 func aim_and_shoot():
 	var direction = sign((self.get_position()-target.get_position()).x)
@@ -75,13 +76,6 @@ func aim_and_shoot():
 	
 func shoot():
 	$ShootAudioPlayer.play()
-	
-	$CoolDownTimer.start()
-	
-	# The sniper is invincible when reloading
-	$GuyArea/Hitbox.disabled = true
-	
-	#TODO: Spawn bullet
 
 	# For the moment: raycasts
 	var space_state = get_world_2d().direct_space_state
@@ -125,10 +119,19 @@ func _on_AimTimer_timeout():
 	is_aiming = false
 	if is_alive:
 		shoot()
-	is_reloading = true
+		$ExposedTimer.start()
+		is_exposed = true
 
 func _on_CoolDownTimer_timeout():
 	is_reloading = false
+	
+func _on_ExposedTimer_timeout():
+	is_exposed = false
+	$CoolDownTimer.start()
+	is_reloading = true
+	
+	# The sniper is invincible when reloading
+	$GuyArea/Hitbox.disabled = true
 	
 func _on_death():
 	$GuyArea.set_rotation(0)
