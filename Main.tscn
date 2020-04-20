@@ -26,8 +26,6 @@ script = ExtResource( 7 )
 
 [node name="Camera" parent="." instance=ExtResource( 4 )]
 current = true
-playerPath = NodePath("../Entities/Player")
-targetPath = NodePath("../Entities/Target")
 
 [node name="CheckpointHandler" parent="." instance=ExtResource( 10 )]
 
@@ -87,12 +85,10 @@ loop = true
 
 [node name="Sniper" parent="Entities/Enemies" instance=ExtResource( 12 )]
 position = Vector2( -200, -269.333 )
-target = NodePath("../../Target")
 max_dist_fire = 1000
 
 [node name="Sniper2" parent="Entities/Enemies" instance=ExtResource( 12 )]
 position = Vector2( -305.659, -268.956 )
-target = NodePath("../../Target")
 max_dist_fire = 1000
 
 [node name="Player" parent="Entities" instance=ExtResource( 1 )]
