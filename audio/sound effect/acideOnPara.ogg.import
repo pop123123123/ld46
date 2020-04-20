@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/acideOnPara.ogg-38e870bd58d97bc7a11cf6db1d015b8d.oggstr"
+
+[deps]
+
+source_file="res://audio/sound effect/acideOnPara.ogg"
+dest_files=[ "res://.import/acideOnPara.ogg-38e870bd58d97bc7a11cf6db1d015b8d.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

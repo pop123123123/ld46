@@ -1,8 +1,8 @@
 extends Control
 
-const COUNT = 4
+const COUNT = 3
 
-export var index = 3
+export var index = 2
 
 var SelectedTheme = load("res://toolbar/selected.tres") as Theme
 var UnselectedTheme = load("res://toolbar/unselected.tres") as Theme
@@ -23,14 +23,12 @@ func _process(_delta):
 		index = 0
 	elif Input.is_action_just_released("select_gun"):
 		index = 1
-	elif Input.is_action_just_released("select_whistle"):
-		index = 2
 	elif Input.is_action_just_released("select_hands"):
-		index = 3
+		index = 2
 		
 	# Godot script has a strange modulus
 	while index < 0:
-		index += 4
+		index += 3
 	index = index % COUNT
 	if old_index != index:
 		update_selected()

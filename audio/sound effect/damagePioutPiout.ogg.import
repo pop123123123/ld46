@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/damagePioutPiout.ogg-e061459bb37765f60a238f1e2e4af48f.oggstr"
+
+[deps]
+
+source_file="res://audio/sound effect/damagePioutPiout.ogg"
+dest_files=[ "res://.import/damagePioutPiout.ogg-e061459bb37765f60a238f1e2e4af48f.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

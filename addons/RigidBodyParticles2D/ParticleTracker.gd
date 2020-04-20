@@ -17,11 +17,11 @@ func _ready():
 
 	var impulse_angle_rad    = deg2rad(impulse_angle + global_rotation_degrees)
 	var impulse_angle_vector = Vector2( cos(impulse_angle_rad), sin(impulse_angle_rad) ).normalized()
-	particle.apply_impulse( Vector2(0,0), impulse_angle_vector * impulse )
+	#particle.apply_impulse( Vector2(0,0), impulse_angle_vector * impulse )
 
 	var force_angle_rad    = deg2rad(force_angle + global_rotation_degrees)
 	var force_angle_vector = Vector2( cos(force_angle_rad), sin(force_angle_rad) ).normalized()
-	particle.add_force( Vector2(0,0), force_angle_vector * force )
+	#particle.add_force( Vector2(0,0), force_angle_vector * force )
 
 	particle.rotation_degrees = initial_rotation
 

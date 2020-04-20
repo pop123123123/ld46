@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/aspirine.ogg-adf7e2f49492060f35842958375e47e6.oggstr"
+
+[deps]
+
+source_file="res://audio/sound effect/aspirine.ogg"
+dest_files=[ "res://.import/aspirine.ogg-adf7e2f49492060f35842958375e47e6.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -9,6 +9,10 @@ var current_level
 
 func _ready():
 	_load_level(current_level_index)
+	
+func _process(_delta):
+	if Input.is_action_pressed("quit"):
+	  get_tree().quit()
 
 func _end_of_level():
 	self.remove_child(current_level)
