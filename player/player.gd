@@ -108,7 +108,6 @@ func _process(_delta):
 			shoot = false
 
 func _integrate_forces(s):
-	if _can_control():
 		# Retrieves the index of the selected tool
 		var tool_index = self.get_node("Tools/Toolbar").index
 		
@@ -119,11 +118,11 @@ func _integrate_forces(s):
 		var new_siding_left = siding_left
 		
 		# Get the controls.
-		var move_left = Input.is_action_pressed("move_left")
-		var move_right = Input.is_action_pressed("move_right")
-		var jump = Input.is_action_pressed("jump")
+		var move_left = Input.is_action_pressed("move_left") && _can_control()
+		var move_right = Input.is_action_pressed("move_right") && _can_control()
+		var jump = Input.is_action_pressed("jump") && _can_control()
 		#var shoot = Input.is_action_pressed("shoot")
-		var spawn = Input.is_action_pressed("spawn")
+		var spawn = Input.is_action_pressed("spawn") && _can_control()
 		
 		if spawn:
 			call_deferred("_spawn_enemy_above")
@@ -169,7 +168,6 @@ func _integrate_forces(s):
 				lv.y += STOP_JUMP_FORCE * step
 		
 		if not prevJumping and on_floor:
-			print("PUF")
 			($fall as AudioStreamPlayer).play()
 		
 		if on_floor:
@@ -266,7 +264,7 @@ func _integrate_forces(s):
 			siding_left = new_siding_left
 		
 		# Change animation.
-		if new_anim != anim:
+		if _can_control() && new_anim != anim:
 			anim = new_anim
 			($AnimatedSprite as AnimatedSprite).play(anim)
 		
