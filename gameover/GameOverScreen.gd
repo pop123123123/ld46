@@ -8,11 +8,11 @@ func _ready():
 
 # Set GameOver screen size to window size
 func update_to_window_size():
-	var windowSize = get_viewport().get_size()
+	var displaySize = Vector2(ProjectSettings.get_setting("display/window/size/width"), ProjectSettings.get_setting("display/window/size/height"))
 	var background = (get_node("GameOverNode/Background") as ColorRect)
 	var display = (get_node("GameOverNode/Display") as Node2D)
-	background.set_size(windowSize)
-	display.set_position(Vector2(windowSize.x / 2, windowSize.y / 2))
+	background.set_size(displaySize)
+	display.set_position(displaySize / 2)
 
 func launch_game_over():
 	($loose as AudioStreamPlayer).play()
