@@ -71,7 +71,6 @@ var airborne_time = 1e20
 var shoot_time = 1e20
 
 var Bullet = preload("res://player/Bullet.tscn")
-var Enemy = preload("res://enemy/Enemy.tscn")
 
 var tool_index = Tool.NOTHING
 
@@ -303,11 +302,6 @@ func _shot_bullet():
 	($SoundShoot as AudioStreamPlayer2D).play()
 	
 	add_collision_exception_with(bi) # Make bullet and this not collide.
-
-func _spawn_enemy_above():
-	var e = Enemy.instance()
-	e.position = position + 50 * Vector2.UP
-	get_parent().add_child(e)
 
 func switch_umbrella(activate):
 	if activate:
