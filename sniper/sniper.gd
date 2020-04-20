@@ -5,6 +5,9 @@ signal shock_player
 var player
 var target
 
+export var use_trigger = true
+var trigger_activated = false
+
 export var max_dist_fire = 300
 export var aiming_time = 2
 
@@ -59,7 +62,10 @@ func look_target():
 
 func can_aim_and_shoot():
 	var dist = self.get_position().distance_to(target.get_position())
-	return dist < max_dist_fire && is_alive && not is_exposed && not is_reloading && not is_aiming
+	return dist < max_dist_fire && is_alive && not is_exposed && not is_reloading && not is_aiming && trigger_check()
+
+func trigger_check():
+	return not use_trigger || trigger_activated
 
 func aim_and_shoot():
 	var direction = sign((self.get_position()-target.get_position()).x)
@@ -144,3 +150,6 @@ func _on_death():
 
 func hit_by_bullet():
 	_on_death()
+
+func _on_Trigger_body_entered(_body):
+	trigger_activated = true
