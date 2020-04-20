@@ -1,13 +1,11 @@
 extends Node2D
+signal end_of_level
+signal reload_level
 
 const saveFileName = "user://checkpoint.tmp"
 
-var level_path = "res://main/MainScene.tscn"
-var levelInstance = null
-
 # Retrieves savefile's spawn position and applies it to the player
 func _ready():
-	levelInstance = load(level_path)
 	var player = self.get_node("Player")
 	var target = self.get_node("Target")
 	
@@ -70,6 +68,4 @@ func _on_EndOfLevel_body_entered(body):
 	emit_signal("end_of_level")
 
 func retry():
-	queue_free()
-	var your_current_level_var = levelInstance.instance()
-	get_parent().add_child(your_current_level_var)
+	emit_signal("reload_level")
