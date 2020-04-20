@@ -101,7 +101,7 @@ position = Vector2( 671.571, -256 )
 speed = 0.0
 
 [node name="AnimatedSprite" parent="DroneCrate" index="2"]
-frame = 1
+frame = 2
 
 [node name="Crate" parent="DroneCrate" index="4"]
 position = Vector2( -0.429, 40 )
@@ -131,7 +131,7 @@ position = Vector2( 0, -21.1924 )
 shape = SubResource( 2 )
 
 [node name="Trigger" parent="DroneCrate" index="5"]
-position = Vector2( -330.087, 276.222 )
+position = Vector2( -330.087, 341.296 )
 
 [node name="Traps" type="Node2D" parent="." index="11"]
 
