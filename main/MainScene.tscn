@@ -162,8 +162,6 @@ collision_mask = 0
 
 [node name="Camera" parent="." instance=ExtResource( 12 )]
 current = true
-playerPath = NodePath("../../MainScene/Player")
-targetPath = NodePath("../../MainScene/Target")
 
 [node name="Target" parent="." instance=ExtResource( 24 )]
 position = Vector2( 204.474, 478.347 )
@@ -220,8 +218,6 @@ scale = Vector2( 1.84, 0.84001 )
 
 [node name="Sniper" parent="." instance=ExtResource( 22 )]
 position = Vector2( 1673.01, 492.661 )
-player = NodePath("../../MainScene/Player")
-target = NodePath("../../MainScene/Target")
 [connection signal="gameover" from="Target" to="Player" method="_on_Target_gameover"]
 [connection signal="gameover" from="Target" to="." method="_on_Target_gameover"]
 [connection signal="checkpointed_reached" from="CheckpointHandler" to="." method="_on_CheckpointHandler_checkpointed_reached"]

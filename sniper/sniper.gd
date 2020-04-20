@@ -2,8 +2,8 @@ extends Node2D
 signal kill_target
 signal shock_player
 
-export(NodePath) var player
-export(NodePath) var target
+var player
+var target
 
 export var max_dist_fire = 300
 export var reloading_time = 5
@@ -16,8 +16,8 @@ var anim
 var new_anim
 
 func _ready():
-	player = get_node(player) as RigidBody2D
-	target = get_node(target) as KinematicBody2D
+	player = self.get_parent().get_node("Player") as RigidBody2D
+	target = self.get_parent().get_node("Target") as KinematicBody2D
 	
 	$AimTimer.wait_time = aiming_time
 	$CoolDownTimer.wait_time = reloading_time
