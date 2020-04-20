@@ -50,8 +50,8 @@ var anim = ""
 # One animation per tool
 var anim_iddle_tool = ["idleUmbrella", "idleGun", "idle", "idle"]
 var anim_run_tool = ["runUmbrella", "runGun", "run", "run"]
-var anim_jumping_tool = ["jumping", "jumpingGun", "jumping", "jumping"]
-var anim_falling_tool = ["falling", "fallingGun", "falling", "falling"]
+var anim_jumping_tool = ["jumpingUmbrella", "jumpingGun", "jumping", "jumping"]
+var anim_falling_tool = ["fallingUmbrella", "fallingGun", "falling", "falling"]
 
 var siding_left = false
 var jumping = false
