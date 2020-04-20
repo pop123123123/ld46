@@ -18,6 +18,16 @@ func _process(_delta):
 		index += 1
 	elif Input.is_action_just_released("previous_toolbar"):
 		index -= 1
+		
+	if Input.is_action_just_released("select_umbrella"):
+		index = 0
+	elif Input.is_action_just_released("select_gun"):
+		index = 1
+	elif Input.is_action_just_released("select_whistle"):
+		index = 2
+	elif Input.is_action_just_released("select_hands"):
+		index = 3
+		
 	# Godot script has a strange modulus
 	while index < 0:
 		index += 4
