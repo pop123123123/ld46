@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/walkHero.ogg-2fb17b1991e5f0af99f0e4ade32a4b12.oggstr"
+
+[deps]
+
+source_file="res://audio/sound effect/walkHero.ogg"
+dest_files=[ "res://.import/walkHero.ogg-2fb17b1991e5f0af99f0e4ade32a4b12.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

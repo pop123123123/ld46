@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/PARAPLUIE.ogg-52e1c4f712b731f79263dc3b188788d3.oggstr"
+
+[deps]
+
+source_file="res://audio/sound effect/PARAPLUIE.ogg"
+dest_files=[ "res://.import/PARAPLUIE.ogg-52e1c4f712b731f79263dc3b188788d3.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
