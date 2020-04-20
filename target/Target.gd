@@ -3,9 +3,9 @@ signal gameover
 
 enum Tool{
 	UMBRELLA,
-	WHISTLE,
 	GUN,
-	CROWBAR
+	WHISTLE,
+	NOTHING
 }
 
 export var force = 1 * 60
@@ -35,10 +35,6 @@ func _physics_process(delta):
 func use_tool(tool_index, _player_pos):
 	if tool_index == Tool.WHISTLE:
 		print("La petite bète a été siffled. PADANLARU")
-		if moving:
-			moving = false
-		else:
-			moving = true
 
 # Hurtbox hit a treat
 # Game over

@@ -121,7 +121,7 @@ position = Vector2( 1.18925, -4.82227 )
 scale = Vector2( 0.6, 0.6 )
 frames = SubResource( 20 )
 animation = "running"
-frame = 12
+frame = 1
 playing = true
 
 [node name="HurtboxArea" type="Area2D" parent="."]
@@ -142,5 +142,4 @@ stream = ExtResource( 5 )
 volume_db = 13.96
 max_distance = 500.0
 attenuation = 1.5
-
 [connection signal="body_entered" from="HurtboxArea" to="." method="_on_HurtboxArea_body_entered"]
