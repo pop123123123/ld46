@@ -10,6 +10,8 @@ var trigger_activated = false
 
 export var max_dist_fire = 300
 export var aiming_time = 2
+export var fix_death_direction = false
+export var left_direction : bool
 
 var is_alive = true
 var is_reloading = false
@@ -146,6 +148,11 @@ func _on_ExposedTimer_timeout():
 	$GuyArea/Hitbox.disabled = true
 	
 func _on_death():
+	if fix_death_direction:
+		if left_direction:
+			update_aim_left()
+		else:
+			update_aim_right()
 	
 	$GuyArea.set_rotation(0)
 	is_alive = false

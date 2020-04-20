@@ -120,6 +120,7 @@ max_dist_fire = 600
 aiming_time = 1
 
 [node name="Sprite" type="Sprite" parent="."]
+visible = false
 scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 5 )
 
@@ -145,7 +146,7 @@ script = ExtResource( 8 )
 position = Vector2( -59.481, 27.616 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 20 )
-animation = "hide"
+animation = "show"
 frame = 4
 playing = true
 flip_h = true
