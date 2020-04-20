@@ -9,7 +9,7 @@
 [node name="Background" type="ParallaxBackground"]
 
 [node name="Sky" type="ParallaxLayer" parent="."]
-motion_scale = Vector2( 0.1, 1 )
+motion_scale = Vector2( 0.1, 0.1 )
 
 [node name="SkyBoxClear" type="Sprite" parent="Sky"]
 scale = Vector2( 100, 4 )
@@ -21,7 +21,7 @@ scale = Vector2( 4, 4 )
 texture = ExtResource( 4 )
 
 [node name="Pyramids" type="ParallaxLayer" parent="."]
-motion_scale = Vector2( 0.2, 1 )
+motion_scale = Vector2( 0.2, 0.2 )
 motion_mirroring = Vector2( 2048, 0 )
 
 [node name="Sprite" type="Sprite" parent="Pyramids"]
@@ -43,7 +43,7 @@ texture = ExtResource( 1 )
 offset = Vector2( -6.21361, 8.69903 )
 
 [node name="CityNear" type="ParallaxLayer" parent="."]
-motion_scale = Vector2( 0.4, 1 )
+motion_scale = Vector2( 0.4, 0.4 )
 motion_mirroring = Vector2( 2048, 0 )
 
 [node name="Sprite" type="Sprite" parent="CityNear"]
@@ -71,7 +71,7 @@ scale = Vector2( 2, 2 )
 texture = ExtResource( 2 )
 
 [node name="CityFar" type="ParallaxLayer" parent="."]
-motion_scale = Vector2( 0.6, 1 )
+motion_scale = Vector2( 0.6, 0.6 )
 motion_mirroring = Vector2( 2048, 0 )
 
 [node name="Sprite" type="Sprite" parent="CityFar"]
@@ -95,7 +95,7 @@ scale = Vector2( 2, 2 )
 texture = ExtResource( 2 )
 
 [node name="Dunes" type="ParallaxLayer" parent="."]
-motion_scale = Vector2( 0.8, 1 )
+motion_scale = Vector2( 0.8, 0.8 )
 motion_mirroring = Vector2( 2048, 0 )
 
 [node name="Sprite" type="Sprite" parent="Dunes"]
