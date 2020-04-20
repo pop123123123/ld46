@@ -46,7 +46,12 @@ func _process(delta):
 		$GuyArea/AnimatedSprite.play(anim)
 		
 	var angle = $GuyArea.get_global_position().angle_to_point(target.get_position())
-	$GuyArea.set_rotation(angle+PI)
+	
+	var direction = sign((self.get_position()-target.get_position()).x)
+	if direction == -1:
+		$GuyArea.set_rotation(angle+PI)
+	else:
+		$GuyArea.set_rotation(angle)
 	
 func can_aim_and_shoot():
 	var dist = self.get_position().distance_to(target.get_position())
@@ -92,11 +97,10 @@ func _draw():
 	if is_aiming and is_alive:
 		var space_state = get_world_2d().direct_space_state
 		# Global coordinates
-		var result = space_state.intersect_ray($GuyArea/GunEnd.get_global_position(), target.get_position())
+		var result = space_state.intersect_ray($GuyArea.get_global_position(), target.get_position(), [], 0xFFFFFFFF)
 		
 		var time_left = $AimTimer.get_time_left()
 		# Screen coordinates
-
 		var gun = $GuyArea.transform.xform($GuyArea/GunEnd.get_position())
 		draw_line(gun, result.position-self.get_position(), Color(140.0/255, 145.0/255, 247.0/255), time_left*(max_ray_width/aiming_time))
 		draw_line(gun, result.position-self.get_position(), Color(1,1,1), time_left*(max_ray_width/aiming_time/3))
@@ -127,6 +131,7 @@ func _on_death():
 	is_alive = false
 	set_process(false)
 	$GuyArea/Hitbox.disabled = true
+	$GuyArea/AnimatedSprite.play("death")
 
 func hit_by_bullet():
 	_on_death()
