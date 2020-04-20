@@ -12,7 +12,13 @@ export var force = 1 * 60
 var gravity = force * 1000
 var moving = true
 
+export var acid_resistance = 3
+var lifepoints
+
 var prevPosition = Vector2(0, 0)
+
+func _ready():
+	lifepoints = acid_resistance
 
 func _process(_delta):
 	if (prevPosition - self.position).length() > 1.5:
@@ -39,7 +45,10 @@ func use_tool(tool_index, _player_pos):
 # Hurtbox hit a treat
 # Game over
 func _on_HurtboxArea_body_entered(_body):
-	_kill_target()
+	$LifebarTimer.start()
+	lifepoints -= 1
+	if lifepoints == 0:
+		_kill_target()
 
 func _kill_target():
 	moving = false
@@ -47,3 +56,6 @@ func _kill_target():
 	($AnimatedSprite as AnimatedSprite).play("death")
 	#hide()
 	emit_signal("gameover")
+
+func _on_LifebarTimer_timeout():
+	lifepoints = acid_resistance
