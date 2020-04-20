@@ -4,7 +4,7 @@
 
 [node name="Drone" instance=ExtResource( 1 )]
 position = Vector2( -2, 0 )
-speed = 1.0
+speed = -100.0
 
 [node name="AnimatedSprite" parent="." index="2"]
 frame = 0
