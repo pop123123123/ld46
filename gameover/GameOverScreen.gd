@@ -28,11 +28,7 @@ func launch_game_over():
 	update_to_window_size()
 	# Wait a second before showing GameOver screen
 	yield(get_tree().create_timer(1), "timeout")
-	self.get_node("GameOverNode/Display/Button").disabled = false
 	var gameOver = get_node("GameOverNode")
 	while gameOver.modulate.a < 255:
 		gameOver.modulate.a  += 0.02
 		yield(get_tree(),"idle_frame")
-
-func _on_Button_pressed():
-	emit_signal("retry")

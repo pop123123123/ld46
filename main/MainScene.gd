@@ -49,7 +49,6 @@ func _process(_delta):
 	
 	# Reloads the savefile
 	if reset:
-		print('lol')
 		retry()
 	
 	# Destroys the savefile
@@ -58,7 +57,6 @@ func _process(_delta):
 		dir.remove("user://checkpoint.tmp")
 		retry()
 
-# TODO: print gameover screen
 func _on_Target_gameover():
 	self.get_node("GameOverScreen").launch_game_over()
 
@@ -67,9 +65,6 @@ func _on_Player_use_interactive_tool(tool_index, player_position):
 
 func _on_CheckpointHandler_checkpointed_reached(checkpoint_pos):
 	_set_spawn_pos(checkpoint_pos)
-
-func _on_GameOverScreen_retry():
-	retry()
 
 func retry():
 	queue_free()

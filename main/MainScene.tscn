@@ -27,7 +27,7 @@
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 0.0
 
-[node name="Stage" type="Node2D"]
+[node name="MainScene" type="Node2D"]
 script = ExtResource( 20 )
 
 [node name="Background" type="ParallaxBackground" parent="."]
@@ -162,11 +162,9 @@ collision_mask = 0
 
 [node name="Camera" parent="." instance=ExtResource( 12 )]
 current = true
-playerPath = NodePath("../Player")
-targetPath = NodePath("../Target")
 
 [node name="Target" parent="." instance=ExtResource( 24 )]
-position = Vector2( 1080, 527.573 )
+position = Vector2( 204.474, 478.347 )
 
 [node name="Drone" parent="." instance=ExtResource( 6 )]
 position = Vector2( 448, 376 )
@@ -199,7 +197,7 @@ speed = 100.0
 loop = true
 
 [node name="Player" parent="." instance=ExtResource( 15 )]
-position = Vector2( 968, 368 )
+position = Vector2( 253.009, 462.789 )
 physics_material_override = SubResource( 1 )
 
 [node name="Drone3" parent="." instance=ExtResource( 19 )]
@@ -220,8 +218,7 @@ scale = Vector2( 1.84, 0.84001 )
 
 [node name="Sniper" parent="." instance=ExtResource( 22 )]
 position = Vector2( 1673.01, 492.661 )
-player = NodePath("../Player")
-target = NodePath("../Target")
+[connection signal="gameover" from="Target" to="Player" method="_on_Target_gameover"]
 [connection signal="gameover" from="Target" to="." method="_on_Target_gameover"]
 [connection signal="checkpointed_reached" from="CheckpointHandler" to="." method="_on_CheckpointHandler_checkpointed_reached"]
 [connection signal="body_entered" from="CheckpointHandler/Checkpoint1" to="CheckpointHandler" method="_on_Checkpoint_body_entered"]

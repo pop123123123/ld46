@@ -1,14 +1,12 @@
 extends Camera2D
 
-export(NodePath) var playerPath
-export(NodePath) var targetPath
-
 var player
 var target
 
 func _ready():
-	player = get_node(playerPath) as RigidBody2D
-	target = get_node(targetPath) as KinematicBody2D
+	player = self.get_parent().get_node("Player")
+	target = self.get_parent().get_node("Target")
+
 	if player!=null&&target!=null:
 		set_process(true)
 
