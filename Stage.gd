@@ -1,6 +1,7 @@
 extends Node2D
 
 var level_scenes = [preload("res://tuto/Tuto.tscn")]
+var credits_scene = preload("res://transitions/Credits.tscn")
 var current_level_index = 0
 
 var current_level
@@ -13,8 +14,7 @@ func _end_of_level():
 	current_level_index += 1
 	
 	if current_level_index == level_scenes.size():
-		#TODO: credits screen ?
-		pass
+		add_child(credits_scene.instance())
 	else:
 		_load_level(current_level_index)
 	

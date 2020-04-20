@@ -18,8 +18,8 @@ func launch_game_over():
 	($loose as AudioStreamPlayer).play()
 	update_to_window_size()
 	# Wait a second before showing GameOver screen
+	var gameOver = get_node("GameOverNode") as Control
 	yield(me.create_timer(1), "timeout")
-	var gameOver = get_node("GameOverNode")
 	while gameOver.modulate.a < 255:
-		gameOver.modulate.a  += 1
+		gameOver.modulate.a += 1
 		yield(me,"idle_frame")

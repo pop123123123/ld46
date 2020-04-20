@@ -13,6 +13,18 @@ script = ExtResource( 5 )
 
 [node name="GameOverScreen" parent="." instance=ExtResource( 2 )]
 
+[node name="FadeToBlack" type="CanvasLayer" parent="."]
+
+[node name="BlackMatte" type="ColorRect" parent="FadeToBlack"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 40.0
+margin_bottom = 40.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Camera" parent="." instance=ExtResource( 1 )]
 current = true
 
