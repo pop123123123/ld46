@@ -103,7 +103,7 @@ extents = Vector2( 21.027, 24.0124 )
 collision_layer = 2
 collision_mask = 3
 script = ExtResource( 2 )
-force = 1000
+force = 30
 
 [node name="damage" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 6 )
@@ -121,7 +121,7 @@ position = Vector2( 1.18925, -4.82227 )
 scale = Vector2( 0.6, 0.6 )
 frames = SubResource( 20 )
 animation = "running"
-frame = 1
+frame = 2
 playing = true
 
 [node name="HurtboxArea" type="Area2D" parent="."]

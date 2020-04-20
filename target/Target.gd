@@ -26,9 +26,9 @@ func _process(_delta):
 func _physics_process(delta):
 	if moving:
 		if move_and_collide(Vector2(0, 5), false, false, true):
-			self.move_and_slide_with_snap(Vector2(force*delta, 0), Vector2(0, 20), Vector2(0, 1), true, 4, PI)
+			self.move_and_slide_with_snap(Vector2(force, 0), Vector2(0, 20), Vector2(0, 1), true, 4, PI)
 		else:
-			self.move_and_slide_with_snap(Vector2(0, gravity*delta), Vector2(0, 20), Vector2(0, 1), true, 4, PI)
+			self.move_and_slide_with_snap(Vector2(0, gravity), Vector2(0, 20), Vector2(0, 1), true, 4, PI)
 	else:
 		pass
 
