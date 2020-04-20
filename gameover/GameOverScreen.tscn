@@ -39,8 +39,8 @@ __meta__ = {
 [node name="Label" type="Label" parent="GameOverNode/Display"]
 margin_right = 40.0
 margin_bottom = 14.0
-text = "Press V to restart from checkpoint
-Press B to restart from the beginning"
+text = "Press F to restart from checkpoint
+Press G to restart from the beginning"
 __meta__ = {
 "_edit_use_anchors_": false
 }
