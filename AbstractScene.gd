@@ -65,7 +65,18 @@ func _on_CheckpointHandler_checkpointed_reached(checkpoint_pos):
 	_set_spawn_pos(checkpoint_pos)
 
 func _on_EndOfLevel_body_entered(body):
+	var me = get_tree()
+	var displaySize = Vector2(ProjectSettings.get_setting("display/window/size/width"), ProjectSettings.get_setting("display/window/size/height"))
+	var matte = get_node("FadeToBlack/BlackMatte") as ColorRect
+	matte.set_size(displaySize)
+	matte.show()
+	# Wait a second before changing the scene
+	yield(me.create_timer(1), "timeout")
+	while matte.modulate.a < 255:
+		matte.modulate.a += 1
+		yield(me,"idle_frame")
 	emit_signal("end_of_level")
+	matte.hide()
 
 func retry():
 	emit_signal("reload_level")
