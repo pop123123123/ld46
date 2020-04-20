@@ -48,10 +48,10 @@ var prevJumping = false
 
 var anim = ""
 # One animation per tool
-var anim_iddle_tool = ["idle", "idle", "idle", "idle"]
-var anim_run_tool = ["run", "run", "run", "run"]
-var anim_jumping_tool = ["jumping", "jumping", "jumping", "jumping"]
-var anim_falling_tool = ["falling", "falling", "falling", "falling"]
+var anim_iddle_tool = ["idleUmbrella", "idleGun", "idle", "idle"]
+var anim_run_tool = ["runUmbrella", "runGun", "run", "run"]
+var anim_jumping_tool = ["jumping", "jumpingGun", "jumping", "jumping"]
+var anim_falling_tool = ["falling", "fallingGun", "falling", "falling"]
 
 var siding_left = false
 var jumping = false
@@ -76,7 +76,9 @@ var Enemy = preload("res://enemy/Enemy.tscn")
 var tool_index = Tool.NOTHING
 
 func _ready():
-	hide_all_items()
+	switch_umbrella(false)
+	pass
+	#hide_all_items()
 
 func _process(_delta):
 	if _can_control():
@@ -88,15 +90,16 @@ func _process(_delta):
 		# On tool change
 		if new_tool_index != tool_index:
 			tool_index = new_tool_index
-			_set_tool_visibility(get_node("Umbrella"), false)
-			_set_tool_visibility(get_node("Gun"), false)
-			_set_tool_visibility(get_node("Whistle"), false)
+			switch_umbrella(false)
 			if tool_index == Tool.UMBRELLA:
-				_set_tool_visibility(get_node("Umbrella"), true)
+				$AnimatedSprite.set_position(Vector2(0, -13.622))
+				switch_umbrella(true)
 			elif tool_index == Tool.GUN:
-				_set_tool_visibility(get_node("Gun"), true)
+				($AnimatedSprite).set_position(Vector2(0, 0))
 			elif tool_index == Tool.WHISTLE:
-				_set_tool_visibility(get_node("Whistle"), true)
+				($AnimatedSprite).set_position(Vector2(0, 0))
+			else:
+				($AnimatedSprite).set_position(Vector2(0, 0))
 			
 		# Use a tool
 		if use:
@@ -307,29 +310,17 @@ func _spawn_enemy_above():
 	e.position = position + 50 * Vector2.UP
 	get_parent().add_child(e)
 
-func _toggle_tool_visibility(node):
-	if node.is_visible():
-		_set_tool_visibility(node, false)
+func switch_umbrella(activate):
+	if activate:
+		($Umbrella).set_collision_layer_bit(3, 1)
 	else:
-		_set_tool_visibility(node, true)
-
-func _set_tool_visibility(node, show):
-	if show:
-		node.show()
-		if node is KinematicBody2D:
-			(node as KinematicBody2D).set_collision_layer_bit(3, 1)
-	else:
-		node.hide()
-		if node is KinematicBody2D:
-			(node as KinematicBody2D).set_collision_layer_bit(3, 0)
+		($Umbrella).set_collision_layer_bit(3, 0)
 			
 func _can_control():
 	return not is_shocked && is_alive
 
-func hide_all_items():
-	_set_tool_visibility(get_node("Umbrella"), false)
-	_set_tool_visibility(get_node("Gun"), false)
-	_set_tool_visibility(get_node("Whistle"), false)
+#func hide_all_items():
+#	_set_tool_visibility(get_node("Whistle"), false)
 
 func _on_shock():
 	$ShockTimer.start()
@@ -343,6 +334,6 @@ func _on_ShockTimer_timeout():
 
 func _on_Target_gameover():
 	is_alive = false
-	hide_all_items()
+	#hide_all_item
 	anim = "fail"
 	($AnimatedSprite as AnimatedSprite).play(anim)
