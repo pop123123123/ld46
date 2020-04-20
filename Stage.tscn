@@ -8,9 +8,11 @@
 script = ExtResource( 5 )
 
 [node name="MainScene" parent="." instance=ExtResource( 1 )]
+position = Vector2( -40.9651, -104 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 24 )
+volume_db = -10.47
 autoplay = true
 __meta__ = {
 "_editor_description_": ""
