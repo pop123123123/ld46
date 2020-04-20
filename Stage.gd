@@ -1,7 +1,13 @@
 extends Node2D
 
-var level_scenes = [preload("res://transitions/Startup.tscn"), preload("res://tuto/Tuto.tscn")] # TO ADD STARTUP SCREEN
-# [preload("res://transitions/Startup.tscn"), preload("res://tuto/Tuto.tscn"), preload("res://levels/Levelshooting.tscn"), preload("res://level/Ambush.tscn"), preload("res://levelClassicRemastered.tscn")]
+var level_scenes = [
+	preload("res://transitions/Startup.tscn"),
+	preload("res://tuto/Tuto.tscn"),
+	preload("res://levels/Levelshooting.tscn"),
+	preload("res://levels/levelClassicRemastered.tscn"),
+	preload("res://level/Ambush.tscn")
+]
+
 var credits_scene = preload("res://transitions/Credits.tscn")
 var current_level_index = 0
 
