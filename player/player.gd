@@ -297,7 +297,7 @@ func _shot_bullet():
 	bi.position = pos
 	get_parent().add_child(bi)
 	
-	bi.linear_velocity = Vector2(400.0 * ss, -40)
+	bi.linear_velocity = Vector2(400.0 * ss, 0)
 	
 	($AnimatedSprite/Smoke as Particles2D).restart()
 	($SoundShoot as AudioStreamPlayer2D).play()
