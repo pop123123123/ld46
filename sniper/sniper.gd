@@ -78,11 +78,11 @@ func shoot():
 	# For the moment: raycasts
 	var space_state = get_world_2d().direct_space_state
 	var result = space_state.intersect_ray($GuyArea/GunEnd.get_global_position(), target.get_position())
-	print(result.collider.get_name())
+	
 	# If the target is not covered: kills it
 	if result.collider == target:
 		emit_signal("kill_target")
-	if result.collider == player:
+	if result.collider == player || result.collider.get_name() == "Umbrella":
 		emit_signal("shock_player")
 
 # Draw laser sight
