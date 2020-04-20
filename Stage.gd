@@ -1,5 +1,6 @@
 extends Node2D
 
+#var level_scenes = [preload("res://transitions/Startup.tscn"), preload("res://tuto/Tuto.tscn")] # TO ADD STARTUP SCREEN
 var level_scenes = [preload("res://tuto/Tuto.tscn")]
 var credits_scene = preload("res://transitions/Credits.tscn")
 var current_level_index = 0
