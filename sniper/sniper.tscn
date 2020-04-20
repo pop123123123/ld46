@@ -117,7 +117,6 @@ extents = Vector2( 24.6803, 35.3469 )
 [node name="Sniper" type="Node2D"]
 script = ExtResource( 2 )
 max_dist_fire = 600
-aiming_time = 1
 
 [node name="Sprite" type="Sprite" parent="."]
 visible = false
@@ -146,8 +145,8 @@ script = ExtResource( 8 )
 position = Vector2( -59.481, 27.616 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 20 )
-animation = "shoot"
-frame = 2
+animation = "hide"
+frame = 4
 playing = true
 flip_h = true
 

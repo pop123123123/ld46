@@ -9,7 +9,11 @@ export var use_trigger = true
 var trigger_activated = false
 
 export var max_dist_fire = 300
-export var aiming_time = 2
+
+export var aiming_time = 2.0
+export var cooldown_time = 3.0
+export var exposed_time = 1.0
+
 export var fix_death_direction = false
 export var left_direction : bool
 export var raise_on_death : float
@@ -29,6 +33,9 @@ func _ready():
 	target = self.get_parent().get_node("Target") as KinematicBody2D
 	
 	$AimTimer.wait_time = aiming_time
+	$CoolDownTimer.wait_time = cooldown_time
+	$ExposedTimer.wait_time = exposed_time
+	
 	$GuyArea/Hitbox.disabled = true
 	
 	set_process(true)
