@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://acid/light.png" type="Texture" id=1]
+[ext_resource path="res://audio/sound effect/acideOnPara.wav" type="AudioStream" id=2]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends RigidBody2D
@@ -22,6 +23,9 @@ func _ready():
 
 
 func _on_Node2D_body_entered(body):
+	if body.is_in_group(\"umbrella\"):
+		($sound as AudioStreamPlayer2D).play()
+		print(\"PIF\")
 	if body.is_in_group(\"decor\"):
 		queue_free()
 "
@@ -47,4 +51,9 @@ texture_scale = 3.0
 color = Color( 0.501961, 1, 0, 1 )
 energy = 0.3
 shadow_enabled = true
+
+[node name="sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 2 )
+max_distance = 800.0
+attenuation = 1.5
 [connection signal="body_entered" from="." to="." method="_on_Node2D_body_entered"]
