@@ -68,12 +68,12 @@ format = 1
 tile_data = PoolIntArray( 327729, 1610612755, 0, 327730, 1610612755, 0, 327731, 1610612755, 0, 327732, 1610612755, 0, 327769, 1610612755, 0, 327770, 1610612755, 0 )
 
 [node name="Player" parent="." index="6"]
-position = Vector2( 116.665, 37.4845 )
+position = Vector2( 665.302, 36.5091 )
 collision_layer = 65
 collision_mask = 65
 
 [node name="Target" parent="." index="7"]
-position = Vector2( 90.5532, 62.5448 )
+position = Vector2( 674.791, 64.4955 )
 collision_mask = 14
 
 [node name="CheckpointHandler" parent="." index="8"]
@@ -134,15 +134,16 @@ position = Vector2( -32.719, 3.83952 )
 position = Vector2( -343.862, 65.6345 )
 
 [node name="Crate3" parent="." index="17" instance=ExtResource( 3 )]
-position = Vector2( 968.38, -106.636 )
-mass = 2.0
+position = Vector2( 960.245, -111.023 )
+mass = 2.77778
 
 [node name="Drone3" parent="." index="18" instance=ExtResource( 9 )]
-position = Vector2( 968.339, -55.3503 )
+position = Vector2( 959.787, -53.5983 )
 speed = 0.0
 
 [node name="AcidRain3" parent="Drone3" index="3" instance=ExtResource( 10 )]
 position = Vector2( 3.93958, 1.55701 )
+amount = 70
 width = 25
 
 [node name="Drone4" parent="." index="19" instance=ExtResource( 9 )]
@@ -175,7 +176,7 @@ speed = 0.0
 position = Vector2( 1600.69, -47.0206 )
 
 [node name="EndOfLevel" parent="." index="25"]
-position = Vector2( 1954.28, 86.3125 )
+position = Vector2( 1940.61, 86.0132 )
 
 [node name="house" type="Sprite" parent="." index="26"]
 position = Vector2( -6.99661, 15.7744 )
