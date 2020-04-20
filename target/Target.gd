@@ -49,6 +49,7 @@ func use_tool(tool_index, _player_pos):
 # Game over
 func _on_HurtboxArea_body_entered(_body):
 	$LifebarTimer.start()
+	($damage as AudioStreamPlayer2D).play()
 	lifepoints -= 1
 	if lifepoints == 0:
 		_kill_target()
