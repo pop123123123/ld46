@@ -44,47 +44,47 @@ region = Rect2( 0, 200, 200, 200 )
 atlas = ExtResource( 1 )
 region = Rect2( 200, 200, 200, 200 )
 
-[sub_resource type="AtlasTexture" id=12]
+[sub_resource type="AtlasTexture" id=10]
 atlas = ExtResource( 6 )
 region = Rect2( 0, 0, 200, 200 )
 
-[sub_resource type="AtlasTexture" id=13]
+[sub_resource type="AtlasTexture" id=11]
 atlas = ExtResource( 6 )
 region = Rect2( 200, 0, 200, 200 )
 
-[sub_resource type="AtlasTexture" id=14]
+[sub_resource type="AtlasTexture" id=12]
 atlas = ExtResource( 6 )
 region = Rect2( 400, 0, 200, 200 )
 
-[sub_resource type="AtlasTexture" id=15]
+[sub_resource type="AtlasTexture" id=13]
 atlas = ExtResource( 7 )
 region = Rect2( 0, 0, 200, 177 )
 
-[sub_resource type="AtlasTexture" id=16]
+[sub_resource type="AtlasTexture" id=14]
 atlas = ExtResource( 7 )
 region = Rect2( 200, 0, 200, 177 )
 
-[sub_resource type="AtlasTexture" id=17]
+[sub_resource type="AtlasTexture" id=15]
 atlas = ExtResource( 7 )
 region = Rect2( 400, 0, 200, 177 )
 
-[sub_resource type="AtlasTexture" id=18]
+[sub_resource type="AtlasTexture" id=16]
 atlas = ExtResource( 7 )
 region = Rect2( 0, 177, 200, 177 )
 
-[sub_resource type="AtlasTexture" id=19]
+[sub_resource type="AtlasTexture" id=17]
 atlas = ExtResource( 7 )
 region = Rect2( 200, 177, 200, 177 )
 
-[sub_resource type="AtlasTexture" id=20]
+[sub_resource type="AtlasTexture" id=18]
 atlas = ExtResource( 7 )
 region = Rect2( 400, 177, 200, 177 )
 
-[sub_resource type="AtlasTexture" id=21]
+[sub_resource type="AtlasTexture" id=19]
 atlas = ExtResource( 7 )
 region = Rect2( 0, 354, 200, 177 )
 
-[sub_resource type="SpriteFrames" id=10]
+[sub_resource type="SpriteFrames" id=20]
 animations = [ {
 "frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), null ],
 "loop": false,
@@ -96,18 +96,18 @@ animations = [ {
 "name": "show",
 "speed": 8.0
 }, {
-"frames": [ SubResource( 12 ), SubResource( 13 ), SubResource( 14 ) ],
+"frames": [ SubResource( 10 ), SubResource( 11 ), SubResource( 12 ) ],
 "loop": false,
 "name": "shoot",
 "speed": 6.0
 }, {
-"frames": [ SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ) ],
+"frames": [ SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ) ],
 "loop": false,
 "name": "death",
 "speed": 10.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=11]
+[sub_resource type="RectangleShape2D" id=21]
 extents = Vector2( 24.6803, 35.3469 )
 
 [node name="Sniper" type="Area2D"]
@@ -118,7 +118,7 @@ aiming_time = 1
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 61.9018, 27.6159 )
 scale = Vector2( 0.5, 0.5 )
-frames = SubResource( 10 )
+frames = SubResource( 20 )
 animation = "show"
 frame = 4
 playing = true
@@ -129,7 +129,7 @@ texture = ExtResource( 5 )
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 position = Vector2( 33.8996, 5.03651 )
-shape = SubResource( 11 )
+shape = SubResource( 21 )
 disabled = true
 
 [node name="AimTimer" type="Timer" parent="."]

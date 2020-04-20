@@ -38,7 +38,6 @@ func _process(delta):
 		new_anim = "death"
 	
 	if new_anim != anim:
-		print(new_anim)
 		anim = new_anim
 		$AnimatedSprite.play(anim)
 	

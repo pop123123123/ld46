@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=2]
+[gd_scene load_steps=61 format=2]
 
 [ext_resource path="res://player/player.gd" type="Script" id=1]
 [ext_resource path="res://player/SpritesheetPlayerIdle.png" type="Texture" id=2]
@@ -13,6 +13,8 @@
 [ext_resource path="res://audio/sound effect/walkHero.wav" type="AudioStream" id=11]
 [ext_resource path="res://audio/sound effect/PARAPLUIE.wav" type="AudioStream" id=12]
 [ext_resource path="res://audio/sound effect/playerFall.wav" type="AudioStream" id=13]
+[ext_resource path="res://toolbar/Gun.tscn" type="PackedScene" id=14]
+[ext_resource path="res://toolbar/Whistle.tscn" type="PackedScene" id=15]
 
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 0.0
@@ -62,76 +64,76 @@ atlas = ExtResource( 7 )
 region = Rect2( 128, 128, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=13]
-atlas = ExtResource( 5 )
+atlas = ExtResource( 6 )
 region = Rect2( 0, 0, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=14]
-atlas = ExtResource( 5 )
+atlas = ExtResource( 6 )
 region = Rect2( 64, 0, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=15]
-atlas = ExtResource( 5 )
+atlas = ExtResource( 6 )
 region = Rect2( 128, 0, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=16]
-atlas = ExtResource( 5 )
-region = Rect2( 192, 0, 64, 64 )
+atlas = ExtResource( 6 )
+region = Rect2( 0, 64, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=17]
-atlas = ExtResource( 5 )
-region = Rect2( 0, 64, 64, 64 )
+atlas = ExtResource( 6 )
+region = Rect2( 64, 64, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=18]
 atlas = ExtResource( 5 )
-region = Rect2( 64, 64, 64, 64 )
+region = Rect2( 0, 0, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=19]
 atlas = ExtResource( 5 )
-region = Rect2( 128, 64, 64, 64 )
+region = Rect2( 64, 0, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=20]
 atlas = ExtResource( 5 )
-region = Rect2( 192, 64, 64, 64 )
+region = Rect2( 128, 0, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=21]
 atlas = ExtResource( 5 )
-region = Rect2( 0, 128, 64, 64 )
+region = Rect2( 192, 0, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=22]
 atlas = ExtResource( 5 )
-region = Rect2( 64, 128, 64, 64 )
+region = Rect2( 0, 64, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=23]
 atlas = ExtResource( 5 )
-region = Rect2( 128, 128, 64, 64 )
+region = Rect2( 64, 64, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=24]
 atlas = ExtResource( 5 )
-region = Rect2( 192, 128, 64, 64 )
+region = Rect2( 128, 64, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=25]
 atlas = ExtResource( 5 )
-region = Rect2( 0, 192, 64, 64 )
+region = Rect2( 192, 64, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=26]
-atlas = ExtResource( 6 )
-region = Rect2( 0, 0, 64, 64 )
+atlas = ExtResource( 5 )
+region = Rect2( 0, 128, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=27]
-atlas = ExtResource( 6 )
-region = Rect2( 64, 0, 64, 64 )
+atlas = ExtResource( 5 )
+region = Rect2( 64, 128, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=28]
-atlas = ExtResource( 6 )
-region = Rect2( 128, 0, 64, 64 )
+atlas = ExtResource( 5 )
+region = Rect2( 128, 128, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=29]
-atlas = ExtResource( 6 )
-region = Rect2( 0, 64, 64, 64 )
+atlas = ExtResource( 5 )
+region = Rect2( 192, 128, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=30]
-atlas = ExtResource( 6 )
-region = Rect2( 64, 64, 64, 64 )
+atlas = ExtResource( 5 )
+region = Rect2( 0, 192, 64, 64 )
 
 [sub_resource type="SpriteFrames" id=31]
 animations = [ {
@@ -145,14 +147,14 @@ animations = [ {
 "name": "jumping",
 "speed": 30.0
 }, {
-"frames": [ SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ) ],
-"loop": true,
-"name": "run",
-"speed": 30.0
-}, {
-"frames": [ SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ) ],
+"frames": [ SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ) ],
 "loop": false,
 "name": "falling",
+"speed": 30.0
+}, {
+"frames": [ SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ) ],
+"loop": true,
+"name": "run",
 "speed": 30.0
 } ]
 
@@ -282,21 +284,32 @@ volume_db = -20.0
 stream = ExtResource( 9 )
 volume_db = -20.0
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="Tools" type="CanvasLayer" parent="."]
 
-[node name="Toolbar" parent="CanvasLayer" instance=ExtResource( 4 )]
+[node name="Toolbar" parent="Tools" instance=ExtResource( 4 )]
 margin_left = 562.523
 margin_top = 662.878
 margin_right = 830.523
 margin_bottom = 726.878
 
-[node name="umbrella" type="AudioStreamPlayer" parent="CanvasLayer/Toolbar"]
+[node name="umbrella" type="AudioStreamPlayer" parent="Tools/Toolbar"]
 stream = ExtResource( 12 )
 volume_db = 8.0
 
 [node name="Umbrella" parent="." instance=ExtResource( 10 )]
+visible = false
 position = Vector2( -0.257019, -18.6343 )
 scale = Vector2( 1.5, 1.5 )
+
+[node name="Gun" parent="." instance=ExtResource( 14 )]
+visible = false
+position = Vector2( 3.5599, 11.9613 )
+
+[node name="Whistle" parent="." instance=ExtResource( 15 )]
+visible = false
+position = Vector2( 22.4745, 3.35584 )
+rotation = 0.436332
+scale = Vector2( 0.6, 0.6 )
 
 [node name="SoundWalk" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 11 )

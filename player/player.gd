@@ -5,9 +5,9 @@ signal use_interactive_tool
 
 enum Tool{
 	UMBRELLA,
-	WHISTLE,
 	GUN,
-	CROWBAR
+	WHISTLE,
+	NOTHING
 }
 
 # Character Demo, written by Juan Linietsky.
@@ -56,6 +56,7 @@ var anim_falling_tool = ["falling", "falling", "falling", "falling"]
 var siding_left = false
 var jumping = false
 var stopping_jump = false
+var shoot = false
 var shooting = false
 
 var sound_decay = SOUND_DECAY
@@ -69,27 +70,39 @@ var shoot_time = 1e20
 var Bullet = preload("res://player/Bullet.tscn")
 var Enemy = preload("res://enemy/Enemy.tscn")
 
+var tool_index = Tool.NOTHING
+
 func _process(_delta):
-	var use = Input.is_action_just_pressed("use")
+	#var use = Input.is_action_just_pressed("use")
+	var use = Input.is_action_pressed("use")
 	
-	var tool_index = self.get_node("CanvasLayer/Toolbar").index
+	var new_tool_index = self.get_node("Tools/Toolbar").index
 	
-	_set_tool_visibility(get_node("Umbrella"), false)
-	if tool_index == Tool.UMBRELLA:
-		_set_tool_visibility(get_node("Umbrella"), true)
+	# On tool change
+	if new_tool_index != tool_index:
+		tool_index = new_tool_index
+		_set_tool_visibility(get_node("Umbrella"), false)
+		_set_tool_visibility(get_node("Gun"), false)
+		_set_tool_visibility(get_node("Whistle"), false)
+		if tool_index == Tool.UMBRELLA:
+			_set_tool_visibility(get_node("Umbrella"), true)
+		elif tool_index == Tool.GUN:
+			_set_tool_visibility(get_node("Gun"), true)
+		elif tool_index == Tool.WHISTLE:
+			_set_tool_visibility(get_node("Whistle"), true)
 		
 	# Use a tool
 	if use:
 		if tool_index == Tool.GUN:
-			pass
+			shoot = true
 		elif tool_index == Tool.WHISTLE:
 			emit_signal("use_interactive_tool", tool_index, self.position)
-		elif tool_index == Tool.CROWBAR:
-			emit_signal("use_interactive_tool", tool_index, self.position)
+	else:
+		shoot = false
 
 func _integrate_forces(s):
 	# Retrieves the index of the selected tool
-	var tool_index = self.get_node("CanvasLayer/Toolbar").index
+	var tool_index = self.get_node("Tools/Toolbar").index
 	
 	var lv = s.get_linear_velocity()
 	var step = s.get_step()
@@ -101,7 +114,7 @@ func _integrate_forces(s):
 	var move_left = Input.is_action_pressed("move_left")
 	var move_right = Input.is_action_pressed("move_right")
 	var jump = Input.is_action_pressed("jump")
-	var shoot = Input.is_action_pressed("shoot")
+	#var shoot = Input.is_action_pressed("shoot")
 	var spawn = Input.is_action_pressed("spawn")
 	
 	if spawn:
@@ -289,17 +302,17 @@ func _spawn_enemy_above():
 	get_parent().add_child(e)
 
 func _toggle_tool_visibility(node):
-	var currentTool = (node as KinematicBody2D)
-	if currentTool.is_visible():
+	if node.is_visible():
 		_set_tool_visibility(node, false)
 	else:
 		_set_tool_visibility(node, true)
 
 func _set_tool_visibility(node, show):
-	var currentTool = (node as KinematicBody2D)
 	if show:
-		currentTool.show()
-		currentTool.set_collision_layer_bit(3, 1)
+		node.show()
+		if node is KinematicBody2D:
+			(node as KinematicBody2D).set_collision_layer_bit(3, 1)
 	else:
-		currentTool.hide()
-		currentTool.set_collision_layer_bit(3, 0)
+		node.hide()
+		if node is KinematicBody2D:
+			(node as KinematicBody2D).set_collision_layer_bit(3, 0)
