@@ -298,7 +298,6 @@ func _shot_bullet():
 	
 	bi.linear_velocity = Vector2(400.0 * ss, 0)
 	
-	($AnimatedSprite/Smoke as Particles2D).restart()
 	($SoundShoot as AudioStreamPlayer2D).play()
 	
 	add_collision_exception_with(bi) # Make bullet and this not collide.

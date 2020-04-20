@@ -12,6 +12,7 @@ extents = Vector2( 8, 13.5 )
 [node name="Seesaw" type="Node2D"]
 
 [node name="Plank" type="RigidBody2D" parent="."]
+collision_mask = 5
 mass = 5.10204
 
 [node name="Sprite" type="Sprite" parent="Plank"]
