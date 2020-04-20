@@ -6,7 +6,6 @@ signal use_interactive_tool
 enum Tool{
 	UMBRELLA,
 	GUN,
-	WHISTLE,
 	NOTHING
 }
 
@@ -48,10 +47,10 @@ var prevJumping = false
 
 var anim = ""
 # One animation per tool
-var anim_iddle_tool = ["idleUmbrella", "idleGun", "idle", "idle"]
-var anim_run_tool = ["runUmbrella", "runGun", "run", "run"]
-var anim_jumping_tool = ["jumpingUmbrella", "jumpingGun", "jumping", "jumping"]
-var anim_falling_tool = ["fallingUmbrella", "fallingGun", "falling", "falling"]
+var anim_iddle_tool = ["idleUmbrella", "idleGun", "idle"]
+var anim_run_tool = ["runUmbrella", "runGun", "run"]
+var anim_jumping_tool = ["jumpingUmbrella", "jumpingGun", "jumping"]
+var anim_falling_tool = ["fallingUmbrella", "fallingGun", "falling"]
 
 var siding_left = false
 var jumping = false
@@ -96,8 +95,6 @@ func _process(_delta):
 				switch_umbrella(true)
 			elif tool_index == Tool.GUN:
 				($AnimatedSprite).set_position(Vector2(0, 0))
-			elif tool_index == Tool.WHISTLE:
-				($AnimatedSprite).set_position(Vector2(0, 0))
 			else:
 				($AnimatedSprite).set_position(Vector2(0, 0))
 			
@@ -105,8 +102,6 @@ func _process(_delta):
 		if use:
 			if tool_index == Tool.GUN:
 				shoot = true
-			elif tool_index == Tool.WHISTLE:
-				emit_signal("use_interactive_tool", tool_index, self.position)
 		else:
 			shoot = false
 
