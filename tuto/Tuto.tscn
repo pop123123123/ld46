@@ -13,7 +13,6 @@
 [node name="AbstractScene" instance=ExtResource( 1 )]
 
 [node name="Background" parent="." index="0" instance=ExtResource( 9 )]
-scroll_base_scale = Vector2( 1, 0.001 )
 
 [node name="Player" parent="." index="3"]
 position = Vector2( 40, 33.6889 )
