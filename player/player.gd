@@ -60,7 +60,6 @@ var shoot = false
 var shooting = false
 
 var is_shocked = false
-var target_alive = true
 
 var sound_decay = SOUND_DECAY
 var sound_offset = 0
@@ -76,7 +75,9 @@ var Enemy = preload("res://enemy/Enemy.tscn")
 var tool_index = Tool.NOTHING
 
 func _ready():
-	hide_all_items()
+	_set_tool_visibility(get_node("Umbrella"), false)
+	_set_tool_visibility(get_node("Gun"), false)
+	_set_tool_visibility(get_node("Whistle"), false)
 
 func _process(_delta):
 	if _can_control():
@@ -325,13 +326,8 @@ func _set_tool_visibility(node, show):
 		if node is KinematicBody2D:
 			(node as KinematicBody2D).set_collision_layer_bit(3, 0)
 			
-func hide_all_items():
-	_set_tool_visibility(get_node("Umbrella"), false)
-	_set_tool_visibility(get_node("Gun"), false)
-	_set_tool_visibility(get_node("Whistle"), false)
-	
 func _can_control():
-	return not is_shocked && target_alive
+	return not is_shocked
 
 func _on_shock():
 	$ShockTimer.start()
@@ -342,10 +338,3 @@ func _on_shock():
 
 func _on_ShockTimer_timeout():
 	is_shocked = false
-
-# Target died
-func _on_Target_gameover():
-	target_alive = false
-	hide_all_items()
-	anim = "fail"
-	($AnimatedSprite as AnimatedSprite).play(anim)
