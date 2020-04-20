@@ -9,7 +9,7 @@ enum Tool{
 }
 
 export var force = 1 * 60
-var gravity = force * 1000
+var gravity = force * 10
 var moving = true
 
 var prevPosition = Vector2(0, 0)
@@ -25,9 +25,15 @@ func _process(_delta):
 
 func _physics_process(delta):
 	if moving:
-		if move_and_collide(Vector2(0, 5), false, false, true):
-			self.move_and_slide_with_snap(Vector2(force, 0), Vector2(0, 20), Vector2(0, 1), true, 4, PI)
+		var coll = move_and_collide(Vector2(0, 5), false, false, true)
+		if coll and coll.get_collider().has_method('get_tileset'):
+			print('tile')
+			self.move_and_slide_with_snap(Vector2(force, 1), Vector2(0, 20), Vector2(0, 1), true, 4, PI)
+		elif coll:
+			print('pa tile')
+			self.move_and_slide(Vector2(force, 0), Vector2(0, 1))
 		else:
+			print('fall')
 			self.move_and_slide_with_snap(Vector2(0, gravity), Vector2(0, 20), Vector2(0, 1), true, 4, PI)
 	else:
 		pass
