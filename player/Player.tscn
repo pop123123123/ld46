@@ -1,8 +1,7 @@
-[gd_scene load_steps=136 format=2]
+[gd_scene load_steps=132 format=2]
 
 [ext_resource path="res://player/player.gd" type="Script" id=1]
 [ext_resource path="res://player/SpritesheetPlayerIdle.png" type="Texture" id=2]
-[ext_resource path="res://player/fireball.png" type="Texture" id=3]
 [ext_resource path="res://toolbar/Toolbar.tscn" type="PackedScene" id=4]
 [ext_resource path="res://player/SpritesheetPlayerWalk.png" type="Texture" id=5]
 [ext_resource path="res://player/SpritesheetPlayerFall.png" type="Texture" id=6]
@@ -481,71 +480,53 @@ animations = [ {
 "speed": 20.0
 } ]
 
-[sub_resource type="Gradient" id=98]
-colors = PoolColorArray( 0.708353, 0.72498, 1, 1, 1, 1, 1, 0 )
-
-[sub_resource type="GradientTexture" id=99]
-gradient = SubResource( 98 )
-
-[sub_resource type="ParticlesMaterial" id=100]
-flag_disable_z = true
-spread = 65.84
-gravity = Vector3( 0, -15, 0 )
-initial_velocity = 10.14
-angular_velocity = 200.0
-angular_velocity_random = 1.0
-orbit_velocity = 0.0
-orbit_velocity_random = 0.0
-linear_accel = 100.0
-color_ramp = SubResource( 99 )
-
-[sub_resource type="Animation" id=101]
+[sub_resource type="Animation" id=98]
 length = 0.01
 loop = true
 step = 0.25
 
-[sub_resource type="Animation" id=102]
+[sub_resource type="Animation" id=99]
 length = 0.4
 loop = true
+
+[sub_resource type="Animation" id=100]
+length = 0.5
+loop = true
+step = 0.25
+
+[sub_resource type="Animation" id=101]
+length = 2.0
+loop = true
+
+[sub_resource type="Animation" id=102]
+length = 0.5
+loop = true
+step = 0.25
 
 [sub_resource type="Animation" id=103]
 length = 0.5
 loop = true
-step = 0.25
 
 [sub_resource type="Animation" id=104]
-length = 2.0
+length = 0.5
 loop = true
+step = 0.25
 
 [sub_resource type="Animation" id=105]
-length = 0.5
-loop = true
-step = 0.25
-
-[sub_resource type="Animation" id=106]
-length = 0.5
-loop = true
-
-[sub_resource type="Animation" id=107]
-length = 0.5
-loop = true
-step = 0.25
-
-[sub_resource type="Animation" id=108]
 length = 0.3
 loop = true
 
-[sub_resource type="Animation" id=109]
+[sub_resource type="Animation" id=106]
 length = 1.25
 loop = true
 step = 0.25
 
-[sub_resource type="Animation" id=110]
+[sub_resource type="Animation" id=107]
 length = 1.25
 loop = true
 step = 0.25
 
-[sub_resource type="CapsuleShape2D" id=111]
+[sub_resource type="CapsuleShape2D" id=108]
 radius = 25.3217
 height = 7.38488
 
@@ -561,39 +542,27 @@ script = ExtResource( 1 )
 position = Vector2( 0.418121, -0.418121 )
 frames = SubResource( 97 )
 animation = "idleUmbrella"
+frame = 1
 playing = true
 
-[node name="Smoke" type="Particles2D" parent="AnimatedSprite"]
-visible = false
-self_modulate = Color( 1, 1, 1, 0.26702 )
-position = Vector2( 10, 1.5 )
-rotation = -1.45648
-emitting = false
-lifetime = 0.3
-one_shot = true
-explosiveness = 1.0
-local_coords = false
-process_material = SubResource( 100 )
-texture = ExtResource( 3 )
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/crouch = SubResource( 101 )
-anims/falling = SubResource( 102 )
-anims/falling_weapon = SubResource( 103 )
-anims/idle = SubResource( 104 )
-anims/idle_weapon = SubResource( 105 )
-anims/jumping = SubResource( 106 )
-anims/jumping_weapon = SubResource( 107 )
-anims/run = SubResource( 108 )
-anims/run_weapon = SubResource( 109 )
-anims/standing_weapon_ready = SubResource( 110 )
+anims/crouch = SubResource( 98 )
+anims/falling = SubResource( 99 )
+anims/falling_weapon = SubResource( 100 )
+anims/idle = SubResource( 101 )
+anims/idle_weapon = SubResource( 102 )
+anims/jumping = SubResource( 103 )
+anims/jumping_weapon = SubResource( 104 )
+anims/run = SubResource( 105 )
+anims/run_weapon = SubResource( 106 )
+anims/standing_weapon_ready = SubResource( 107 )
 
 [node name="BulletShoot" type="Position2D" parent="."]
 position = Vector2( 21.9755, 5.32167 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -0.0735565, -0.112215 )
-shape = SubResource( 111 )
+shape = SubResource( 108 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 visible = false

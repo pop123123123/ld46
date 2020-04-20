@@ -14,20 +14,10 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://player/bullet.gd"
 }, {
-"base": "Area2D",
-"class": "Coin",
-"language": "GDScript",
-"path": "res://coin/coin.gd"
-}, {
 "base": "",
 "class": "GitAPI",
 "language": "NativeScript",
 "path": "res://git_api.gdns"
-}, {
-"base": "Node2D",
-"class": "MovingPlatform",
-"language": "GDScript",
-"path": "res://platform/moving_platform.gd"
 }, {
 "base": "RigidBody2D",
 "class": "Player",
@@ -36,15 +26,13 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Bullet": "",
-"Coin": "",
 "GitAPI": "",
-"MovingPlatform": "",
 "Player": ""
 }
 
 [application]
 
-config/name="Once upon an algerian desert"
+config/name="Wilds umbrella"
 config/description="This demo uses RigidBody2D for the player and enemies. These
 character controllers are more powerful than KinematicBody2D,
 but can be more difficult to handle, as they require
