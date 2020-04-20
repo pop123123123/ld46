@@ -1,4 +1,5 @@
 extends Node2D
+signal end_of_level
 
 const saveFileName = "user://checkpoint.tmp"
 
@@ -66,3 +67,6 @@ func _on_CheckpointHandler_checkpointed_reached(checkpoint_pos):
 
 func _on_GameOverScreen_retry():
 	get_tree().reload_current_scene()
+	
+func _on_EndOfLevel_body_entered(body):
+	emit_signal("end_of_level")
