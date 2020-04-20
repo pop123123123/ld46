@@ -11,10 +11,10 @@
 [node name="AbstractScene" instance=ExtResource( 1 )]
 
 [node name="Player" parent="." index="2"]
-position = Vector2( 1440, -80 )
+position = Vector2( 40, 33.6889 )
 
 [node name="Target" parent="." index="3"]
-position = Vector2( 1408, 41.039 )
+position = Vector2( 112, 50.0719 )
 
 [node name="Checkpoint" parent="CheckpointHandler" index="2" instance=ExtResource( 5 )]
 position = Vector2( 296, 50.0719 )
@@ -44,12 +44,13 @@ tile_data = PoolIntArray( 262144, 1610612741, 0, 262145, 1610612741, 0, 262146, 
 [node name="Decorations" type="TileMap" parent="." index="7" groups=[
 "decor",
 ]]
+scale = Vector2( 2, 2 )
 tile_set = ExtResource( 6 )
 cell_size = Vector2( 16, 16 )
-collision_layer = 9
+collision_layer = 0
 collision_mask = 0
 format = 1
-tile_data = PoolIntArray( -393099, 0, 0, -327563, 1073741825, 0, -262027, 1073741826, 0, -196505, 0, 0, -196491, 1073741825, 0, -130969, 1073741825, 0, -130968, 536870918, 0, -130967, 536870912, 0, -130958, 0, 0, -130956, -2147483631, 0, -130955, -536870911, 0, -130954, -536870910, 0, -130953, -536870912, 0, -65433, 3, 0, -65432, 536870919, 0, -65431, 536870913, 0, -65422, 1073741827, 0, -65421, 536870918, 0, -65420, 1073741828, 0, 103, 3, 0, 104, -536870910, 0, 105, -536870897, 0, 114, 1073741826, 0, 115, 536870919, 0, 116, 1073741825, 0, 117, 536870918, 0, 65639, 3, 0, 65650, 1073741837, 0, 65651, -536870911, 0, 65652, 536870922, 0, 131175, 3, 0, 131188, 1073741827, 0, 196711, 3, 0, 196724, 1073741828, 0 )
+tile_data = PoolIntArray( -524229, 0, 0, -458693, 1073741825, 0, -393157, 1073741826, 0, -327630, 0, 0, -327621, 1073741825, 0, -262094, 1073741825, 0, -262093, 536870918, 0, -262092, 536870912, 0, -262088, 0, 0, -262086, -2147483631, 0, -262085, -536870911, 0, -262084, -536870910, 0, -262083, -536870912, 0, -196558, 3, 0, -196557, 536870919, 0, -196556, 536870913, 0, -196552, 1073741827, 0, -196551, 536870918, 0, -196550, 1073741828, 0, -131022, 3, 0, -131021, -536870910, 0, -131020, -536870897, 0, -131016, 1073741826, 0, -131015, 536870919, 0, -131014, 1073741825, 0, -131013, 536870918, 0, -65486, 3, 0, -65480, 1073741837, 0, -65479, -536870911, 0, -65478, 536870922, 0, 50, 3, 0, 58, 1073741827, 0, 65586, 3, 0, 65594, 1073741828, 0 )
 
 [node name="Grids" type="TileMap" parent="." index="8" groups=[
 "decor",
@@ -84,7 +85,7 @@ speed = 0.0
 [node name="Checkpoints" type="Node2D" parent="." index="11"]
 
 [node name="Sniper" parent="." index="12" instance=ExtResource( 7 )]
-position = Vector2( 1880, -72 )
+position = Vector2( 1896, -200 )
 use_trigger = false
 fix_death_direction = true
 [connection signal="body_entered" from="CheckpointHandler/Checkpoint" to="CheckpointHandler" method="_on_Checkpoint_body_entered"]
