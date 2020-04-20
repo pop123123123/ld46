@@ -35,6 +35,10 @@ func _ready():
 	gravity = self.get_weight() * 10
 	self.add_force(Vector2(0,0), gravity * UP)
 
+func impulse(speed):
+	self.speed = speed
+	self.turning = true
+
 #func _process(delta):
 #	pass
 var turning = true
