@@ -44,15 +44,18 @@ func _process(delta):
 	if new_anim != anim:
 		anim = new_anim
 		$GuyArea/AnimatedSprite.play(anim)
+		look_target()
+	
+func look_target():
+	if is_alive:
+		var angle = $GuyArea.get_global_position().angle_to_point(target.get_position())
 		
-	var angle = $GuyArea.get_global_position().angle_to_point(target.get_position())
-	
-	var direction = sign((self.get_position()-target.get_position()).x)
-	if direction == -1:
-		$GuyArea.set_rotation(angle+PI)
-	else:
-		$GuyArea.set_rotation(angle)
-	
+		var direction = sign((self.get_position()-target.get_position()).x)
+		if direction == -1:
+			$GuyArea.set_rotation(angle+PI)
+		else:
+			$GuyArea.set_rotation(angle)
+
 func can_aim_and_shoot():
 	var dist = self.get_position().distance_to(target.get_position())
 	return dist < max_dist_fire && is_alive && not is_reloading && not is_aiming
@@ -128,8 +131,8 @@ func _on_CoolDownTimer_timeout():
 	is_reloading = false
 	
 func _on_death():
+	$GuyArea.set_rotation(0)
 	is_alive = false
-	set_process(false)
 	$GuyArea/Hitbox.disabled = true
 	$GuyArea/AnimatedSprite.play("death")
 
