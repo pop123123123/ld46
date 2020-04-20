@@ -59,6 +59,8 @@ var stopping_jump = false
 var shoot = false
 var shooting = false
 
+var is_shocked = false
+
 var sound_decay = SOUND_DECAY
 var sound_offset = 0
 
@@ -72,207 +74,214 @@ var Enemy = preload("res://enemy/Enemy.tscn")
 
 var tool_index = Tool.NOTHING
 
+func _ready():
+	_set_tool_visibility(get_node("Umbrella"), false)
+	_set_tool_visibility(get_node("Gun"), false)
+	_set_tool_visibility(get_node("Whistle"), false)
+
 func _process(_delta):
-	#var use = Input.is_action_just_pressed("use")
-	var use = Input.is_action_pressed("use")
-	
-	var new_tool_index = self.get_node("Tools/Toolbar").index
-	
-	# On tool change
-	if new_tool_index != tool_index:
-		tool_index = new_tool_index
-		_set_tool_visibility(get_node("Umbrella"), false)
-		_set_tool_visibility(get_node("Gun"), false)
-		_set_tool_visibility(get_node("Whistle"), false)
-		if tool_index == Tool.UMBRELLA:
-			_set_tool_visibility(get_node("Umbrella"), true)
-		elif tool_index == Tool.GUN:
-			_set_tool_visibility(get_node("Gun"), true)
-		elif tool_index == Tool.WHISTLE:
-			_set_tool_visibility(get_node("Whistle"), true)
+	if _can_control():
+		#var use = Input.is_action_just_pressed("use")
+		var use = Input.is_action_pressed("use")
 		
-	# Use a tool
-	if use:
-		if tool_index == Tool.GUN:
-			shoot = true
-		elif tool_index == Tool.WHISTLE:
-			emit_signal("use_interactive_tool", tool_index, self.position)
-	else:
-		shoot = false
+		var new_tool_index = self.get_node("Tools/Toolbar").index
+		
+		# On tool change
+		if new_tool_index != tool_index:
+			tool_index = new_tool_index
+			_set_tool_visibility(get_node("Umbrella"), false)
+			_set_tool_visibility(get_node("Gun"), false)
+			_set_tool_visibility(get_node("Whistle"), false)
+			if tool_index == Tool.UMBRELLA:
+				_set_tool_visibility(get_node("Umbrella"), true)
+			elif tool_index == Tool.GUN:
+				_set_tool_visibility(get_node("Gun"), true)
+			elif tool_index == Tool.WHISTLE:
+				_set_tool_visibility(get_node("Whistle"), true)
+			
+		# Use a tool
+		if use:
+			if tool_index == Tool.GUN:
+				shoot = true
+			elif tool_index == Tool.WHISTLE:
+				emit_signal("use_interactive_tool", tool_index, self.position)
+		else:
+			shoot = false
 
 func _integrate_forces(s):
-	# Retrieves the index of the selected tool
-	var tool_index = self.get_node("Tools/Toolbar").index
-	
-	var lv = s.get_linear_velocity()
-	var step = s.get_step()
-	
-	var new_anim = anim
-	var new_siding_left = siding_left
-	
-	# Get the controls.
-	var move_left = Input.is_action_pressed("move_left")
-	var move_right = Input.is_action_pressed("move_right")
-	var jump = Input.is_action_pressed("jump")
-	#var shoot = Input.is_action_pressed("shoot")
-	var spawn = Input.is_action_pressed("spawn")
-	
-	if spawn:
-		call_deferred("_spawn_enemy_above")
-	
-	# Deapply prev floor velocity.
-	lv.x -= floor_h_velocity
-	floor_h_velocity = 0.0
-	
-	# Find the floor (a contact with upwards facing collision normal).
-	var found_floor = false
-	var floor_index = -1
-	
-	for x in range(s.get_contact_count()):
-		var ci = s.get_contact_local_normal(x)
+	if _can_control():
+		# Retrieves the index of the selected tool
+		var tool_index = self.get_node("Tools/Toolbar").index
 		
-		if ci.dot(Vector2(0, -1)) > 0.6:
-			found_floor = true
-			floor_index = x
-	
-	# A good idea when implementing characters of all kinds,
-	# compensates for physics imprecision, as well as human reaction delay.
-	if shoot and not shooting:
-		call_deferred("_shot_bullet")
-	else:
-		shoot_time += step
-	
-	if found_floor:
-		airborne_time = 0.0
-	else:
-		airborne_time += step # Time it spent in the air.
-	
-	var on_floor = airborne_time < MAX_FLOOR_AIRBORNE_TIME
-
-	# Process jump.
-	if jumping:
-		if lv.y > 0:
-			# Set off the jumping flag if going down.
-			jumping = false
-		elif not jump:
-			stopping_jump = true
+		var lv = s.get_linear_velocity()
+		var step = s.get_step()
 		
-		if stopping_jump:
-			lv.y += STOP_JUMP_FORCE * step
-	
-	if not prevJumping and on_floor:
-		print("PUF")
-		($fall as AudioStreamPlayer).play()
-	
-	if on_floor:
-		# Process logic when character is on floor.
-		if move_left and not move_right:
-			if lv.x > -WALK_MAX_VELOCITY:
-				lv.x -= WALK_ACCEL * step
-		elif move_right and not move_left:
-			if lv.x < WALK_MAX_VELOCITY:
-				lv.x += WALK_ACCEL * step
-		else:
-			var xv = abs(lv.x)
-			xv -= WALK_DEACCEL * step
-			if xv < 0:
-				xv = 0
-			lv.x = sign(lv.x) * xv
+		var new_anim = anim
+		var new_siding_left = siding_left
+		
+		# Get the controls.
+		var move_left = Input.is_action_pressed("move_left")
+		var move_right = Input.is_action_pressed("move_right")
+		var jump = Input.is_action_pressed("jump")
+		#var shoot = Input.is_action_pressed("shoot")
+		var spawn = Input.is_action_pressed("spawn")
+		
+		if spawn:
+			call_deferred("_spawn_enemy_above")
+		
+		# Deapply prev floor velocity.
+		lv.x -= floor_h_velocity
+		floor_h_velocity = 0.0
+		
+		# Find the floor (a contact with upwards facing collision normal).
+		var found_floor = false
+		var floor_index = -1
+		
+		for x in range(s.get_contact_count()):
+			var ci = s.get_contact_local_normal(x)
 			
-		if move_left or move_right:
-			if sound_decay == SOUND_DECAY:
-				sound_decay = 0
+			if ci.dot(Vector2(0, -1)) > 0.6:
+				found_floor = true
+				floor_index = x
+		
+		# A good idea when implementing characters of all kinds,
+		# compensates for physics imprecision, as well as human reaction delay.
+		if shoot and not shooting:
+			call_deferred("_shot_bullet")
+		else:
+			shoot_time += step
+		
+		if found_floor:
+			airborne_time = 0.0
+		else:
+			airborne_time += step # Time it spent in the air.
+		
+		var on_floor = airborne_time < MAX_FLOOR_AIRBORNE_TIME
+	
+		# Process jump.
+		if jumping:
+			if lv.y > 0:
+				# Set off the jumping flag if going down.
+				jumping = false
+			elif not jump:
+				stopping_jump = true
+			
+			if stopping_jump:
+				lv.y += STOP_JUMP_FORCE * step
+		
+		if not prevJumping and on_floor:
+			print("PUF")
+			($fall as AudioStreamPlayer).play()
+		
+		if on_floor:
+			# Process logic when character is on floor.
+			if move_left and not move_right:
+				if lv.x > -WALK_MAX_VELOCITY:
+					lv.x -= WALK_ACCEL * step
+			elif move_right and not move_left:
+				if lv.x < WALK_MAX_VELOCITY:
+					lv.x += WALK_ACCEL * step
+			else:
+				var xv = abs(lv.x)
+				xv -= WALK_DEACCEL * step
+				if xv < 0:
+					xv = 0
+				lv.x = sign(lv.x) * xv
+				
+			if move_left or move_right:
+				if sound_decay == SOUND_DECAY:
+					sound_decay = 0
+					($SoundWalk as AudioStreamPlayer2D).stop()
+					($SoundWalk as AudioStreamPlayer2D).play(sound_offset)
+					sound_offset += 0.5
+					if sound_offset > 9:
+						sound_offset = 0
+				sound_decay += 1
+			
+			if not move_left and not move_right:
+				sound_decay = SOUND_DECAY
 				($SoundWalk as AudioStreamPlayer2D).stop()
-				($SoundWalk as AudioStreamPlayer2D).play(sound_offset)
-				sound_offset += 0.5
-				if sound_offset > 9:
-					sound_offset = 0
-			sound_decay += 1
-		
-		if not move_left and not move_right:
-			sound_decay = SOUND_DECAY
-			($SoundWalk as AudioStreamPlayer2D).stop()
+				
+			if jumping:
+				sound_decay = SOUND_DECAY
+				($SoundWalk as AudioStreamPlayer2D).stop()
 			
-		if jumping:
-			sound_decay = SOUND_DECAY
-			($SoundWalk as AudioStreamPlayer2D).stop()
-		
-		# Check jump.
-		if not jumping and jump:
-			lv.y = -JUMP_VELOCITY
-			jumping = true
-			stopping_jump = false
-			#($SoundJump as AudioStreamPlayer2D).play()
-		
-		if jumping:
-			new_anim = anim_jumping_tool[tool_index]
-		elif abs(lv.x) < 0.1:
-			if shoot_time < MAX_SHOOT_POSE_TIME:
-				new_anim = "idle_weapon"
-			else:
-				new_anim = anim_iddle_tool[tool_index]
-		else:
-			if shoot_time < MAX_SHOOT_POSE_TIME:
-				new_anim = "run_weapon"
-			else:
-				new_anim = anim_run_tool[tool_index]
-	else:
-		# Process logic when the character is in the air.
-		if move_left and not move_right:
-			if lv.x > -WALK_MAX_VELOCITY:
-				lv.x -= AIR_ACCEL * step
-		elif move_right and not move_left:
-			if lv.x < WALK_MAX_VELOCITY:
-				lv.x += AIR_ACCEL * step
-		else:
-			var xv = abs(lv.x)
-			xv -= AIR_DEACCEL * step
+			# Check jump.
+			if not jumping and jump:
+				lv.y = -JUMP_VELOCITY
+				jumping = true
+				stopping_jump = false
+				#($SoundJump as AudioStreamPlayer2D).play()
 			
-			if xv < 0:
-				xv = 0
-			lv.x = sign(lv.x) * xv
-		
-		if lv.y < 0:
-			if shoot_time < MAX_SHOOT_POSE_TIME:
-				new_anim = "jumping_weapon"
-			else:
+			if jumping:
 				new_anim = anim_jumping_tool[tool_index]
-		else:
-			if shoot_time < MAX_SHOOT_POSE_TIME:
-				new_anim = "falling_weapon"
+			elif abs(lv.x) < 0.1:
+				if shoot_time < MAX_SHOOT_POSE_TIME:
+					new_anim = "idle_weapon"
+				else:
+					new_anim = anim_iddle_tool[tool_index]
 			else:
-				new_anim = anim_falling_tool[tool_index]
-	
-	# Check siding.
-	if lv.x < 0 and move_left:
-		new_siding_left = true
-	elif lv.x > 0 and move_right:
-		new_siding_left = false
-	# Update siding.
-	if new_siding_left != siding_left:
-		if new_siding_left:
-			($AnimatedSprite as AnimatedSprite).scale.x = -1
+				if shoot_time < MAX_SHOOT_POSE_TIME:
+					new_anim = "run_weapon"
+				else:
+					new_anim = anim_run_tool[tool_index]
 		else:
-			($AnimatedSprite as AnimatedSprite).scale.x = 1
+			# Process logic when the character is in the air.
+			if move_left and not move_right:
+				if lv.x > -WALK_MAX_VELOCITY:
+					lv.x -= AIR_ACCEL * step
+			elif move_right and not move_left:
+				if lv.x < WALK_MAX_VELOCITY:
+					lv.x += AIR_ACCEL * step
+			else:
+				var xv = abs(lv.x)
+				xv -= AIR_DEACCEL * step
+				
+				if xv < 0:
+					xv = 0
+				lv.x = sign(lv.x) * xv
+			
+			if lv.y < 0:
+				if shoot_time < MAX_SHOOT_POSE_TIME:
+					new_anim = "jumping_weapon"
+				else:
+					new_anim = anim_jumping_tool[tool_index]
+			else:
+				if shoot_time < MAX_SHOOT_POSE_TIME:
+					new_anim = "falling_weapon"
+				else:
+					new_anim = anim_falling_tool[tool_index]
 		
-		siding_left = new_siding_left
-	
-	# Change animation.
-	if new_anim != anim:
-		anim = new_anim
-		($AnimatedSprite as AnimatedSprite).play(anim)
-	
-	shooting = shoot
-	
-	# Apply floor velocity.
-	if found_floor:
-		floor_h_velocity = s.get_contact_collider_velocity_at_position(floor_index).x
-		lv.x += floor_h_velocity
-	
-	# Finally, apply gravity and set back the linear velocity.
-	lv += s.get_total_gravity() * step
-	s.set_linear_velocity(lv)
-	prevJumping = on_floor
+		# Check siding.
+		if lv.x < 0 and move_left:
+			new_siding_left = true
+		elif lv.x > 0 and move_right:
+			new_siding_left = false
+		# Update siding.
+		if new_siding_left != siding_left:
+			if new_siding_left:
+				($AnimatedSprite as AnimatedSprite).scale.x = -1
+			else:
+				($AnimatedSprite as AnimatedSprite).scale.x = 1
+			
+			siding_left = new_siding_left
+		
+		# Change animation.
+		if new_anim != anim:
+			anim = new_anim
+			($AnimatedSprite as AnimatedSprite).play(anim)
+		
+		shooting = shoot
+		
+		# Apply floor velocity.
+		if found_floor:
+			floor_h_velocity = s.get_contact_collider_velocity_at_position(floor_index).x
+			lv.x += floor_h_velocity
+		
+		# Finally, apply gravity and set back the linear velocity.
+		lv += s.get_total_gravity() * step
+		s.set_linear_velocity(lv)
+		prevJumping = on_floor
 
 
 func _shot_bullet():
@@ -316,3 +325,16 @@ func _set_tool_visibility(node, show):
 		node.hide()
 		if node is KinematicBody2D:
 			(node as KinematicBody2D).set_collision_layer_bit(3, 0)
+			
+func _can_control():
+	return not is_shocked
+
+func _on_shock():
+	$ShockTimer.start()
+	is_shocked = true
+	anim = "shock"
+	($AnimatedSprite as AnimatedSprite).play(anim)
+	$SoundShock.play()
+
+func _on_ShockTimer_timeout():
+	is_shocked = false

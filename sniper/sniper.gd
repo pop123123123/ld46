@@ -1,7 +1,8 @@
 extends Node2D
 signal kill_target
-signal shock
+signal shock_player
 
+export(NodePath) var player
 export(NodePath) var target
 
 export var max_dist_fire = 300
@@ -15,7 +16,9 @@ var anim
 var new_anim
 
 func _ready():
+	player = get_node(player) as RigidBody2D
 	target = get_node(target) as KinematicBody2D
+	
 	$AimTimer.wait_time = aiming_time
 	$CoolDownTimer.wait_time = reloading_time
 	$GuyArea/Hitbox.disabled = true
@@ -75,10 +78,12 @@ func shoot():
 	# For the moment: raycasts
 	var space_state = get_world_2d().direct_space_state
 	var result = space_state.intersect_ray($GuyArea/GunEnd.get_global_position(), target.get_position())
-
+	print(result.collider.get_name())
 	# If the target is not covered: kills it
 	if result.collider == target:
 		emit_signal("kill_target")
+	if result.collider == player:
+		emit_signal("shock_player")
 
 # Draw laser sight
 # The width is decreasing with time
