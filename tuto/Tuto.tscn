@@ -114,11 +114,13 @@ scale = Vector2( 2, 1 )
 
 [node name="Sniper" parent="." index="13" instance=ExtResource( 7 )]
 position = Vector2( 1896, -200 )
+z_index = -2
 use_trigger = false
 fix_death_direction = true
 
 [node name="Sniper2" parent="." index="14" instance=ExtResource( 7 )]
 position = Vector2( 2768, 160 )
+z_index = -2
 use_trigger = false
 fix_death_direction = true
 raise_on_death = -40.0
