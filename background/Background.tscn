@@ -96,28 +96,28 @@ texture = ExtResource( 2 )
 
 [node name="Dunes" type="ParallaxLayer" parent="."]
 motion_scale = Vector2( 0.8, 1 )
-motion_offset = Vector2( 0, 50 )
 motion_mirroring = Vector2( 2048, 0 )
 
 [node name="Sprite" type="Sprite" parent="Dunes"]
 modulate = Color( 0.784314, 0.784314, 0.784314, 1 )
+position = Vector2( 0, 950 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 3 )
 
 [node name="Sprite2" type="Sprite" parent="Dunes"]
 modulate = Color( 0.784314, 0.784314, 0.784314, 1 )
-position = Vector2( 512, 0 )
+position = Vector2( 512, 950 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 3 )
 
 [node name="Sprite3" type="Sprite" parent="Dunes"]
 modulate = Color( 0.784314, 0.784314, 0.784314, 1 )
-position = Vector2( 1024, 0 )
+position = Vector2( 1024, 950 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 3 )
 
 [node name="Sprite4" type="Sprite" parent="Dunes"]
 modulate = Color( 0.784314, 0.784314, 0.784314, 1 )
-position = Vector2( 1536, 0 )
+position = Vector2( 1536, 950 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 3 )
