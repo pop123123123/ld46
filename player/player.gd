@@ -211,7 +211,7 @@ func _integrate_forces(s):
 				lv.y = -JUMP_VELOCITY
 				jumping = true
 				stopping_jump = false
-				#($SoundJump as AudioStreamPlayer2D).play()
+				($SoundJump as AudioStreamPlayer2D).play()
 			
 			if jumping:
 				new_anim = anim_jumping_tool[tool_index]
