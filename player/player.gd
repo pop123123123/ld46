@@ -91,6 +91,7 @@ func _process(_delta):
 		if new_tool_index != tool_index:
 			tool_index = new_tool_index
 			switch_umbrella(false)
+			# Shifts the sprite to match umbrella animartion
 			if tool_index == Tool.UMBRELLA:
 				$AnimatedSprite.set_position(Vector2(0, -13.622))
 				switch_umbrella(true)
@@ -124,7 +125,6 @@ func _integrate_forces(s):
 		var move_left = Input.is_action_pressed("move_left") && _can_control()
 		var move_right = Input.is_action_pressed("move_right") && _can_control()
 		var jump = Input.is_action_pressed("jump") && _can_control()
-		#var shoot = Input.is_action_pressed("shoot")
 		var spawn = Input.is_action_pressed("spawn") && _can_control()
 		
 		if spawn:
@@ -304,7 +304,6 @@ func _shot_bullet():
 	
 	add_collision_exception_with(bi) # Make bullet and this not collide.
 
-
 func _spawn_enemy_above():
 	var e = Enemy.instance()
 	e.position = position + 50 * Vector2.UP
@@ -319,9 +318,6 @@ func switch_umbrella(activate):
 func _can_control():
 	return not is_shocked && is_alive
 
-#func hide_all_items():
-#	_set_tool_visibility(get_node("Whistle"), false)
-
 func _on_shock():
 	$ShockTimer.start()
 	is_shocked = true
@@ -334,6 +330,5 @@ func _on_ShockTimer_timeout():
 
 func _on_Target_gameover():
 	is_alive = false
-	#hide_all_item
 	anim = "fail"
 	($AnimatedSprite as AnimatedSprite).play(anim)
