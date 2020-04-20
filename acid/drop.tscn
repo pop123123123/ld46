@@ -1,11 +1,13 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://acid/light.png" type="Texture" id=1]
 [ext_resource path="res://audio/sound effect/acideOnPara.wav" type="AudioStream" id=2]
+[ext_resource path="res://audio/sound effect/aspirine.wav" type="AudioStream" id=3]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends RigidBody2D
 
+var soundOffset = 0
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -25,7 +27,11 @@ func _ready():
 func _on_Node2D_body_entered(body):
 	if body.is_in_group(\"umbrella\"):
 		($sound as AudioStreamPlayer2D).play()
-		print(\"PIF\")
+		if not ($aspirine as AudioStreamPlayer2D).is_playing():
+			($aspirine as AudioStreamPlayer2D).play(soundOffset)
+		soundOffset += 1
+		if soundOffset > 14:
+			soundOffset = 0
 	if body.is_in_group(\"decor\"):
 		queue_free()
 "
@@ -54,6 +60,13 @@ shadow_enabled = true
 
 [node name="sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 2 )
+volume_db = 4.188
+max_distance = 800.0
+attenuation = 1.5
+
+[node name="aspirine" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+volume_db = -12.75
 max_distance = 800.0
 attenuation = 1.5
 [connection signal="body_entered" from="." to="." method="_on_Node2D_body_entered"]
