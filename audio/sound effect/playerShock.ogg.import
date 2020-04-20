@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/playerShock.ogg-9002f86b93e6e80d4e24c9a729b0b0d5.oggstr"
+
+[deps]
+
+source_file="res://audio/sound effect/playerShock.ogg"
+dest_files=[ "res://.import/playerShock.ogg-9002f86b93e6e80d4e24c9a729b0b0d5.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

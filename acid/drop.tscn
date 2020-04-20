@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://acid/light.png" type="Texture" id=1]
-[ext_resource path="res://audio/sound effect/acideOnPara.wav" type="AudioStream" id=2]
-[ext_resource path="res://audio/sound effect/aspirine.wav" type="AudioStream" id=3]
+[ext_resource path="res://audio/sound effect/acideOnPara\.ogg" type="AudioStream" id=2]
+[ext_resource path="res://audio/sound effect/aspirine\.ogg" type="AudioStream" id=3]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends RigidBody2D

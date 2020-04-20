@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/wilhemSound.ogg-d35e7834ba1cb13a3dbe16b88f069b8a.oggstr"
+
+[deps]
+
+source_file="res://audio/sound effect/wilhemSound.ogg"
+dest_files=[ "res://.import/wilhemSound.ogg-d35e7834ba1cb13a3dbe16b88f069b8a.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -2,9 +2,9 @@
 
 [ext_resource path="res://acid/Acid.tscn" type="PackedScene" id=1]
 [ext_resource path="res://drone/drone.tscn" type="PackedScene" id=2]
-[ext_resource path="res://audio/sound effect/droneFly.wav" type="AudioStream" id=3]
+[ext_resource path="res://audio/sound effect/droneFly\.ogg" type="AudioStream" id=3]
 [ext_resource path="res://drone/acide.gd" type="Script" id=4]
-[ext_resource path="res://audio/sound effect/acideRain2.wav" type="AudioStream" id=5]
+[ext_resource path="res://audio/sound effect/acideRain2\.ogg" type="AudioStream" id=5]
 
 [node name="Drone" instance=ExtResource( 2 )]
 

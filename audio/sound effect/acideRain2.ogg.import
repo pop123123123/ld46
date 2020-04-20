@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/acideRain2.ogg-30c56b001fda42ca017dcfb5b96ee68f.oggstr"
+
+[deps]
+
+source_file="res://audio/sound effect/acideRain2.ogg"
+dest_files=[ "res://.import/acideRain2.ogg-30c56b001fda42ca017dcfb5b96ee68f.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

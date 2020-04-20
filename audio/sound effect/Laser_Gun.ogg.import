@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Laser_Gun.ogg-935a26f35b725e5b36d90ab8eb700fab.oggstr"
+
+[deps]
+
+source_file="res://audio/sound effect/Laser_Gun.ogg"
+dest_files=[ "res://.import/Laser_Gun.ogg-935a26f35b725e5b36d90ab8eb700fab.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
