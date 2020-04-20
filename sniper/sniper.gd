@@ -97,10 +97,13 @@ func _draw():
 		var result = space_state.intersect_ray($GuyArea.get_global_position(), target.get_position(), [], 0xFFFFFFFF)
 		
 		var time_left = $AimTimer.get_time_left()
-		# Screen coordinates
-		var gun = $GuyArea.transform.xform($GuyArea/GunEnd.get_position())
-		draw_line(gun, result.position-self.get_position(), Color(140.0/255, 145.0/255, 247.0/255), time_left*(max_ray_width/aiming_time))
-		draw_line(gun, result.position-self.get_position(), Color(1,1,1), time_left*(max_ray_width/aiming_time/3))
+		
+		# Do not print line durig first frames of animation (the sniper is not aiming)
+		if $AimTimer.wait_time-time_left > 0.5:
+			# Screen coordinates
+			var gun = $GuyArea.transform.xform($GuyArea/GunEnd.get_position())
+			draw_line(gun, result.position-self.get_position(), Color(140.0/255, 145.0/255, 247.0/255), time_left*(max_ray_width/aiming_time))
+			draw_line(gun, result.position-self.get_position(), Color(1,1,1), time_left*(max_ray_width/aiming_time/3))
 
 func update_aim_right():
 	$GuyArea/AnimatedSprite.set_position(Vector2(61.902, 27.616))
