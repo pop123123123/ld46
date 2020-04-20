@@ -29,6 +29,7 @@ func launch_game_over():
 	# Wait a second before showing GameOver screen
 	yield(get_tree().create_timer(1), "timeout")
 	var gameOver = get_node("GameOverNode")
+	var moi = get_tree()
 	while gameOver.modulate.a < 255:
-		gameOver.modulate.a  += 0.02
-		yield(get_tree(),"idle_frame")
+		gameOver.modulate.a  += 1
+		yield(moi,"idle_frame")

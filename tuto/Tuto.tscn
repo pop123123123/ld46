@@ -10,6 +10,24 @@
 
 [node name="AbstractScene" instance=ExtResource( 1 )]
 
+[node name="Player" parent="." index="2"]
+position = Vector2( 1440, -80 )
+
+[node name="Target" parent="." index="3"]
+position = Vector2( 1408, 41.039 )
+
+[node name="Checkpoint" parent="CheckpointHandler" index="2" instance=ExtResource( 5 )]
+position = Vector2( 296, 50.0719 )
+
+[node name="Checkpoint2" parent="CheckpointHandler" index="3" instance=ExtResource( 5 )]
+position = Vector2( 656, 50.0719 )
+
+[node name="Checkpoint3" parent="CheckpointHandler" index="4" instance=ExtResource( 5 )]
+position = Vector2( 1536, 50.0719 )
+
+[node name="Checkpoint4" parent="CheckpointHandler" index="5" instance=ExtResource( 5 )]
+position = Vector2( 2104, 50.0719 )
+
 [node name="EndOfLevel" parent="." index="5"]
 position = Vector2( 1920, 56 )
 
@@ -65,19 +83,13 @@ speed = 0.0
 
 [node name="Checkpoints" type="Node2D" parent="." index="11"]
 
-[node name="Checkpoint" parent="Checkpoints" index="0" instance=ExtResource( 5 )]
-position = Vector2( 296, 50.0719 )
-
-[node name="Checkpoint2" parent="Checkpoints" index="1" instance=ExtResource( 5 )]
-position = Vector2( 656, 50.0719 )
-
-[node name="Checkpoint3" parent="Checkpoints" index="2" instance=ExtResource( 5 )]
-position = Vector2( 1536, 50.0719 )
-
-[node name="Checkpoint4" parent="Checkpoints" index="3" instance=ExtResource( 5 )]
-position = Vector2( 2104, 50.0719 )
-
 [node name="Sniper" parent="." index="12" instance=ExtResource( 7 )]
 position = Vector2( 1880, -72 )
 use_trigger = false
 fix_death_direction = true
+[connection signal="body_entered" from="CheckpointHandler/Checkpoint" to="CheckpointHandler" method="_on_Checkpoint_body_entered"]
+[connection signal="body_entered" from="CheckpointHandler/Checkpoint2" to="CheckpointHandler" method="_on_Checkpoint_body_entered"]
+[connection signal="body_entered" from="CheckpointHandler/Checkpoint3" to="CheckpointHandler" method="_on_Checkpoint_body_entered"]
+[connection signal="body_entered" from="CheckpointHandler/Checkpoint4" to="CheckpointHandler" method="_on_Checkpoint_body_entered"]
+[connection signal="kill_target" from="Sniper" to="Target" method="_kill_target"]
+[connection signal="shock_player" from="Sniper" to="Player" method="_on_shock"]
