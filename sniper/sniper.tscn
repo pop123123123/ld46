@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://enemy/sniperShow.png" type="Texture" id=1]
 [ext_resource path="res://sniper/sniper.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://environment/cactuscachette.png" type="Texture" id=5]
 [ext_resource path="res://enemy/sniperShoot.png" type="Texture" id=6]
 [ext_resource path="res://enemy/sniperDeath.png" type="Texture" id=7]
+[ext_resource path="res://sniper/GuyArea.gd" type="Script" id=8]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 4 )
@@ -110,29 +111,14 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=21]
 extents = Vector2( 24.6803, 35.3469 )
 
-[node name="Sniper" type="Area2D"]
-collision_layer = 4
-collision_mask = 4
+[node name="Sniper" type="Node2D"]
 script = ExtResource( 2 )
 reloading_time = 1
 aiming_time = 1
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 61.9018, 27.6159 )
-scale = Vector2( 0.5, 0.5 )
-frames = SubResource( 20 )
-animation = "show"
-frame = 4
-playing = true
-
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 5 )
-
-[node name="Hitbox" type="CollisionShape2D" parent="."]
-position = Vector2( 33.8996, 5.03651 )
-shape = SubResource( 21 )
-disabled = true
 
 [node name="AimTimer" type="Timer" parent="."]
 wait_time = 2.0
@@ -145,7 +131,25 @@ one_shot = true
 [node name="ShootAudioPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )
 
-[node name="GunEnd" type="Node2D" parent="."]
-position = Vector2( 57.1162, 1.42001 )
+[node name="GuyArea" type="Area2D" parent="."]
+z_index = -1
+script = ExtResource( 8 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="GuyArea"]
+position = Vector2( -59.481, 27.616 )
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 20 )
+animation = "show"
+frame = 4
+playing = true
+flip_h = true
+
+[node name="Hitbox" type="CollisionShape2D" parent="GuyArea"]
+position = Vector2( -32.719, 5.037 )
+shape = SubResource( 21 )
+disabled = true
+
+[node name="GunEnd" type="Node2D" parent="GuyArea"]
+position = Vector2( -56.291, 7.21 )
 [connection signal="timeout" from="AimTimer" to="." method="_on_AimTimer_timeout"]
 [connection signal="timeout" from="CoolDownTimer" to="." method="_on_CoolDownTimer_timeout"]

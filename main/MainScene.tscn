@@ -220,6 +220,7 @@ scale = Vector2( 1.84, 0.84001 )
 
 [node name="Sniper" parent="." instance=ExtResource( 22 )]
 position = Vector2( 1673.01, 492.661 )
+player = NodePath("../Player")
 target = NodePath("../Target")
 [connection signal="gameover" from="Target" to="." method="_on_Target_gameover"]
 [connection signal="checkpointed_reached" from="CheckpointHandler" to="." method="_on_CheckpointHandler_checkpointed_reached"]
@@ -229,3 +230,4 @@ target = NodePath("../Target")
 [connection signal="retry" from="GameOverScreen" to="." method="_on_GameOverScreen_retry"]
 [connection signal="kill_target" from="Spike" to="Target" method="_kill_target"]
 [connection signal="kill_target" from="Sniper" to="Target" method="_kill_target"]
+[connection signal="shock_player" from="Sniper" to="Player" method="_on_shock"]
