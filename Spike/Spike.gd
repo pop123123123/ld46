@@ -9,4 +9,5 @@ func _process(delta):
 
 func _on_Spike_area_entered(area):
 	#TODO: you can go next to the spikes without dying
-	emit_signal("kill_target")
+	if area.has_method("_kill_target"):
+		emit_signal("kill_target")
