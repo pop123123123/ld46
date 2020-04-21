@@ -51,8 +51,7 @@ func _process(_delta):
 	
 	# Destroys the savefile
 	if hard_reset:
-		var dir = Directory.new()
-		dir.remove("user://checkpoint.tmp")
+		delete_savefile()
 		retry()
 
 func _on_Target_gameover():
@@ -65,6 +64,8 @@ func _on_CheckpointHandler_checkpointed_reached(checkpoint_pos):
 	_set_spawn_pos(checkpoint_pos)
 
 func _on_EndOfLevel_body_entered(body):
+	delete_savefile()
+	
 	var me = get_tree()
 	var displaySize = Vector2(ProjectSettings.get_setting("display/window/size/width"), ProjectSettings.get_setting("display/window/size/height"))
 	var matte = get_node("FadeToBlack/BlackMatte") as ColorRect
@@ -79,4 +80,9 @@ func _on_EndOfLevel_body_entered(body):
 	matte.hide()
 
 func retry():
+	delete_savefile()
 	emit_signal("reload_level")
+	
+func delete_savefile():
+	var dir = Directory.new()
+	dir.remove("user://checkpoint.tmp")
