@@ -94,14 +94,11 @@ tile_set = ExtResource( 2 )
 cell_size = Vector2( 16, 16 )
 collision_mask = 0
 format = 1
-tile_data = PoolIntArray( 152, 1073741844, 0, 153, 1073741843, 0, 154, 1073741844, 0, 917633, 536870922, 0 )
+tile_data = PoolIntArray( 152, 1073741844, 0, 153, 1073741843, 0, 154, 1073741844, 0 )
 
 [node name="DroneCrate" parent="." index="10" instance=ExtResource( 4 )]
 position = Vector2( 671.571, -256 )
 speed = 0.0
-
-[node name="AnimatedSprite" parent="DroneCrate" index="2"]
-frame = 1
 
 [node name="Crate" parent="DroneCrate" index="4"]
 position = Vector2( -0.429, 40 )
@@ -121,6 +118,7 @@ stream = ExtResource( 20 )
 
 [node name="impact" type="AudioStreamPlayer2D" parent="DroneCrate/Crate" index="3"]
 stream = ExtResource( 21 )
+volume_db = -56.407
 
 [node name="StaticBody2D" type="StaticBody2D" parent="DroneCrate/Crate" index="4"]
 collision_layer = 8
@@ -307,6 +305,8 @@ texture = ExtResource( 19 )
 [connection signal="body_entered" from="DroneMist/Area2D" to="DroneMist" method="_on_Area2D_body_entered"]
 
 [editable path="DroneCrate"]
+
+[editable path="DroneCrate/Crate"]
 
 [editable path="Sniper"]
 
