@@ -106,7 +106,7 @@ speed = 0.0
 [node name="Traps" type="Node2D" parent="." index="13"]
 
 [node name="Spike" parent="Traps" index="0" instance=ExtResource( 8 )]
-position = Vector2( 384, 137.616 )
+position = Vector2( 384, 143.56 )
 scale = Vector2( 3, 1 )
 
 [node name="Spike2" parent="Traps" index="1" instance=ExtResource( 8 )]
