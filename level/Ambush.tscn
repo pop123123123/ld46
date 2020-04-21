@@ -53,14 +53,7 @@ position = Vector2( 1095.48, 32.9396 )
 [node name="Checkpoint2" parent="CheckpointHandler" index="3" instance=ExtResource( 10 )]
 position = Vector2( 2200.71, 49.4676 )
 
-[node name="BackgroundTile" type="TileMap" parent="." index="6"]
-z_index = -3
-tile_set = ExtResource( 2 )
-cell_size = Vector2( 16, 16 )
-format = 1
-tile_data = PoolIntArray( 152, 15, 0, 153, 1073741835, 0, 154, 10, 0, 65688, 34, 0, 65689, 34, 0, 65690, 34, 0, 65702, 16, 0, 65703, 34, 0, 131221, 10, 0, 131222, 1073741840, 0, 131224, 1610612747, 0, 131225, 34, 0, 131226, 34, 0, 131238, 34, 0, 131239, 34, 0, 196757, 34, 0, 196758, 1610612770, 0, 196760, 1610612770, 0, 196761, 1610612770, 0, 196762, 536870923, 0, 196774, 1610612757, 0, 196775, 34, 0, 262293, 34, 0, 262294, 34, 0, 262296, 34, 0, 262297, 16, 0, 262298, 34, 0, 262310, 34, 0, 262311, 34, 0, 327750, 536870927, 0, 327806, 34, 0, 327807, 34, 0, 327808, 536870923, 0, 327809, 34, 0, 327810, 34, 0, 327811, -536870899, 0, 327829, 1610612752, 0, 327830, 1610612770, 0, 327832, 34, 0, 327833, 1610612770, 0, 327834, 34, 0, 327835, 536870922, 0, 327845, 34, 0, 327846, 34, 0, 327847, 16, 0, 393341, -1073741813, 0, 393342, 34, 0, 393343, -1073741813, 0, 393344, 34, 0, 393345, 34, 0, 393346, -2147483636, 0, 393347, 34, 0, 393348, 1610612750, 0, 393365, 1610612770, 0, 393366, 34, 0, 393367, 11, 0, 393368, 34, 0, 393369, 34, 0, 393370, 34, 0, 393371, 34, 0, 393372, 1610612757, 0, 393373, 34, 0, 393374, 1610612770, 0, 393375, 1610612770, 0, 393376, 1610612747, 0, 393377, 34, 0, 393378, 34, 0, 393379, 34, 0, 393380, 1610612751, 0, 393381, 34, 0, 393382, 34, 0, 393383, 34, 0, 458876, 34, 0, 458877, 34, 0, 458878, 34, 0, 458879, 34, 0, 458880, 34, 0, 458881, 1610612752, 0, 458882, 34, 0, 458883, -1073741812, 0, 458901, 15, 0, 458902, 34, 0, 458903, 34, 0, 458904, 11, 0, 458905, 34, 0, 458906, 34, 0, 458907, 34, 0, 458908, 34, 0, 458909, 34, 0, 458910, 21, 0, 458911, 34, 0, 458912, 34, 0, 458913, 34, 0, 458914, 1610612752, 0, 458915, 34, 0, 458916, 34, 0, 458917, 34, 0, 458918, 34, 0, 458919, -1610612715, 0, 524411, 34, 0, 524412, 1610612752, 0, 524413, 34, 0, 524414, 536870924, 0, 524415, 34, 0, 524416, 34, 0, 524417, 34, 0, 524418, 1073741839, 0, 524441, 34, 0, 524442, 34, 0, 524453, 34, 0, 524454, 34, 0, 524455, 34, 0, 589946, 536870923, 0, 589947, 12, 0, 589948, 34, 0, 589949, 34, 0, 589990, -1073741803, 0, 589991, 16, 0, 655481, -2147483635, 0, 655482, 34, 0, 655483, 34, 0, 655484, 536870924, 0, 655526, 34, 0, 655527, 1610612770, 0, 655528, 34, 0, 721018, -1073741811, 0, 721019, 34, 0, 721026, 34, 0, 721027, -2147483637, 0, 721028, 536870922, 0, 721062, 34, 0, 721063, 1610612748, 0, 721064, 34, 0, 721065, -1610612724, 0, 721066, 34, 0, 721067, 34, 0, 721068, -1610612720, 0, 721069, 34, 0, 721070, 34, 0, 721071, 34, 0, 721072, -1610612720, 0, 721073, 34, 0, 721074, 34, 0, 721075, 34, 0, 721076, 34, 0, 721077, 34, 0, 721078, -1610612720, 0, 721079, 34, 0, 721080, 34, 0, 721081, 1610612751, 0, 721082, 34, 0, 721083, 34, 0, 721084, 34, 0, 721085, 34, 0, 721086, 1610612750, 0, 786554, -1073741812, 0, 786561, -536870901, 0, 786562, 34, 0, 786563, 34, 0, 786564, 34, 0, 786598, 34, 0, 786599, 1610612770, 0, 786600, 34, 0, 786601, -1610612720, 0, 786602, 34, 0, 786603, 34, 0, 786604, 34, 0, 786605, -1610612724, 0, 786606, 34, 0, 786607, 34, 0, 786608, 34, 0, 786609, 34, 0, 786610, 34, 0, 786611, -1610612720, 0, 786612, 34, 0, 786613, 34, 0, 786614, 34, 0, 786615, 34, 0, 786616, 34, 0, 786617, 34, 0, 786618, 34, 0, 786619, 1610612752, 0, 786620, 34, 0, 786621, 34, 0, 786622, 17, 0, 852096, 34, 0, 852097, 34, 0, 852098, 34, 0, 852099, -536870900, 0, 852100, 34, 0, 852134, 34, 0, 852135, 34, 0, 852136, 34, 0, 917632, 536870928, 0, 917633, 34, 0, 917634, 536870923, 0, 917635, 34, 0, 917636, 34, 0, 917670, 34, 0, 917671, 536870924, 0, 917672, -1073741803, 0, 917673, 34, 0, 917674, 34, 0, 917675, 34, 0, 917676, -536870891, 0, 983168, 536870929, 0, 983169, 536870924, 0, 983170, 34, 0, 983171, 34, 0, 983172, 536870926, 0, 983206, 34, 0, 983207, 34, 0, 983208, 34, 0, 983209, 34, 0, 983210, 34, 0, 983211, 34, 0, 983212, 34, 0, 1048742, 536870924, 0, 1048743, 34, 0, 1048744, 34, 0, 1048746, 34, 0, 1048747, 34, 0, 1048748, 34, 0, 1114278, 34, 0, 1114279, 34, 0, 1114282, 34, 0, 1114283, 34, 0, 1114284, 34, 0, 1179814, 34, 0, 1179815, 34, 0 )
-
-[node name="ground" type="TileMap" parent="." index="7" groups=[
+[node name="ground" type="TileMap" parent="." index="6" groups=[
 "decor",
 ]]
 tile_set = ExtResource( 2 )
@@ -73,7 +66,7 @@ __meta__ = {
 "_editor_description_": ""
 }
 
-[node name="cactus" type="TileMap" parent="." index="8"]
+[node name="cactus" type="TileMap" parent="." index="7"]
 scale = Vector2( 2, 2 )
 z_index = -1
 tile_set = ExtResource( 3 )
@@ -86,7 +79,7 @@ __meta__ = {
 "_editor_description_": ""
 }
 
-[node name="decors" type="TileMap" parent="." index="9"]
+[node name="decors" type="TileMap" parent="." index="8"]
 z_index = -1
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 16, 16 )
@@ -96,14 +89,14 @@ collision_mask = 0
 format = 1
 tile_data = PoolIntArray( -327558, 536870935, 0, -262069, 23, 0, -130995, 536870944, 0, 131113, 536870925, 0, 131114, 536870924, 0, 131115, 11, 0, 131116, 13, 0, 196649, 12, 0, 196650, 536870923, 0, 196651, 12, 0, 196652, 12, 0, 196830, 9, 0, 262184, 10, 0, 262185, 1610612747, 0, 262186, 536870923, 0, 262187, 12, 0, 262188, 12, 0, 262189, 536870922, 0, 327719, 1073741838, 0, 327720, 21, 0, 327721, 15, 0, 327722, 1610612752, 0, 327723, 1610612751, 0, 327724, 1073741840, 0, 327725, 1610612751, 0, 327726, 1610612750, 0, 393326, 536870921, 0, 524320, 536870937, 0, 524321, 536870937, 0, 524376, 9, 0, 524396, 536870936, 0, 524418, 536870921, 0, 589899, 5, 0, 589900, 5, 0, 589901, 5, 0, 589902, 5, 0, 589913, 9, 0, 655436, 5, 0, 655437, 5, 0, 655438, 5, 0, 655439, 5, 0, 655440, 5, 0, 655441, 5, 0, 655442, 5, 0, 655443, 5, 0, 655444, 5, 0, 655445, 5, 0, 655446, 5, 0, 655447, 5, 0, 655448, 5, 0, 720972, 5, 0, 720973, 5, 0, 720974, 5, 0, 720975, 5, 0, 720976, 5, 0, 720977, 5, 0, 720978, 5, 0, 720979, 5, 0, 720980, 5, 0, 720981, 5, 0, 720982, 5, 0, 720983, 5, 0, 720984, 5, 0, 720985, 5, 0, 720992, 9, 0, 721005, 536870935, 0, 786512, 5, 0, 786513, 5, 0, 786514, 5, 0, 786515, 5, 0, 786516, 5, 0, 786517, 5, 0, 786518, 5, 0, 786519, 5, 0, 786520, 5, 0, 786531, 24, 0, 852050, 5, 0, 852051, 5, 0, 852052, 5, 0, 852053, 5, 0, 852054, 5, 0, 852055, 5, 0, 852056, 5, 0, 852058, 9, 0, 852059, 22, 0, 852061, 536870921, 0, 852064, 536870945, 0, 852072, 536870943, 0, 852184, 23, 0, 852196, 23, 0, 917587, 5, 0, 917588, 5, 0, 917589, 5, 0, 917590, 5, 0, 917591, 5, 0, 917592, 5, 0, 917719, 24, 0, 917726, 24, 0, 983154, 26, 0, 983155, 26, 0, 983169, 536870937, 0, 983172, 536870921, 0, 983235, 33, 0, 983245, 31, 0, 983260, 32, 0, 983267, 22, 0, 983274, 31, 0, 1179814, 536870938, 0, 1179815, 536870938, 0 )
 
-[node name="grid" type="TileMap" parent="." index="10"]
+[node name="grid" type="TileMap" parent="." index="9"]
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 16, 16 )
 collision_mask = 0
 format = 1
 tile_data = PoolIntArray( 152, 1073741844, 0, 153, 1073741843, 0, 154, 1073741844, 0, 917633, 536870922, 0 )
 
-[node name="DroneCrate" parent="." index="11" instance=ExtResource( 4 )]
+[node name="DroneCrate" parent="." index="10" instance=ExtResource( 4 )]
 position = Vector2( 671.571, -256 )
 speed = 0.0
 
@@ -140,7 +133,7 @@ shape = SubResource( 2 )
 [node name="Trigger" parent="DroneCrate" index="5"]
 position = Vector2( -330.087, 341.296 )
 
-[node name="Traps" type="Node2D" parent="." index="12"]
+[node name="Traps" type="Node2D" parent="." index="11"]
 
 [node name="Spike" parent="Traps" index="0" instance=ExtResource( 5 )]
 position = Vector2( 528, 136 )
@@ -158,7 +151,7 @@ scale = Vector2( 2.04001, 1 )
 position = Vector2( 2671.29, 292.289 )
 scale = Vector2( 2.04001, 1 )
 
-[node name="Sniper" parent="." index="13" instance=ExtResource( 6 )]
+[node name="Sniper" parent="." index="12" instance=ExtResource( 6 )]
 position = Vector2( 232, 21.2849 )
 z_index = -1
 aiming_time = 2.5
@@ -169,7 +162,7 @@ wait_time = 1.0
 [node name="Trigger" parent="Sniper" index="6"]
 position = Vector2( 224, 64.0111 )
 
-[node name="Sniper2" parent="." index="14" instance=ExtResource( 6 )]
+[node name="Sniper2" parent="." index="13" instance=ExtResource( 6 )]
 position = Vector2( 938.372, 26.531 )
 z_index = -1
 aiming_time = 3.0
@@ -177,12 +170,12 @@ aiming_time = 3.0
 [node name="Trigger" parent="Sniper2" index="6"]
 position = Vector2( -644.311, 58.765 )
 
-[node name="Cahute" type="Sprite" parent="." index="15"]
+[node name="Cahute" type="Sprite" parent="." index="14"]
 position = Vector2( 1334.15, -77.0456 )
 z_index = -1
 texture = ExtResource( 7 )
 
-[node name="Pequenau" parent="." index="16" instance=ExtResource( 6 )]
+[node name="Pequenau" parent="." index="15" instance=ExtResource( 6 )]
 position = Vector2( 1400.64, -53.9411 )
 max_dist_fire = 400
 aiming_time = 6.0
@@ -205,32 +198,32 @@ script = ExtResource( 9 )
 [node name="GetOut" type="AudioStreamPlayer2D" parent="Pequenau/Bulle" index="0"]
 stream = ExtResource( 12 )
 
-[node name="Drone" parent="." index="17" instance=ExtResource( 11 )]
+[node name="Drone" parent="." index="16" instance=ExtResource( 11 )]
 position = Vector2( 1569.51, 132.501 )
 speed = -1.0
 loop = true
 loop_distance = 60
 
-[node name="Drone2" parent="." index="18" instance=ExtResource( 11 )]
+[node name="Drone2" parent="." index="17" instance=ExtResource( 11 )]
 position = Vector2( 1742.84, 40.4074 )
 speed = -1.0
 loop = true
 loop_distance = 80
 
-[node name="Crate" parent="." index="19" instance=ExtResource( 13 )]
+[node name="Crate" parent="." index="18" instance=ExtResource( 13 )]
 position = Vector2( 1892.17, -49.4084 )
 
-[node name="AcidDrone" parent="." index="20" instance=ExtResource( 16 )]
+[node name="AcidDrone" parent="." index="19" instance=ExtResource( 16 )]
 position = Vector2( 2464, -240 )
 speed = 0.0
 
-[node name="Crate2" parent="." index="21" instance=ExtResource( 13 )]
+[node name="Crate2" parent="." index="20" instance=ExtResource( 13 )]
 position = Vector2( 2704.43, -20.2263 )
 
-[node name="Crate4" parent="." index="22" instance=ExtResource( 13 )]
+[node name="Crate4" parent="." index="21" instance=ExtResource( 13 )]
 position = Vector2( 2803.09, -22.0387 )
 
-[node name="SniperBigCactus1" parent="." index="23" instance=ExtResource( 6 )]
+[node name="SniperBigCactus1" parent="." index="22" instance=ExtResource( 6 )]
 position = Vector2( 3433.5, -256.344 )
 max_dist_fire = 2000
 aiming_time = 20.0
@@ -238,7 +231,7 @@ aiming_time = 20.0
 [node name="Trigger" parent="SniperBigCactus1" index="6"]
 position = Vector2( -528.231, 452.727 )
 
-[node name="SniperBigCactus2" parent="." index="24" instance=ExtResource( 6 )]
+[node name="SniperBigCactus2" parent="." index="23" instance=ExtResource( 6 )]
 position = Vector2( 3621.71, 152.138 )
 max_dist_fire = 2000
 aiming_time = 22.0
@@ -246,7 +239,7 @@ aiming_time = 22.0
 [node name="Trigger" parent="SniperBigCactus2" index="6"]
 position = Vector2( -884.082, 44.8854 )
 
-[node name="SniperBigCactus3" parent="." index="25" instance=ExtResource( 6 )]
+[node name="SniperBigCactus3" parent="." index="24" instance=ExtResource( 6 )]
 position = Vector2( 3784.09, -89.0694 )
 max_dist_fire = 2000
 aiming_time = 24.0
@@ -254,7 +247,7 @@ aiming_time = 24.0
 [node name="Trigger" parent="SniperBigCactus3" index="6"]
 position = Vector2( -831.252, 283.712 )
 
-[node name="SniperBigCactus4" parent="." index="26" instance=ExtResource( 6 )]
+[node name="SniperBigCactus4" parent="." index="25" instance=ExtResource( 6 )]
 position = Vector2( 3784.82, -339 )
 max_dist_fire = 2000
 aiming_time = 26.0
@@ -262,7 +255,7 @@ aiming_time = 26.0
 [node name="Trigger" parent="SniperBigCactus4" index="6"]
 position = Vector2( -742.858, 536.658 )
 
-[node name="DroneMist" type="Node2D" parent="." index="27"]
+[node name="DroneMist" type="Node2D" parent="." index="26"]
 script = ExtResource( 17 )
 
 [node name="Emmitter" parent="DroneMist" index="0" instance=ExtResource( 15 )]
@@ -282,12 +275,12 @@ collision_mask = 16384
 position = Vector2( -78.8784, 21.4343 )
 shape = SubResource( 4 )
 
-[node name="EndOfLevel" parent="." index="28"]
+[node name="EndOfLevel" parent="." index="27"]
 position = Vector2( 3912, 240 )
 
-[node name="Background" parent="." index="29" instance=ExtResource( 14 )]
+[node name="Background" parent="." index="28" instance=ExtResource( 14 )]
 
-[node name="Sprite" type="Sprite" parent="." index="30"]
+[node name="Sprite" type="Sprite" parent="." index="29"]
 position = Vector2( 3968, 192 )
 texture = ExtResource( 19 )
 [connection signal="body_entered" from="CheckpointHandler/Checkpoint" to="CheckpointHandler" method="_on_Checkpoint_body_entered"]
