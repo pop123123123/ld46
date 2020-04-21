@@ -80,7 +80,6 @@ func _on_EndOfLevel_body_entered(body):
 	matte.hide()
 
 func retry():
-	delete_savefile()
 	emit_signal("reload_level")
 	
 func delete_savefile():
