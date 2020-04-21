@@ -164,15 +164,17 @@ func _on_death():
 			update_aim_right()
 	
 	$GuyArea.set_rotation(0)
-	is_alive = false
+	
 	$GuyArea/Hitbox.disabled = true
 	wilhemCount = wilhemCount + 1
 	if WILHEMCOUNT == wilhemCount:
 		wilhemCount = 0
 		($deathWilhem as AudioStreamPlayer2D).play()
 	else:
-		($death as AudioStreamPlayer2D).play()
+		if is_alive:
+			($death as AudioStreamPlayer2D).play()
 	$GuyArea/AnimatedSprite.play("death")
+	is_alive = false
 
 func hit_by_bullet():
 	_on_death()
