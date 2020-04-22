@@ -20,7 +20,6 @@ func disable():
 	disabled = true
 
 func _on_Bullet_body_entered(body):
-	print(body)
 	if body.has_method("hit_by_bullet"):
 		body.call("hit_by_bullet")
 	elif body.has_method("get_tileset"):
@@ -28,6 +27,5 @@ func _on_Bullet_body_entered(body):
 
 
 func _on_Area2D_area_entered(area):
-	#print('area', ((area as Area2D).get_owner() as RigidBody2D).get_name())
 	if area.has_method("hit_by_bullet"):
 		area.call("hit_by_bullet")
