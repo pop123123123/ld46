@@ -97,7 +97,7 @@ format = 1
 tile_data = PoolIntArray( 152, 1073741844, 0, 153, 1073741843, 0, 154, 1073741844, 0 )
 
 [node name="DroneCrate" parent="." index="10" instance=ExtResource( 4 )]
-position = Vector2( 688.671, -295.368 )
+position = Vector2( 675.953, -295.368 )
 speed = 0.0
 
 [node name="AnimatedSprite" parent="DroneCrate" index="2"]
@@ -221,7 +221,7 @@ loop_distance = 80
 position = Vector2( 1892.17, -49.4084 )
 
 [node name="AcidDrone" parent="." index="19" instance=ExtResource( 16 )]
-position = Vector2( 2456, -304 )
+position = Vector2( 2456, -352 )
 speed = 0.0
 
 [node name="Crate2" parent="." index="20" instance=ExtResource( 13 )]
@@ -274,7 +274,7 @@ emitting = false
 amount = 25
 particle_scene = ExtResource( 18 )
 emission_shape = SubResource( 3 )
-lifetime = 8.0
+lifetime = 12.0
 
 [node name="Area2D" type="Area2D" parent="DroneMist" index="1"]
 position = Vector2( 2784, 176 )
@@ -282,7 +282,7 @@ collision_layer = 0
 collision_mask = 16384
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DroneMist/Area2D" index="0"]
-position = Vector2( -73.7026, 20.4153 )
+position = Vector2( -160, -64 )
 shape = SubResource( 4 )
 
 [node name="EndOfLevel" parent="." index="27"]
