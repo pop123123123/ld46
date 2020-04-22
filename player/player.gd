@@ -91,12 +91,7 @@ func _process(_delta):
 			switch_umbrella(false)
 			# Shifts the sprite to match umbrella animartion
 			if tool_index == Tool.UMBRELLA:
-				$AnimatedSprite.set_position(Vector2(0, -13.622))
 				switch_umbrella(true)
-			elif tool_index == Tool.GUN:
-				($AnimatedSprite).set_position(Vector2(0, 0))
-			else:
-				($AnimatedSprite).set_position(Vector2(0, 0))
 			
 		# Use a tool
 		if use:
@@ -300,8 +295,10 @@ func _shot_bullet():
 func switch_umbrella(activate):
 	if activate:
 		($Umbrella).set_collision_layer_bit(3, 1)
+		$AnimatedSprite.set_position(Vector2(0, -13.622))
 	else:
 		($Umbrella).set_collision_layer_bit(3, 0)
+		($AnimatedSprite).set_position(Vector2(0, 0))
 			
 func _can_control():
 	return not is_shocked && is_alive
@@ -312,11 +309,16 @@ func _on_shock():
 	anim = "shock"
 	($AnimatedSprite as AnimatedSprite).play(anim)
 	$SoundShock.play()
+	switch_umbrella(false)
 
 func _on_ShockTimer_timeout():
 	is_shocked = false
+	if tool_index == Tool.UMBRELLA:
+		switch_umbrella(true)
 
 func _on_Target_gameover():
+	switch_umbrella(false)
+	
 	is_alive = false
 	anim = "fail"
 	($AnimatedSprite as AnimatedSprite).play(anim)
