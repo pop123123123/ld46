@@ -5,6 +5,8 @@ signal shock_player
 var player
 var target
 
+export var enable_rotation = true
+
 export var use_trigger = true
 var trigger_activated = false
 
@@ -64,14 +66,15 @@ func _process(delta):
 		look_target()
 	
 func look_target():
-	if is_alive:
-		var angle = $GuyArea.get_global_position().angle_to_point(target.get_position())
-		
+	if is_alive:		
 		var direction = sign((self.get_position()-target.get_position()).x)
-		if direction == -1:
-			$GuyArea.set_rotation(angle+PI)
-		else:
-			$GuyArea.set_rotation(angle)
+		
+		if enable_rotation:
+			var angle = $GuyArea.get_global_position().angle_to_point(target.get_position())
+			if direction == -1:
+				$GuyArea.set_rotation(angle+PI)
+			else:
+				$GuyArea.set_rotation(angle)
 
 func can_aim_and_shoot():
 	var dist = self.get_position().distance_to(target.get_position())
@@ -113,7 +116,8 @@ func _draw():
 	if is_aiming and is_alive:
 		var space_state = get_world_2d().direct_space_state
 		# Global coordinates
-		var result = space_state.intersect_ray($GuyArea.get_global_position(), target.get_position(), [], 0xFFFFFFFF)
+		var result = space_state.intersect_ray($GuyArea/GunEnd.get_global_position(), target.get_position(), [], 0xFFFFFFFF)
+		#var result = space_state.intersect_ray($GuyArea.get_global_position(), target.get_position(), [], 0xFFFFFFFF)
 		
 		var time_left = $AimTimer.get_time_left()
 		
