@@ -20,10 +20,10 @@ limit_left = -233
 limit_right = 2700
 
 [node name="Player" parent="." index="3"]
-position = Vector2( 51.0954, 39.3799 )
+position = Vector2( 5.095, 39.37 )
 
 [node name="Target" parent="." index="4"]
-position = Vector2( 9.42517, 67.1282 )
+position = Vector2( 9.425, 67.128 )
 
 [node name="CheckpointHandler" parent="." index="5"]
 position = Vector2( -90.7108, 25.8 )
@@ -138,11 +138,11 @@ position = Vector2( -617.308, 328.921 )
 [node name="UmbrellaDrones" type="Node2D" parent="." index="12"]
 
 [node name="HERE" parent="UmbrellaDrones" index="0" instance=ExtResource( 6 )]
-position = Vector2( 1713.45, -50.3289 )
+position = Vector2( 1640.56, -49.3789 )
 scale = Vector2( 1.2, 1 )
-speed = 2.5
+speed = 1.2
 loop = true
-loop_distance = 35
+loop_distance = 60
 
 [node name="Drone" parent="UmbrellaDrones" index="1" instance=ExtResource( 6 )]
 position = Vector2( 726.431, -11.8755 )
