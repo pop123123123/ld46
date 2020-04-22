@@ -22,9 +22,6 @@ func _ready():
 
 func _process(_delta):
 	if is_alive:
-		if (prevPosition - self.position).length() > 1.5:
-			($damage as AudioStreamPlayer2D).play()
-			
 		if not ($walk as AudioStreamPlayer2D).is_playing():
 			($walk as AudioStreamPlayer2D).play()		
 		($AnimatedSprite as AnimatedSprite).play("running")
@@ -56,6 +53,7 @@ func _on_HurtboxArea_body_entered(_body):
 func _kill_target():
 	if is_alive:
 		is_alive = false
+		($damage as AudioStreamPlayer2D).play()
 		($death as AudioStreamPlayer2D).play()
 		($AnimatedSprite as AnimatedSprite).play("death")
 		
