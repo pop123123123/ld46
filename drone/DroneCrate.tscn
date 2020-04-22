@@ -10,7 +10,7 @@
 script = ExtResource( 5 )
 
 [node name="AnimatedSprite" parent="." index="2"]
-frame = 0
+frame = 2
 
 [node name="Crate" parent="." index="4" instance=ExtResource( 2 )]
 position = Vector2( -0.428917, 37.3584 )
