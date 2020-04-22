@@ -125,7 +125,9 @@ animation = "running"
 frame = 4
 playing = true
 
-[node name="HurtboxArea" type="Area2D" parent="."]
+[node name="HurtboxArea" type="Area2D" parent="." groups=[
+"target",
+]]
 scale = Vector2( 0.6, 0.6 )
 collision_layer = 4
 collision_mask = 4

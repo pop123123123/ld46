@@ -46,11 +46,12 @@ func use_tool(tool_index, _player_pos):
 # Hurtbox hit a treat
 # Game over
 func _on_HurtboxArea_body_entered(_body):
-	$LifebarTimer.start()
-	($damage as AudioStreamPlayer2D).play()
-	lifepoints -= 1
-	if lifepoints == 0:
-		_kill_target()
+	if _body.is_in_group('hurt'):
+		$LifebarTimer.start()
+		($damage as AudioStreamPlayer2D).play()
+		lifepoints -= 1
+		if lifepoints == 0:
+			_kill_target()
 
 func _kill_target():
 	if is_alive:

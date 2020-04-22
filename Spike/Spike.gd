@@ -9,4 +9,6 @@ func _process(delta):
 
 func _on_Spike_area_entered(area):
 	#TODO: you can go next to the spikes without dying
-	emit_signal("kill_target")
+	if area.is_in_group('target'):
+		print('killed by spikes')
+		emit_signal("kill_target")
