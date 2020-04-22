@@ -35,10 +35,11 @@ position = Vector2( 58.3746, 35.6733 )
 position = Vector2( 12.5088, 50.4986 )
 
 [node name="CheckpointHandler" parent="." instance=ExtResource( 7 )]
+z_index = -1
 
 [node name="EndOfLevel" parent="." instance=ExtResource( 6 )]
 [connection signal="retry" from="GameOverScreen" to="." method="_on_GameOverScreen_retry"]
-[connection signal="gameover" from="Target" to="Player" method="_on_Target_gameover"]
 [connection signal="gameover" from="Target" to="." method="_on_Target_gameover"]
+[connection signal="gameover" from="Target" to="Player" method="_on_Target_gameover"]
 [connection signal="checkpointed_reached" from="CheckpointHandler" to="." method="_on_CheckpointHandler_checkpointed_reached"]
 [connection signal="body_entered" from="EndOfLevel" to="." method="_on_EndOfLevel_body_entered"]
