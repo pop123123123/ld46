@@ -54,6 +54,7 @@ color = Color( 0.537255, 0.835294, 0, 1 )
 polygon = PoolVector2Array( 0, 0, 2, 0, 2, 4, 0, 4 )
 
 [node name="Light2D" type="Light2D" parent="."]
+visible = false
 texture = ExtResource( 1 )
 texture_scale = 3.0
 color = Color( 0.501961, 1, 0, 1 )
